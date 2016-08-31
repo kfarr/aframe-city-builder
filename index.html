@@ -7,14 +7,37 @@
     <script src="lib/aframe.min.js"></script>
     <script src="lib/aframe-extras.min.js"></script>
     <script src="lib/demo-controls.js"></script>
+    <!-- <script>
+    setInterval("moveItem()", 166);
+    function moveItem() {
+      var sceneEl = document.getElementById("my-scene");
+	    var controllerEl = document.getElementById("leftController");
+	    var itemEl = document.getElementById("leftItem");
+      itemEl.position = controllerEl.object3D.getWorldPosition();
+    }
+    </script> -->
   </head>
   <body>
-    <a-scene antialias='true' inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+
+    <a-scene id="my-scene" antialias='true' inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+      <a-assets>
+        <a-asset-item id="car-obj" src="/assets/policecar.obj"></a-asset-item>
+        <a-asset-item id="car-mtl" src="/assets/policecar.mtl"></a-asset-item>
+      </a-assets>
 
       <!-- Player -->
       <a-entity id="camera" camera fly look-controls wasd-controls position="0 0 0"></a-entity>
-      <a-entity demo-controls id="leftController" vive-controls="hand: left" grab></a-entity>
+
+
+      <a-entity id="leftController" vive-controls="hand: left" grab>
+        <a-obj-model src="#car-obj" mtl="#car-mtl"></a-obj-model>
+        <!-- <a-entity id="leftItem" geometry="primitive: box; depth: 0.3; height: 0.3; width: 0.3"></a-entity> -->
+
+        <!-- <a-entity id="leftItem" scale="0.01 0.01 0.01" ply-model="src: url(/assets/plate-streetv1.ply);"></a-entity> -->
+      </a-entity>
+
       <a-entity demo-controls id="rightController" vive-controls="hand: right" grab></a-entity>
+
 
       <!-- Table -->
       <a-entity position="0 1.25 0" id="table-container">
