@@ -2,30 +2,55 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A-Frame Dominoes</title>
-    <meta name="description" content="A-Frame Dominoes">
+    <title>A-Frame City Draw</title>
+    <meta name="description" content="A-Frame City Draw">
     <script src="lib/aframe.min.js"></script>
     <script src="lib/aframe-extras.min.js"></script>
     <script src="lib/demo-controls.js"></script>
+    <!-- <script>
+    setInterval("moveItem()", 166);
+    function moveItem() {
+      var sceneEl = document.getElementById("my-scene");
+	    var controllerEl = document.getElementById("leftController");
+	    var itemEl = document.getElementById("leftItem");
+      itemEl.position = controllerEl.object3D.getWorldPosition();
+    }
+    </script> -->
   </head>
   <body>
-    <a-scene antialias='true' inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+
+    <a-scene id="my-scene" antialias='true' inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+      <a-assets>
+        <a-asset-item id="car-obj" src="/assets/policecar.obj"></a-asset-item>
+        <a-asset-item id="car-mtl" src="/assets/policecar.mtl"></a-asset-item>
+      </a-assets>
 
       <!-- Player -->
-      <a-entity id="camera" camera look-controls wasd-controls position="0 0 0"></a-entity>
-      <a-entity demo-controls id="leftController" vive-controls="hand: left" grab></a-entity>
+      <a-entity id="camera" camera fly look-controls wasd-controls position="0 0 0"></a-entity>
+
+
+      <a-entity id="leftController" vive-controls="hand: left" grab>
+        <a-obj-model src="#car-obj" mtl="#car-mtl" scale="0.001 0.001 0.001"></a-obj-model>
+        <!-- <a-entity id="leftItem" geometry="primitive: box; depth: 0.3; height: 0.3; width: 0.3"></a-entity> -->
+
+        <!-- <a-entity id="leftItem" scale="0.01 0.01 0.01" ply-model="src: url(/assets/plate-streetv1.ply);"></a-entity> -->
+      </a-entity>
+
       <a-entity demo-controls id="rightController" vive-controls="hand: right" grab></a-entity>
 
-      <a-entity position="0 1.25 0" id="domino-container">
-        <!-- Table -->
-        <a-box id="table" position="0 0 -1.5" width="3" height="0.1" depth="2" color="#3F51B5"></a-box>
-        <!-- Dominoes -->
-        <!-- <a-entity id="dominoes" position="1.4 0.18 -1" rotation="" scale="" visible=""><a-box material="color:#0d0887" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#0d0887" width="0.05" height="0.3" depth="0.1" position="-0.25360440279915597 0.019963955734102035 -0.013157508908544946" class="throwable" quaternion="0.0004608213794955088 0.033289984954274245 -0.00011930730841447973 0.9994456214878158" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#46039f" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#46039f" width="0.05" height="0.3" depth="0.1" position="-0.5036044027991572 0.019963955734102035 -0.013157508908548943" class="throwable" quaternion="0.0004608213794955236 0.03328998495427284 -0.00011930730841385206 0.9994456214878159" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#7201a8" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#7201a8" width="0.05" height="0.3" depth="0.1" position="-0.7536044027991572 0.019963955734102035 -0.013157508908548943" class="throwable" quaternion="0.0004608213794955236 0.03328998495427284 -0.00011930730841385206 0.9994456214878159" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#9c179e" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#9c179e" width="0.05" height="0.3" depth="0.1" position="-1.0036044027991555 0.019963955734102035 -0.0131575089085465" class="throwable" quaternion="0.0004608213794954905 0.03328998495426689 -0.00011930730841411135 0.999445621487816" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#bd3786" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#bd3786" width="0.05" height="0.3" depth="0.1" position="-1.2536044027991562 0.019963955734102035 -0.013157508908548277" class="throwable" quaternion="0.0004608213794955857 0.03328998495426909 -0.00011930730841410078 0.9994456214878159" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#d8576b" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#d8576b" width="0.05" height="0.3" depth="0.1" position="-1.5036044027991566 0.019963955734102035 -0.013157508908545612" class="throwable" quaternion="0.0004608213794957304 0.033289984954273134 -0.00011930730841420936 0.9994456214878158" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#ed7953" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#ed7953" width="0.05" height="0.3" depth="0.1" position="-1.7536044027991555 0.019963955734102035 -0.0131575089085465" class="throwable" quaternion="0.0004608213794954905 0.03328998495426689 -0.00011930730841411135 0.999445621487816" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#fb9f3a" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#fb9f3a" width="0.05" height="0.3" depth="0.1" position="-2.0036044027991573 0.019963955734102035 -0.013157508908548943" class="throwable" quaternion="0.0004608213794955236 0.03328998495427284 -0.00011930730841385206 0.9994456214878159" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#fdca26" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#fdca26" width="0.05" height="0.3" depth="0.1" position="-2.2536044027991573 0.019963955734102035 -0.013157508908548943" class="throwable" quaternion="0.0004608213794955236 0.03328998495427284 -0.00011930730841385206 0.9994456214878159" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box><a-box material="color:#f0f921" geometry="primitive:box;width:0.05;height:0.3;depth:0.1" color="#f0f921" width="0.05" height="0.3" depth="0.1" position="-2.503604402799156 0.019963955734102035 -0.013157508908544946" class="throwable" quaternion="0.0004608213794955088 0.033289984954274245 -0.00011930730841447973 0.9994456214878158" velocity="" dynamic-body="" rotation="" scale="" visible=""></a-box></a-entity> -->
+
+      <!-- Table -->
+      <a-entity position="0 1.25 0" id="table-container">
+        <a-box id="table" position="0 -0.32 -0.94" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.86 0.48 0.72"></a-box>
+
+        <a-entity id="table-items">
+          <a-entity id="base-street" position="0 0.5 -1.0" scale="0.01 0.01 0.01" rotation="-90 0 0" ply-model="src: url(/assets/plate-streetv1.ply);"></a-entity>
+        </a-entity>
 
       </a-entity>
 
-      <!-- Ground -->
-      <a-plane rotation="-90 0 0" position="0 0 0.6" width="2.45" height="2.1" color="#388E3C"></a-plane>
+      <!-- Floor -->
+      <a-entity id="floor" color="#603a2b" material="color:#603a2b" geometry="primitive: circle; radius: 2.5" position="0 -0.1 0" rotation="-90 0 0" ></a-entity>
 
       <!-- Sky -->
       <a-sky color="#E0E0E0"></a-sky>
