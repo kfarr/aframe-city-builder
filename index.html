@@ -4,23 +4,15 @@
     <meta charset="utf-8">
     <title>A-Frame City Draw</title>
     <meta name="description" content="A-Frame City Draw">
-    <script src="lib/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.3.1/aframe.min.js"></script>
     <script src="lib/aframe-extras.min.js"></script>
     <script src="lib/demo-controls.js"></script>
-    <!-- <script>
-    setInterval("moveItem()", 166);
-    function moveItem() {
-      var sceneEl = document.getElementById("my-scene");
-	    var controllerEl = document.getElementById("leftController");
-	    var itemEl = document.getElementById("leftItem");
-      itemEl.position = controllerEl.object3D.getWorldPosition();
-    }
-    </script> -->
   </head>
   <body>
-
-    <a-scene id="my-scene" antialias='true' inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+    <a-scene id="my-scene" antialias='true'>
       <a-assets>
+        <a-asset-item id="base-street-obj" src="/assets/plate-streetv1.obj"></a-asset-item>
+        <a-asset-item id="base-street-mtl" src="/assets/plate-streetv1.mtl"></a-asset-item>
         <a-asset-item id="car-obj" src="/assets/policecar.obj"></a-asset-item>
         <a-asset-item id="car-mtl" src="/assets/policecar.mtl"></a-asset-item>
       </a-assets>
@@ -28,23 +20,20 @@
       <!-- Player -->
       <a-entity id="camera" camera fly look-controls wasd-controls position="0 0 0"></a-entity>
 
-
-      <a-entity id="leftController" vive-controls="hand: left" grab>
-        <a-obj-model src="#car-obj" mtl="#car-mtl" scale="0.001 0.001 0.001"></a-obj-model>
-        <!-- <a-entity id="leftItem" geometry="primitive: box; depth: 0.3; height: 0.3; width: 0.3"></a-entity> -->
-
-        <!-- <a-entity id="leftItem" scale="0.01 0.01 0.01" ply-model="src: url(/assets/plate-streetv1.ply);"></a-entity> -->
+      <a-entity demo-controls id="leftController" vive-controls="hand: left" grab>
+        <a-obj-model id="leftItem" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01"></a-obj-model>
       </a-entity>
 
-      <a-entity demo-controls id="rightController" vive-controls="hand: right" grab></a-entity>
-
+      <a-entity demo-controls id="rightController" vive-controls="hand: right" grab>
+        <a-obj-model id="rightItem" src="#car-obj" mtl="#car-mtl" scale="0.001 0.001 0.001"></a-obj-model>
+      </a-entity>
 
       <!-- Table -->
       <a-entity position="0 1.25 0" id="table-container">
         <a-box id="table" position="0 -0.32 -0.94" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.86 0.48 0.72"></a-box>
 
         <a-entity id="table-items">
-          <a-entity id="base-street" position="0 0.5 -1.0" scale="0.01 0.01 0.01" rotation="-90 0 0" ply-model="src: url(/assets/plate-streetv1.ply);"></a-entity>
+          <a-obj-model id="base-street" position="0 0.5 -1.0" scale="0.01 0.01 0.01" rotation="-90 0 0" src="#base-street-obj" mtl="#base-street-mtl"></a-obj-model>
         </a-entity>
 
       </a-entity>
