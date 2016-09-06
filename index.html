@@ -15,25 +15,30 @@
         <a-asset-item id="base-street-mtl" src="/assets/plate-streetv1.mtl"></a-asset-item>
         <a-asset-item id="car-obj" src="/assets/policecar.obj"></a-asset-item>
         <a-asset-item id="car-mtl" src="/assets/policecar.mtl"></a-asset-item>
+
+        <a-asset-item id="table-obj" src="/assets/mesa.obj"></a-asset-item>
+        <a-asset-item id="table-mtl" src="/assets/mesa.mtl"></a-asset-item>
+
       </a-assets>
 
       <!-- Player -->
       <a-entity id="camera" camera fly look-controls wasd-controls position="0 0 0"></a-entity>
 
       <a-entity demo-controls id="leftController" vive-controls="hand: left" grab>
-        <a-obj-model id="leftItem" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01"></a-obj-model>
+        <a-obj-model id="leftItem" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
       <a-entity demo-controls id="rightController" vive-controls="hand: right" grab>
-        <a-obj-model id="rightItem" src="#car-obj" mtl="#car-mtl" scale="0.001 0.001 0.001"></a-obj-model>
+        <a-obj-model id="rightItem" src="#car-obj" mtl="#car-mtl" scale="0.001 0.001 0.001" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
       <!-- Table -->
-      <a-entity position="0 1.25 0" id="table-container">
-        <a-box id="table" position="0 -0.32 -0.94" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.86 0.48 0.72"></a-box>
+      <a-entity position="0 .5 0" id="table-container">
+        <a-box id="table" position="0.12 0 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78" visible="true"></a-box>
+        <a-obj-model id="tableBase" src="#table-obj" mtl="#table-mtl" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" material="" obj-model="obj:#mesa-obj;mtl:#mesa-mtl"></a-obj-model>
 
         <a-entity id="table-items">
-          <a-obj-model id="base-street" position="0 0.5 -1.0" scale="0.01 0.01 0.01" rotation="-90 0 0" src="#base-street-obj" mtl="#base-street-mtl"></a-obj-model>
+          <!-- <a-obj-model id="base-street" position="0 0.5 -1.0" scale="0.01 0.01 0.01" rotation="-90 0 0" src="#base-street-obj" mtl="#base-street-mtl"></a-obj-model> -->
         </a-entity>
 
       </a-entity>

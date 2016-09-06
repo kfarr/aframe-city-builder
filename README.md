@@ -1,14 +1,15 @@
 # aframe-draw
 A-Frame project to play with Vive controls and drawing
 
-### in progress now
+### wishlist
 * show a "preview" of the current object - 50% transparency?
 * switch current object -> press trackpad button to see the "preview" change
-*  
+* undo
 
 ## model credits:
 * http://www.pearse.co.uk/lego/models/policecar.html
 * http://tf3dm.com/3d-model/lego-car-8159-2-44445.html
+* table http://tf3dm.com/3d-model/table-65702.html
 * tree, street plate and grass plate created by kfarr using magicavoxel (https://ephtracy.github.io/)
 
 ## future nice functions
