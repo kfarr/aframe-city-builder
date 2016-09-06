@@ -1,18 +1,17 @@
 {
   "name": "aframe-draw",
-  "description": "An A-Frame domino demo with the Vive",
+  "description": "An A-Frame drawing demo with the Vive",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "start": "budo --live --verbose --port 3000 --open",
+    "start": "budo --live --verbose --port 3000 --open"
   },
   "devDependencies": {
-    "budo": "^7.0.0",
+    "budo": "^7.0.0"
   },
   "keywords": [
     "aframe",
     "aframe-example",
-    "aframe-scene",
-    "aframe-dominoes"
+    "aframe-scene"
   ]
 }
