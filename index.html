@@ -13,6 +13,10 @@
       <a-assets>
         <a-asset-item id="base-street-obj" src="/assets/plate-streetv1.obj"></a-asset-item>
         <a-asset-item id="base-street-mtl" src="/assets/plate-streetv1.mtl"></a-asset-item>
+
+        <a-asset-item id="base-grass-obj" src="/assets/plate-grassv1.obj"></a-asset-item>
+        <a-asset-item id="base-grass-mtl" src="/assets/plate-grassv1.mtl"></a-asset-item>
+
         <a-asset-item id="car-obj" src="/assets/policecar.obj"></a-asset-item>
         <a-asset-item id="car-mtl" src="/assets/policecar.mtl"></a-asset-item>
 
@@ -25,7 +29,7 @@
       <a-entity id="camera" camera fly look-controls wasd-controls position="0 0 0"></a-entity>
 
       <a-entity demo-controls id="leftController" vive-controls="hand: left" grab>
-        <a-obj-model id="leftItem" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
+        <a-obj-model id="leftItem" baseid="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
       <a-entity demo-controls id="rightController" vive-controls="hand: right" grab>
