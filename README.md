@@ -1,5 +1,7 @@
 # aframe-draw
-A-Frame project to play with Vive controls and drawing
+A-Frame project to play with Vive controls and drawing. Try out a demo now, Vive required for it to do anything useful:
+https://kfarr.github.io/aframe-draw
+
 
 ### wishlist
 * show a "preview" of the current object - 50% transparency?
