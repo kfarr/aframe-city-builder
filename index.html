@@ -31,7 +31,7 @@
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="camera" camera fly look-controls wasd-controls position="0 0 0"></a-entity>
+      <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 0 0"></a-entity>
 
       <a-entity demo-controls id="leftController" vive-controls="hand: left" grab>
         <a-obj-model id="leftItem" baseid="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
