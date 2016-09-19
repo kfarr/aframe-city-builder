@@ -10,7 +10,7 @@
     <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
   </head>
   <body>
-    <a-scene id="my-scene" antialias='true' gridhelper>
+    <a-scene id="my-scene" antialias='true' gridhelper="step: 0.45; size: 5">
 
       <a-assets>
         <a-asset-item id="base-street-obj" src="assets/plate-streetv1.obj"></a-asset-item>
@@ -31,7 +31,7 @@
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 0 0"></a-entity>
+      <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 -0.5 0"></a-entity>
 
       <a-entity demo-controls id="leftController" vive-controls="hand: left" grab>
         <a-obj-model id="leftItem" baseid="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
@@ -42,7 +42,7 @@
       </a-entity>
 
       <!-- Table -->
-      <a-entity position="0 .5 0" id="table-container">
+      <a-entity position="0 -0.015 0" id="table-container">
         <a-box id="table" position="0.12 0 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78" visible="true"></a-box>
         <a-obj-model id="tableBase" src="#table-obj" mtl="#table-mtl" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" material="" obj-model="obj:#mesa-obj;mtl:#mesa-mtl"></a-obj-model>
 
@@ -53,7 +53,7 @@
       </a-entity>
 
       <!-- Floor -->
-      <a-entity id="floor" color="#603a2b" material="color:#603a2b" geometry="primitive: circle; radius: 2.5" position="0 -0.1 0" rotation="-90 0 0" ></a-entity>
+      <a-entity id="floor" color="#603a2b" material="color:#603a2b" geometry="primitive: circle; radius: 2.5" position="0 -0.6 0" rotation="-90 0 0" ></a-entity>
 
       <!-- Sky -->
       <a-sky color="#E0E0E0"></a-sky>
