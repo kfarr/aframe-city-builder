@@ -3,6 +3,10 @@ Working notes - Sep 18
 ** - how to display a grid first?
 ** - need to have grid coordinates x y z
 
+okay now we can see the grid
+- increase height of the grid?
+- or reduce camera and table accordingly?
+
 Snapping:
 * NO - snap to nearby objects
 * YES - snap a grid

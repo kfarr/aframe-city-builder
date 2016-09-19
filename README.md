@@ -4,9 +4,9 @@ https://kfarr.github.io/aframe-draw
 
 
 ## wishlist
+* O - highlight closes grid location
 * O - how to snap to grid for bases?
-** - how to display a grid first?
-** - need to have grid coordinates x y z
+* O - need to have grid coordinates x y z
 * O - separate right-hand and left-hand object selection: left-hand for "bases", right-hand for "objects"
 * O - add support for switching from car to tree object in right hand
 * Support these objects https://github.com/mikelovesrobots/mmmm
@@ -14,15 +14,16 @@ https://kfarr.github.io/aframe-draw
 * clear or delete
 * save, load scenes
 * X - show a "preview" of the current object - 50% transparency? (Tried this - cannot show object as 50% opacity as it messes up the other aspects of the material. How to fix?)
-* nicer looking skybox
+* background selection - dark starry skies, what else?
 * physics
 * cars to follow prescribed course on roads
-*
+
 
 ## wishlist done
 * * - add object
 * * - switch current object -> press trackpad button to see the "preview" change
 * * - nicer looking table
+* * - display a grid
 
 ## model credits:
 * http://www.pearse.co.uk/lego/models/policecar.html
