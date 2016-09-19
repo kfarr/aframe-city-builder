@@ -2,14 +2,13 @@
 A-Frame project to play with Vive controls and drawing. Try out a demo now, Vive required for it to do anything useful:
 https://kfarr.github.io/aframe-draw
 
-
 ## wishlist
-* O - highlight closes grid location
+* O - highlight currently overlapping grid location
 * O - how to snap to grid for bases?
 * O - need to have grid coordinates x y z
 * O - separate right-hand and left-hand object selection: left-hand for "bases", right-hand for "objects"
-* O - add support for switching from car to tree object in right hand
-* Support these objects https://github.com/mikelovesrobots/mmmm
+* O - add support for switching objects in right hand (ie from car to tree, etc.)
+* Support more of these objects https://github.com/mikelovesrobots/mmmm
 * undo
 * clear or delete
 * save, load scenes
@@ -17,7 +16,6 @@ https://kfarr.github.io/aframe-draw
 * background selection - dark starry skies, what else?
 * physics
 * cars to follow prescribed course on roads
-
 
 ## wishlist done
 * * - add object
@@ -38,3 +36,4 @@ https://kfarr.github.io/aframe-draw
 * people
 * trains
 * bases: intersection, left turn, right turn, green park only, pedestrian and bike path only
+* Oh wait they've all been made! Sweet check this out: https://github.com/mikelovesrobots/mmmm

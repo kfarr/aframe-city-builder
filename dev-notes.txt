@@ -1,29 +1,19 @@
-Working notes - Sep 18
+Working notes - Sep 19
+*** NEW QUESTIONS
 
-** - how to display a grid first?
-** - need to have grid coordinates x y z
+*** ANSWERED QUESTIONS / SOLVED:
+grid display
+- done using https://github.com/dbradleyfl/aframe-gridhelper
 
-okay now we can see the grid
-- increase height of the grid?
-- or reduce camera and table accordingly?
-
-Snapping:
+Snapping goals:
 * NO - snap to nearby objects
 * YES - snap a grid
 
-* on place you shift to a rounded #
+Q How big are the tiles in a-frame dimensions?
+A	> 0.45units
 
-tiles
-- always same size
-- how big are the tiles? in a-frame dimensions?
-  - how to translate magica voxel dimensions to a-frame
+Q how to translate magica voxel dimensions to a-frame
+A > 1 voxel = 1 aframe unit (tested with exporting obj)
 
-- base plates are originally 45 x 45 voxels (apparently same as a-frame base units), scaled by 0.01
-  > now tile sizes are 0.45
-
-- snap to grid should snap the tile to somewhere within grid
-- the user will not know where the grid is
-- some sort of mechanism to show the grid
-  - and show where the object will land
-
-https://github.com/dbradleyfl/aframe-gridhelper
+*** MORE THINGS FOR LATER:
+** - need to have grid coordinates x y z
