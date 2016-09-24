@@ -1,6 +1,6 @@
-# aframe-draw
-A-Frame project to play with Vive controls and drawing. Try out a demo now, Vive required for it to do anything useful:
-https://kfarr.github.io/aframe-draw
+# aframe-city-builder
+A-Frame project to play with Vive controls required to make drawing and layout type applications. Try out a demo now, Vive required for it to do anything useful:
+https://kfarr.github.io/aframe-city-builder
 
 ## wishlist
 * O - highlight currently overlapping grid location
