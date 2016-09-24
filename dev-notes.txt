@@ -1,5 +1,17 @@
 Working notes - Sep 19
 *** NEW QUESTIONS
+- how to indicate which "grid cube" the controller is currently intersecting?
+	- use the aframe collider components?
+	- this seems to require physics controls - why?
+	- can't we just detect collisions?
+	- if there is a "hit" then show a
+
+suggestions:
+	donmccurdy - You could also attach a `raycaster` to your controllers and look for intersection data that way
+	https://aframe.io/docs/0.3.0/components/raycaster.html
+	i could just set the “far” to 0 or super small number
+	for a proof of concept I can manually create box entities for raycast intersection that represent the grid locations
+
 
 *** ANSWERED QUESTIONS / SOLVED:
 grid display

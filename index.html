@@ -4,15 +4,25 @@
     <meta charset="utf-8">
     <title>A-Frame City Draw</title>
     <meta name="description" content="A-Frame City Draw">
-    <script src="https://aframe.io/releases/0.3.1/aframe.min.js"></script>
+    <!-- <script src="https://aframe.io/releases/0.3.1/aframe.min.js"></script> -->
+    <script src="lib/aframe-3.1.min.js"></script>
     <script src="lib/aframe-extras.min.js"></script>
     <script src="lib/demo-controls.js"></script>
-    <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
+    <!-- <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script> -->
+    <script src="lib/aframe-gridhelper-component.min.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-vive-cursor-component/master/dist/aframe-vive-cursor-component.min.js"></script>
   </head>
   <body>
     <a-scene id="my-scene" antialias='true' gridhelper="step: 0.45; size: 5">
 
       <a-assets>
+        <a-mixin id="grid-cube" geometry="primitive: box; width: 0.45; height: 0.45; depth: 0.45"></a-mixin>
+        <a-mixin id="grid-cube-hovered" material="color: magenta"></a-mixin>
+        <a-mixin id="grid-cube-selected" material="color: cyan"></a-mixin>
+        <a-mixin id="red" material="color: red; transparent: true; opacity: 0.5"></a-mixin>
+        <a-mixin id="green" material="color: green"></a-mixin>
+        <a-mixin id="blue" material="color: blue"></a-mixin>
+        <a-mixin id="yellow" material="color: yellow"></a-mixin>
 
         <a-asset-item id="veh_ambulance-obj" src="assets/veh_ambulance.obj"></a-asset-item>
         <a-asset-item id="veh_ambulance-mtl" src="assets/veh_ambulance.mtl"></a-asset-item>
@@ -34,11 +44,11 @@
       <!-- Player -->
       <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 -0.5 0"></a-entity>
 
-      <a-entity demo-controls id="leftController" wasd-controls vive-controls="hand: left" grab>
+      <a-entity demo-controls id="leftController" wasd-controls vive-controls="hand: left" vive-cursor>
         <a-obj-model id="leftItem" baseid="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
-      <a-entity demo-controls id="rightController" vive-controls="hand: right" grab>
+      <a-entity demo-controls id="rightController" vive-controls="hand: right">
         <a-obj-model id="rightItem" src="#veh_ambulance-obj" mtl="#veh_ambulance-mtl" scale="0.005 0.005 0.005" position="0 0 -0.25" rotation="0 0 0"></a-obj-model>
       </a-entity>
 
@@ -46,9 +56,16 @@
       <a-entity position="0 -0.015 0" id="table-container">
         <a-box id="table" position="0.12 0 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78" visible="true"></a-box>
         <a-obj-model id="tableBase" src="#table-obj" mtl="#table-mtl" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" material="" obj-model="obj:#mesa-obj;mtl:#mesa-mtl"></a-obj-model>
+      </a-entity>
 
-        <a-entity id="table-items">
-          <!-- <a-obj-model id="base-street" position="0 0.5 -1.0" scale="0.01 0.01 0.01" rotation="-90 0 0" src="#base-street-obj" mtl="#base-street-mtl"></a-obj-model> -->
+      <!-- Grid Boxes -->
+      <a-entity id="grid-boxes">
+
+        <a-entity id="grid-0-0-0" mixin="grid-cube red" position="-0.275 0.225 -0.725">
+          <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"
+                       easing="linear" dur="1000" repeat="indefinite" direction="alternate"></a-animation>
+          <a-animation begin="mouseleave" attribute="material.opacity" to="0"
+                       easing="linear" dur="500" repeat="1" fill="forwards"></a-animation>
         </a-entity>
 
       </a-entity>
