@@ -11,12 +11,14 @@
     <!-- <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script> -->
     <script src="lib/aframe-gridhelper-component.min.js"></script>
     <script src="https://rawgit.com/bryik/aframe-vive-cursor-component/master/dist/aframe-vive-cursor-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
   <body>
-    <a-scene id="my-scene" antialias='true' gridhelper="step: 0.45; size: 5">
+    <a-scene id="my-scene" antialias='true' gridhelper="step: 0.50; size: 5">
 
       <a-assets>
-        <a-mixin id="grid-cube" geometry="primitive: box; width: 0.45; height: 0.45; depth: 0.45"></a-mixin>
+        <a-mixin id="grid-cube" geometry="primitive: box; width: 0.50; height: 0.50; depth: 0.50"></a-mixin>
         <a-mixin id="grid-cube-hovered" material="color: magenta"></a-mixin>
         <a-mixin id="grid-cube-selected" material="color: cyan"></a-mixin>
         <a-mixin id="red" material="color: red; transparent: true; opacity: 0.5"></a-mixin>
@@ -61,7 +63,35 @@
       <!-- Grid Boxes -->
       <a-entity id="grid-boxes">
 
-        <a-entity id="grid-0-0-0" mixin="grid-cube red" position="-0.275 0.225 -0.725">
+        <script type="text/javascript">
+        $( document ).ready(function() {
+
+            var sceneEl = d3.select("#my-scene");
+
+            var zeroX = -1.25;
+            var zeroY = 0.25;
+            var zeroZ = -2.25;
+
+            var voxelSize = 0.5;
+
+            var maxRows = 6;
+            var maxColumns = 6;
+
+            for ( var indexRow = 0; indexRow < maxRows; indexRow ++ ) {
+              for ( var indexColumn = 0; indexColumn < maxColumns; indexColumn ++) {
+                // <a-entity id="grid-x-y-z" mixin="grid-cube red" position="-0.25 0.25 -0.75">
+                var position = (zeroX + indexRow * voxelSize) + ' ' + zeroY + ' ' + (zeroZ + indexColumn * voxelSize);
+                console.log( "position: " + position );
+                sceneEl.append('a-entity')
+          	           .attr('id', 'grid-' + indexRow + '-0-0')
+                       .attr('mixin', 'grid-cube red')
+          	           .attr('position', position);
+              };
+        	  };
+        });
+        </script>
+
+        <a-entity id="grid-0-0-0" mixin="grid-cube red" position="-0.25 0.25 -0.75">
           <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"
                        easing="linear" dur="1000" repeat="indefinite" direction="alternate"></a-animation>
           <a-animation begin="mouseleave" attribute="material.opacity" to="0"
