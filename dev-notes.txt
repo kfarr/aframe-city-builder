@@ -1,10 +1,5 @@
-Working notes - Sep 19
-*** NEW QUESTIONS
-- how to indicate which "grid cube" the controller is currently intersecting?
-	- use the aframe collider components?
-	- this seems to require physics controls - why?
-	- can't we just detect collisions?
-	- if there is a "hit" then show a
+Working notes - Oct 7
+- triage / fix grid cube hover animation
 
 suggestions:
 	donmccurdy - You could also attach a `raycaster` to your controllers and look for intersection data that way
@@ -29,3 +24,9 @@ A > 1 voxel = 1 aframe unit (tested with exporting obj)
 
 *** MORE THINGS FOR LATER:
 ** - need to have grid coordinates x y z
+
+done
+oct7*- change base plates to 0.5 instead of 0.45
+oct7*- update app with new base plates
+*- how to indicate which "grid cube" the controller is currently intersecting?
+oct7*- add multiple grid position cubes
