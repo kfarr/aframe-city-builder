@@ -21,10 +21,20 @@
         <a-mixin id="grid-cube" geometry="primitive: box; width: 0.50; height: 0.50; depth: 0.50"></a-mixin>
         <a-mixin id="grid-cube-hovered" material="color: magenta"></a-mixin>
         <a-mixin id="grid-cube-selected" material="color: cyan"></a-mixin>
-        <a-mixin id="red" material="color: red; transparent: true; opacity: 0.5"></a-mixin>
+        <a-mixin id="red" material="color: red; transparent: true; opacity: 0"></a-mixin>
         <a-mixin id="green" material="color: green"></a-mixin>
         <a-mixin id="blue" material="color: blue"></a-mixin>
         <a-mixin id="yellow" material="color: yellow"></a-mixin>
+        <a-mixin id="collider" grid-cube-collider></a-mixin>
+
+        <a-mixin id="highlight">
+          <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"></a-animation>
+               <!-- <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"
+                          easing="linear" dur="1000" repeat="indefinite" direction="alternate"></a-animation> -->
+          <a-animation begin="mouseleave" attribute="material.opacity" from="0.5" to="0"></a-animation>
+           <!-- <a-animation begin="mouseleave" attribute="material.opacity" to="0"
+                      easing="linear" dur="500" repeat="1" fill="forwards"></a-animation> -->
+        </a-mixin>
 
         <a-asset-item id="veh_ambulance-obj" src="assets/veh_ambulance.obj"></a-asset-item>
         <a-asset-item id="veh_ambulance-mtl" src="assets/veh_ambulance.mtl"></a-asset-item>
@@ -84,7 +94,7 @@
                 console.log( "position: " + position );
                 sceneEl.append('a-entity')
           	           .attr('id', 'grid-' + indexRow + '-0-0')
-                       .attr('mixin', 'grid-cube red')
+                       .attr('mixin', 'grid-cube red highlight collider')
           	           .attr('position', position);
               };
         	  };
@@ -96,6 +106,7 @@
                        easing="linear" dur="1000" repeat="indefinite" direction="alternate"></a-animation>
           <a-animation begin="mouseleave" attribute="material.opacity" to="0"
                        easing="linear" dur="500" repeat="1" fill="forwards"></a-animation>
+
         </a-entity>
 
       </a-entity>
