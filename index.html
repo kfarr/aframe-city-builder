@@ -15,7 +15,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
   <body>
-    <a-scene id="my-scene" antialias='true' gridhelper="step: 0.50; size: 5">
+    <a-scene id="my-scene" antialias='true'>
 
       <a-assets>
         <a-mixin id="grid-cube" geometry="primitive: box; width: 0.50; height: 0.50; depth: 0.50"></a-mixin>
@@ -64,11 +64,14 @@
         <a-obj-model id="rightItem" src="#veh_ambulance-obj" mtl="#veh_ambulance-mtl" scale="0.005 0.005 0.005" position="0 0 -0.25" rotation="0 0 0"></a-obj-model>
       </a-entity>
 
-      <!-- Table -->
-      <a-entity position="0 -0.015 0" id="table-container">
-        <a-box id="table" position="0.12 0 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78" visible="true"></a-box>
+      <!-- Table and Grid -->
+      <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="step: 0.50; size: 5" >
+        <a-box id="tableTop" position="0.12 -0.01 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78" visible="true"></a-box>
         <a-obj-model id="tableBase" src="#table-obj" mtl="#table-mtl" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" material="" obj-model="obj:#mesa-obj;mtl:#mesa-mtl"></a-obj-model>
       </a-entity>
+
+      <!-- Floor -->
+      <a-entity id="floor" color="#603a2b" material="color:#603a2b" geometry="primitive: circle; radius: 2.5" position="0 0 0" rotation="-90 0 0" ></a-entity>
 
       <!-- Grid Boxes -->
       <!-- <a-entity id="grid-boxes">
@@ -111,8 +114,6 @@
 
       </a-entity> -->
 
-      <!-- Floor -->
-      <a-entity id="floor" color="#603a2b" material="color:#603a2b" geometry="primitive: circle; radius: 2.5" position="0 -0.6 0" rotation="-90 0 0" ></a-entity>
 
       <!-- Sky -->
       <a-sky color="#E0E0E0"></a-sky>
