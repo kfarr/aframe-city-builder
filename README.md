@@ -4,7 +4,6 @@ https://kfarr.github.io/aframe-city-builder
 
 ## wishlist
 * O - highlight currently overlapping grid location
-* O - how to snap to grid for bases?
 * O - need to have grid coordinates x y z
 * O - separate right-hand and left-hand object selection: left-hand for "bases", right-hand for "objects"
 * O - add support for switching objects in right hand (ie from car to tree, etc.)
@@ -18,6 +17,7 @@ https://kfarr.github.io/aframe-city-builder
 * cars to follow prescribed course on roads
 
 ## wishlist done
+* * - how to snap to grid for bases?
 * * - add object
 * * - switch current object -> press trackpad button to see the "preview" change
 * * - nicer looking table

@@ -1,20 +1,9 @@
-Working notes - Oct 7
-- triage / fix grid cube hover animation
+Scratch dev notes
 
-suggestions:
-	donmccurdy - You could also attach a `raycaster` to your controllers and look for intersection data that way
+future:  attach a `raycaster` to your controllers and look for intersection data that way
 	https://aframe.io/docs/0.3.0/components/raycaster.html
 	i could just set the “far” to 0 or super small number
 	for a proof of concept I can manually create box entities for raycast intersection that represent the grid locations
-
-
-*** ANSWERED QUESTIONS / SOLVED:
-grid display
-- done using https://github.com/dbradleyfl/aframe-gridhelper
-
-Snapping goals:
-* NO - snap to nearby objects
-* YES - snap a grid
 
 Q How big are the tiles in a-frame dimensions?
 A	> 0.45units
@@ -22,11 +11,6 @@ A	> 0.45units
 Q how to translate magica voxel dimensions to a-frame
 A > 1 voxel = 1 aframe unit (tested with exporting obj)
 
-*** MORE THINGS FOR LATER:
-** - need to have grid coordinates x y z
-
 done
-oct7*- change base plates to 0.5 instead of 0.45
-oct7*- update app with new base plates
-*- how to indicate which "grid cube" the controller is currently intersecting?
-oct7*- add multiple grid position cubes
+dec3*- moved grid up and adjusted table accordingly, added basic snapping with animation
+oct7*- change base plates to 0.5 instead of 0.45, update app with new base plates, try adding multiple grid position cubes
