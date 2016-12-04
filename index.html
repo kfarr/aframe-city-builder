@@ -25,15 +25,10 @@
         <a-mixin id="green" material="color: green"></a-mixin>
         <a-mixin id="blue" material="color: blue"></a-mixin>
         <a-mixin id="yellow" material="color: yellow"></a-mixin>
-        <a-mixin id="collider" grid-cube-collider></a-mixin>
 
         <a-mixin id="highlight">
           <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"></a-animation>
-               <!-- <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"
-                          easing="linear" dur="1000" repeat="indefinite" direction="alternate"></a-animation> -->
           <a-animation begin="mouseleave" attribute="material.opacity" from="0.5" to="0"></a-animation>
-           <!-- <a-animation begin="mouseleave" attribute="material.opacity" to="0"
-                      easing="linear" dur="500" repeat="1" fill="forwards"></a-animation> -->
         </a-mixin>
 
         <a-asset-item id="veh_ambulance-obj" src="assets/veh_ambulance.obj"></a-asset-item>
@@ -117,6 +112,8 @@
 
       <!-- Sky -->
       <a-sky color="#E0E0E0"></a-sky>
+
+
     </a-scene>
   </body>
 </html>
