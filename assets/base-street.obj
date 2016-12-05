@@ -1,7 +1,7 @@
 # MagicaVoxel @ ephtracy
 
 # material
-mtllib plate-streetv1.mtl
+mtllib base-street.mtl
 usemtl palette
 
 # normals

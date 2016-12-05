@@ -1,7 +1,7 @@
 # MagicaVoxel @ ephtracy
 
 # material
-mtllib plate-grassv1.mtl
+mtllib base-grass.mtl
 usemtl palette
 
 # normals
