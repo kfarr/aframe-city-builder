@@ -13,6 +13,13 @@
     <script src="https://rawgit.com/bryik/aframe-vive-cursor-component/master/dist/aframe-vive-cursor-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="lib/skyGradient.js"></script>
+    <script src="lib/ground.js"></script>
+
+    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202%20Black_Regular.js"></script>
+    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202_Bold%20Italic.js"></script>
+
   </head>
   <body>
     <a-scene id="my-scene" antialias='true'>
@@ -26,6 +33,9 @@
         <a-mixin id="blue" material="color: blue"></a-mixin>
         <a-mixin id="yellow" material="color: yellow"></a-mixin>
 
+        <img id="chrome" src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" crossorigin="anonymous">
+        <img id="pink" src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg" crossorigin="anonymous" />
+
         <a-mixin id="highlight">
           <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"></a-animation>
           <a-animation begin="mouseleave" attribute="material.opacity" from="0.5" to="0"></a-animation>
@@ -34,14 +44,17 @@
         <a-asset-item id="veh_ambulance-obj" src="assets/veh_ambulance.obj"></a-asset-item>
         <a-asset-item id="veh_ambulance-mtl" src="assets/veh_ambulance.mtl"></a-asset-item>
 
-        <a-asset-item id="base-street-obj" src="assets/plate-streetv1.obj"></a-asset-item>
-        <a-asset-item id="base-street-mtl" src="assets/plate-streetv1.mtl"></a-asset-item>
+        <a-asset-item id="obj_treekf-obj" src="assets/obj_treekf.obj"></a-asset-item>
+        <a-asset-item id="obj_treekf-mtl" src="assets/obj_treekf.mtl"></a-asset-item>
 
-        <a-asset-item id="base-cross-street-obj" src="assets/plate-cross-street.obj"></a-asset-item>
-        <a-asset-item id="base-cross-street-mtl" src="assets/plate-cross-street.mtl"></a-asset-item>
+        <a-asset-item id="base-street-obj" src="assets/base-street.obj"></a-asset-item>
+        <a-asset-item id="base-street-mtl" src="assets/base-street.mtl"></a-asset-item>
 
-        <a-asset-item id="base-grass-obj" src="assets/plate-grassv1.obj"></a-asset-item>
-        <a-asset-item id="base-grass-mtl" src="assets/plate-grassv1.mtl"></a-asset-item>
+        <a-asset-item id="base-cross-street-obj" src="assets/base-cross-street.obj"></a-asset-item>
+        <a-asset-item id="base-cross-street-mtl" src="assets/base-cross-street.mtl"></a-asset-item>
+
+        <a-asset-item id="base-grass-obj" src="assets/base-grass.obj"></a-asset-item>
+        <a-asset-item id="base-grass-mtl" src="assets/base-grass.mtl"></a-asset-item>
 
         <a-asset-item id="table-obj" src="assets/mesa.obj"></a-asset-item>
         <a-asset-item id="table-mtl" src="assets/mesa.mtl"></a-asset-item>
@@ -49,14 +62,15 @@
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 -0.5 0"></a-entity>
+      <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 0 0"></a-entity>
+      <!-- <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"></a-entity> -->
 
       <a-entity demo-controls id="leftController" wasd-controls vive-controls="hand: left" vive-cursor>
-        <a-obj-model id="leftItem" baseid="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
+        <a-obj-model id="leftItem" objectType="bases" objectId="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
       <a-entity demo-controls id="rightController" vive-controls="hand: right">
-        <a-obj-model id="rightItem" src="#veh_ambulance-obj" mtl="#veh_ambulance-mtl" scale="0.005 0.005 0.005" position="0 0 -0.25" rotation="0 0 0"></a-obj-model>
+        <a-obj-model id="rightItem" objectType="objects" objectId="1" src="#veh_ambulance-obj" mtl="#veh_ambulance-mtl" scale="0.005 0.005 0.005" position="0 0 -0.25" rotation="0 0 0"></a-obj-model>
       </a-entity>
 
       <!-- Table and Grid -->
@@ -113,6 +127,22 @@
       <!-- Sky -->
       <a-sky color="#E0E0E0"></a-sky>
 
+      <!-- City Builder Label heavily borrowed from Ada Rose's https://aframe.io/examples/showcase/hello-metaverse/ -->
+      <a-entity position="-3 1 -6" rotation="5 0 0">
+
+        <a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:exo 2 black;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
+        <a-entity position="-1 2.15 0.3" text="text:A-Frame; font: exo 2;  style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color:white;" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:exo 2;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity>
+
+      </a-entity>
+
+      <a-entity id="sky"
+                geometry="primitive: sphere; radius: 65;"
+                material="shader: skyGradient; colorTop: #353449; colorBottom: #BC483E; side: back"></a-entity>
+
+      <a-entity ground></a-entity>
+      <a-entity light="color: white; intensity: 0.5" position="-5 5 15"></a-entity>
+      <a-entity light="color: white;  intensity: 0.5; type: ambient;"></a-entity>
 
     </a-scene>
   </body>
