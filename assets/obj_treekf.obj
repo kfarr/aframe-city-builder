@@ -1,7 +1,7 @@
 # MagicaVoxel @ ephtracy
 
 # material
-mtllib tree-v1.mtl
+mtllib obj_treekf.mtl
 usemtl palette
 
 # normals
