@@ -6,7 +6,6 @@ https://kfarr.github.io/aframe-city-builder
 * O - highlight currently overlapping grid location
 * O - need to have grid coordinates x y z
 * Support more of these objects https://github.com/mikelovesrobots/mmmm
-* undo
 * clear or delete
 * save, load scenes
 * X - show a "preview" of the current object - 50% transparency? (Tried this - cannot show object as 50% opacity as it messes up the other aspects of the material. How to fix?)
@@ -14,6 +13,7 @@ https://kfarr.github.io/aframe-city-builder
 * cars to follow prescribed course on roads
 
 ## wishlist done
+* * - undo
 * * - how to snap to grid for bases?
 * * - add object
 * * - switch current object -> press trackpad button to see the "preview" change
