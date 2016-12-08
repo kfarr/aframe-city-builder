@@ -1,6 +1,12 @@
 # aframe-city-builder
-A-Frame project to play with Vive controls required to make drawing and layout type applications. Try out a demo now, Vive required for it to do anything useful:
-https://kfarr.github.io/aframe-city-builder
+A-Frame project to play with Vive controls required to make drawing and layout type applications. <a href="https://kfarr.github.io/aframe-city-builder">If you have an HTC Vive try it out now!</a> https://kfarr.github.io/aframe-city-builder
+
+## Screenshots
+<img src="./images/screenshots.gif" />
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot1.png
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot2.png
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot3.png
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot4.png
 
 ## wishlist
 * save/load scenes to/from json file
