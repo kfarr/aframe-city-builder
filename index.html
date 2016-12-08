@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A-Frame City Draw</title>
-    <meta name="description" content="A-Frame City Draw">
+    <title>A-Frame City Builder</title>
+    <meta name="description" content="A-Frame City Builder">
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
 <!--     <script src="lib/aframe-3.1.min.js"></script> -->
     <script src="lib/aframe-extras.min.js"></script>
@@ -25,14 +25,6 @@
     <a-scene id="my-scene" antialias='true'>
 
       <a-assets>
-        <a-mixin id="grid-cube" geometry="primitive: box; width: 0.50; height: 0.50; depth: 0.50"></a-mixin>
-        <a-mixin id="grid-cube-hovered" material="color: magenta"></a-mixin>
-        <a-mixin id="grid-cube-selected" material="color: cyan"></a-mixin>
-        <a-mixin id="red" material="color: red; transparent: true; opacity: 0"></a-mixin>
-        <a-mixin id="green" material="color: green"></a-mixin>
-        <a-mixin id="blue" material="color: blue"></a-mixin>
-        <a-mixin id="yellow" material="color: yellow"></a-mixin>
-
         <img id="chrome" src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" crossorigin="anonymous">
         <img id="pink" src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg" crossorigin="anonymous" />
 
@@ -123,48 +115,6 @@
 
       <!-- Floor -->
       <a-entity id="floor" color="#603a2b" material="color:#603a2b" geometry="primitive: circle; radius: 2.5" position="0 0 0" rotation="-90 0 0" ></a-entity>
-
-      <!-- Grid Boxes -->
-      <!-- <a-entity id="grid-boxes">
-
-        <script type="text/javascript">
-        $( document ).ready(function() {
-
-            var sceneEl = d3.select("#my-scene");
-
-            var zeroX = -1.25;
-            var zeroY = 0.25;
-            var zeroZ = -2.25;
-
-            var voxelSize = 0.5;
-
-            var maxRows = 6;
-            var maxColumns = 6;
-
-            for ( var indexRow = 0; indexRow < maxRows; indexRow ++ ) {
-              for ( var indexColumn = 0; indexColumn < maxColumns; indexColumn ++) {
-                // <a-entity id="grid-x-y-z" mixin="grid-cube red" position="-0.25 0.25 -0.75">
-                var position = (zeroX + indexRow * voxelSize) + ' ' + zeroY + ' ' + (zeroZ + indexColumn * voxelSize);
-                console.log( "position: " + position );
-                sceneEl.append('a-entity')
-          	           .attr('id', 'grid-' + indexRow + '-0-0')
-                       .attr('mixin', 'grid-cube red highlight collider')
-          	           .attr('position', position);
-              };
-        	  };
-        });
-        </script>
-
-        <a-entity id="grid-0-0-0" mixin="grid-cube red" position="-0.25 0.25 -0.75">
-          <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"
-                       easing="linear" dur="1000" repeat="indefinite" direction="alternate"></a-animation>
-          <a-animation begin="mouseleave" attribute="material.opacity" to="0"
-                       easing="linear" dur="500" repeat="1" fill="forwards"></a-animation>
-
-        </a-entity>
-
-      </a-entity> -->
-
 
       <!-- Sky -->
       <a-sky color="#E0E0E0"></a-sky>
