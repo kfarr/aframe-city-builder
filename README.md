@@ -37,3 +37,7 @@ https://kfarr.github.io/aframe-city-builder
 * trains
 * bases: intersection, left turn, right turn, green park only, pedestrian and bike path only
 * Oh wait they've all been made! Sweet check this out: https://github.com/mikelovesrobots/mmmm
+
+## License
+* The A-Frame City Builder codebase is MIT License Copyright (c) 2016 Kieran Farr
+* Most nice looking objects are from the <a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Minis" project</a>are under the <a href="https://github.com/mikelovesrobots/mmmm/blob/master/LICENSE">Creative Commons License.</a>
