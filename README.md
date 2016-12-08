@@ -12,9 +12,10 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * save/load scenes to/from json file
 * add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a> 
 * firebase or simple db storage for scenes in json or other format
-* better palette or system to choose categories of objects
-* "lazy loading" of objects only when necessary, right now all available objects are loaded at once
+* pull d3 out of demo-controls.js, rename this component more appropriately, use a proper build process to combine and minify all the various libraries
 * clear / delete (bulldozer?)
+* adopt a palette or other creative user interface to choose categories of objects, it is tiresome to scroll past many objects
+* "lazy loading" of objects only when necessary, right now all available objects are loaded at once
 * integrate with http://streetmix.net/ to generate street blocks
 * auth / storage service
 * highlight currently overlapping grid location
@@ -28,6 +29,8 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * * - basic desktop info ui
 * * - undo
 * * - added houses and vehicles from https://github.com/mikelovesrobots/mmmm
+* * - cars, bikes, trucks - we got em!
+* * - buildings, houses - we got em too!
 * * - snap to grid for bases
 * * - nicer looking table
 * * - display a grid
@@ -42,14 +45,13 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * tree and simple base plates created by kfarr using magicavoxel (https://ephtracy.github.io/)
 * city builder text based on https://github.com/ngokevin/kframe/blob/master/components/text/examples/vaporwave/index.html
 
-## future cool objects to make
-* cars, bikes, trucks
-* buildings, houses
-* parks, trees, light poles, signals, signs
+## future cool objects to add
+* more cool vehicles
+* flying things
+* more "bases" like intersection, left turn, right turn, green park only, pedestrian and bike path only
+* more advanced light poles, signals, signs
 * people
 * trains
-* bases: intersection, left turn, right turn, green park only, pedestrian and bike path only
-* Oh wait they've all been made! Sweet check this out: https://github.com/mikelovesrobots/mmmm
 
 ## License
 * The A-Frame City Builder codebase is MIT License Copyright (c) 2016 Kieran Farr
