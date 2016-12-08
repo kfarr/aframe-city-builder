@@ -40,7 +40,7 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * * - add object
 
 ## model credits:
-* most models from https://github.com/mikelovesrobots/mmmm
+* most models made by Mike Judge, see more here: https://github.com/mikelovesrobots/mmmm
 * table http://tf3dm.com/3d-model/table-65702.html
 * tree and simple base plates created by kfarr using magicavoxel (https://ephtracy.github.io/)
 * city builder text based on https://github.com/ngokevin/kframe/blob/master/components/text/examples/vaporwave/index.html
@@ -55,4 +55,4 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 
 ## License
 * The A-Frame City Builder codebase is MIT License Copyright (c) 2016 Kieran Farr
-* Most nice looking objects are from the <a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Minis" project</a>are under the <a href="https://github.com/mikelovesrobots/mmmm/blob/master/LICENSE">Creative Commons License.</a>
+* Most nice looking objects are made by Mike Judge from his <a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Minis" project</a> under the <a href="https://github.com/mikelovesrobots/mmmm/blob/master/LICENSE">Creative Commons License.</a>
