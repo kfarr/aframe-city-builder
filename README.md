@@ -10,6 +10,7 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 
 ## wishlist
 * save/load scenes to/from json file
+* support oculus touch https://github.com/tbalouet/touch-controls
 * add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a> 
 * firebase or simple db storage for scenes in json or other format
 * pull d3 out of demo-controls.js, rename this component more appropriately, use a proper build process to combine and minify all the various libraries
