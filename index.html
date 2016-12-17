@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <title>A-Frame City Builder</title>
     <meta name="description" content="A-Frame City Builder">
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-<!--     <script src="lib/aframe-3.1.min.js"></script> -->
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="lib/aframe-extras.min.js"></script>
     <script src="lib/demo-controls.js"></script>
     <!-- <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script> -->
@@ -30,7 +29,7 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            max-width: 280px;
+            max-width: 500px;
             box-sizing: border-box;
             padding: 1.5em;
             color: #FFF;
@@ -144,6 +143,9 @@
         <a-obj-model id="rightItem" objectType="objects" objectId="0" src="#obj_treekf-obj" mtl="#obj_treekf-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 0 0"></a-obj-model>
       </a-entity>
 
+      <!-- City -->
+      <a-entity id="city"></a-entity>
+
       <!-- Table and Grid -->
       <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="step: 0.50; size: 5" >
         <a-box id="tableTop" position="0.12 -0.01 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78" visible="true"></a-box>
@@ -170,32 +172,98 @@
     </a-scene>
 
     <!-- dialog box overlay for desktop users -->
-    <div id="bloc" class="intro-overlay">
+    <div id="dialog" class="intro-overlay">
           <h4>A-Frame City Builder</h4>
           <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive VR headset and tracked hand controllers. You will need a <a href="https://webvr.info/">WebVR compatible browser</a> with an <a href="https://github.com/Web-VR/iswebvrready/wiki/Instructions%3A-Chromium-for-HTC-Vive-on-Windows">HTC Vive</a> to use this.</p>
           <p>Place objects with <code>trigger</code>, switch objects by pressing <code>trackpad</code> and undo the last placement with the <code>menu</code> button.</p>
           <p>All the nice looking voxel objects are from the beautiful <a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Minis" project</a>. See the <a href="https://github.com/kfarr/aframe-city-builder">A-Frame City Builder github readme page</a> for full license info.</p>
-          <!-- <p><input id="urlInput" class="form-control" value="https://docs.google.com/spreadsheets/d/1FdjSF9zsBiOJYf40hqDXRfEbqZ7nveMP0t6nN86rLNU/edit?usp=sharing" type="text"></p>
-          <p><a onclick="loadButton()" class="btn btn-success">(1) Load Cards from Sheet</a></p> -->
+          <p><input id="jsonInput" class="form-control" value="Paste in JSON here" type="text"></p>
+          <p><a onclick="loadButton()" class="btn btn-success">Load City Layout from JSON String</a></p>
+          <p><a onclick="saveButton()" class="btn btn-success">Download City Layout as JSON</a></p>
+
           <p><a onclick="hide()" class="btn btn-success">Cool</a></p>
     </div>
     <a onclick="show()"><div class="menu-overlay btn btn-outline-secondary"></div></a>
     <script type="text/javascript">
           function hide() {
-              // $('.lefthand')[0].components['aabb-collider'].update();
-              // $('.righthand')[0].components['aabb-collider'].update();
-              // console.log('ran update() on aabb-collider component');
-              $("#bloc").removeClass('intro-overlay');
+              $("#dialog").removeClass('intro-overlay');
           }
+          function saveButton() {
+            var cityNode = $("#city")[0];
+            var cityJSON = [];
+
+            // fetch each city object and add into json
+            $('#city').children().each(function () {
+              var thisWorldRotationX = this.object3D.rotation.x / (Math.PI / 180);
+        			var thisWorldRotationY = this.object3D.rotation.y / (Math.PI / 180);
+        			var thisWorldRotationZ = this.object3D.rotation.z / (Math.PI / 180);
+        			var thisEulerRotationString = thisWorldRotationX + ' ' + thisWorldRotationY + ' ' + thisWorldRotationZ;
+
+              var childJSON = {
+                  id: this.id,
+                  file: this.getAttribute('file'),
+                  position: this.object3D.position.x + ' ' + this.object3D.position.y + ' ' + this.object3D.position.z,
+                  rotation: thisEulerRotationString,
+                  scale: this.object3D.scale.x + ' ' + this.object3D.scale.y + ' ' + this.object3D.scale.z
+              };
+
+              cityJSON.push(childJSON);
+            });
+
+            var jsonData = JSON.stringify(cityJSON);
+
+            function download(text, name, type) {
+                var a = document.createElement("a");
+                var file = new Blob([text], {type: type});
+                a.href = URL.createObjectURL(file);
+                a.download = name;
+                a.click();
+            }
+            download(jsonData, 'my-aframe-city.json', 'text/plain');
+          }
+
           function loadButton() {
-            loadCards($("#urlInput")[0].value);
+            console.log("load button clicked");
+
+            function appendObject(id, file, scale, position, rotation, scale) {
+              console.log(position);
+              $('<a-obj-model />', {
+                id: id,
+                class: 'city object children',
+                position: position,  // doesn't seem to do anything
+                scale: scale,
+                rotation: rotation,
+                file: file,
+                src: '#' + file + '-obj',
+                mtl: '#' + file + '-mtl',
+                appendTo : $('#city')
+              });
+             document.getElementById(id).setAttribute("position", position); // this does set position
+            }
+
+            function toDOM(jsonInput) {
+              for(var i = 0; i < jsonInput.length; i++) {
+                  var obj = jsonInput[i];
+                  console.log(obj.id);
+                  console.log(obj.file);
+                  console.log(obj.rotation);
+                  console.log(obj.position);
+                  console.log(obj.scale);
+                  appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
+              }
+            }
+
+            jsonInput = $("#jsonInput")[0].value;
+            console.log(jsonInput);
+            toDOM(JSON.parse(jsonInput));
+
           }
           function show() {
-             $("#bloc").toggleClass('intro-overlay');
+             $("#dialog").toggleClass('intro-overlay');
           }
 
           if (screen.width <= 699) {
-            $("#bloc").removeClass('intro-overlay');
+            $("#dialog").removeClass('intro-overlay');
           }
     </script>
 
