@@ -9,8 +9,12 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot4.png
 
 ## wishlist
-* save/load scenes to/from json file
-* support oculus touch https://github.com/tbalouet/touch-controls
+* upgrade to aframe 0.4.0
+* show a nicer default camera view / rotation
+* add an option to load a default example city
+* improve the overlay dialogue "close" button styling
+* paste in json should autoselect
+* support oculus touch using aframe 0.4.0 or https://github.com/tbalouet/touch-controls
 * add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a> 
 * firebase or simple db storage for scenes in json or other format
 * switch to all jquery and remove d3 dependency
@@ -28,6 +32,7 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * physics
 
 ## wishlist done
+* * - (basic) save/load scenes to/from json file
 * * - basic desktop info ui
 * * - undo
 * * - added houses and vehicles from https://github.com/mikelovesrobots/mmmm
