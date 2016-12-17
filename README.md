@@ -30,6 +30,7 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * persistent multiuser world
 * use geolocation api to with virtual citybuilder locations to create "mini second life"
 * physics
+* try isometric view on mobile / non-vr devices (examples https://github.com/aframevr/aframe/issues/84 and http://wafi.iit.cnr.it/webvis/lab/preview.php?gist_id=07b5887a1d57b40b6065)
 
 ## wishlist done
 * * - (basic) save/load scenes to/from json file
