@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <title>A-Frame City Builder</title>
     <meta name="description" content="A-Frame City Builder">
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="lib/aframe-extras.min.js"></script>
     <script src="lib/demo-controls.js"></script>
     <!-- <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script> -->
-    <script src="lib/aframe-gridhelper-component.min.js"></script>
-    <script src="https://rawgit.com/bryik/aframe-vive-cursor-component/master/dist/aframe-vive-cursor-component.min.js"></script>
+    <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="lib/skyGradient.js"></script>
@@ -18,6 +18,8 @@
     <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
     <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202%20Black_Regular.js"></script>
     <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202_Bold%20Italic.js"></script>
+
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
 
     <!-- for menu overlay -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
@@ -135,7 +137,7 @@
       <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 0 0"></a-entity>
       <!-- <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"></a-entity> -->
 
-      <a-entity demo-controls id="leftController" wasd-controls vive-controls="hand: left" vive-cursor>
+      <a-entity demo-controls id="leftController" wasd-controls vive-controls="hand: left">
         <a-obj-model id="leftItem" objectType="bases" objectId="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
@@ -147,9 +149,9 @@
       <a-entity id="city"></a-entity>
 
       <!-- Table and Grid -->
-      <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="step: 0.50; size: 5" >
-        <a-box id="tableTop" position="0.12 -0.01 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78" visible="true"></a-box>
-        <a-obj-model id="tableBase" src="#table-obj" mtl="#table-mtl" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" material="" obj-model="obj:#mesa-obj;mtl:#mesa-mtl"></a-obj-model>
+      <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="divisions:20">
+        <a-box id="tableTop" position="0.12 -0.01 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78"></a-box>
+        <a-entity id="tableBase" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" obj-model="obj:#table-obj;mtl:#table-mtl"></a-entity>
       </a-entity>
 
       <!-- Floor -->
@@ -157,9 +159,16 @@
 
       <!-- City Builder Label heavily borrowed from Ada Rose's https://aframe.io/examples/showcase/hello-metaverse/ -->
       <a-entity position="-3 1 -6" rotation="5 0 0">
-        <a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:exo 2 black;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
+        <!--<a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:exo 2 black;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
         <a-entity position="-1 2.15 0.3" text="text:A-Frame; font: exo 2;  style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color:white;" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
-        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:exo 2;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity>
+        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:exo 2;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity> -->
+
+        <a-entity position="0.4 1.2 -0.5" scale="2 2 2" rotation="0 0 10" bmfont-text="text:a-frame;color:#80ffff;opacity:1"></a-entity>
+        <a-entity position="0.5 0.5 -0.5" scale="5 5 5" bmfont-text="text:CITY BUILDER;color:#80ffff;opacity:1"></a-entity>
+
+        <!-- <a-entity position="1.5 0.5 -0.5" scale="2 2 2" rotation="0 0 10" bmfont-text="text: a-frame"></a-entity>
+        <a-entity position="1.5 0.5 -0.5" scale="5 5 5" bmfont-text="text: CITY BUILDER"></a-entity> -->
+
       </a-entity>
 
       <!-- Environment -->
