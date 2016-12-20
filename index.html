@@ -134,7 +134,9 @@
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="0 0 0"></a-entity>
+      <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0">
+        <a-entity id="camera" camera look-controls wasd-controls="fly: true" ></a-entity>
+      </a-entity>
       <!-- <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"></a-entity> -->
 
       <a-entity demo-controls id="leftController" wasd-controls vive-controls="hand: left">
@@ -183,15 +185,52 @@
           <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
           <h4><strong>A-Frame City Builder</strong></h4>
           <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive VR headset and tracked hand controllers. You will need a <a href="https://webvr.info/">WebVR compatible browser</a> with an <a href="https://github.com/Web-VR/iswebvrready/wiki/Instructions%3A-Chromium-for-HTC-Vive-on-Windows">HTC Vive</a> to use this.</p>
-          <p>Place objects with <code>trigger</code>, switch objects by pressing <code>trackpad</code> and undo the last placement with the <code>menu</code> button.</p>
-          <p>All the nice looking voxel objects are from the beautiful <a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Minis" project</a>. See the <a href="https://github.com/kfarr/aframe-city-builder">A-Frame City Builder github readme page</a> for full license info.</p>
-          <p><input id="jsonInput" class="form-control" onfocus="this.select();" value="Paste in JSON here" type="text"></p>
-          <p><a onclick="loadButton()" class="btn btn-info">Load City Layout from JSON String</a></p>
+          <p>Place objects with <code>trigger</code>, switch objects by pressing <code>trackpad</code> and undo the last placement with the <code>menu</code> button. MIT and CC licenses.</p>
+          <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
+
+
+          <p><div class="input-group">
+            <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
+            <span class="input-group-btn">
+              <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
+            </span>
+          </div></p>
+
+          <p><div class="input-group">
+            <input id="fileInput" type="text" class="form-control" onfocus="this.select();" placeholder="Enter JSON URL" value="example-aframe-city.json">
+            <span class="input-group-btn">
+              <button onclick="loadFileButton()" class="btn btn-info" type="button">Load JSON URL</button>
+            </span>
+          </div></p>
+
+          <!-- <p><input id="jsonInput" class="form-control" onfocus="this.select();" value="Paste in JSON here" type="text"></p>
+          <p><a onclick="loadButton()" class="btn btn-info">Load City Layout from JSON String</a></p> -->
           <p><a onclick="saveButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
           <p><a onclick="hide()" class="btn btn-success pull-right">Close</a></p>
 
     </div>
     <a onclick="show()"><div class="menu-overlay btn btn-outline-secondary"></div></a>
+
+    <script type="text/javascript">
+      var enteredVR = false;
+
+      document.querySelector('a-scene').addEventListener('enter-vr', function () {
+         console.log("ENTERED VR");
+         console.log(enteredVR);
+         if (!enteredVR) {
+           document.getElementById('cameraWrapper').setAttribute("position", "0 0 0");
+           document.getElementById('cameraWrapper').setAttribute("rotation", "0 0 0");
+           enteredVR = true;
+         };
+      }); // works the first time, but then makes things wonky the 2nd time
+
+      document.querySelector('a-scene').addEventListener('exit-vr', function () {
+         console.log("EXIT VR");
+        //  document.getElementById('cameraWrapper').setAttribute("position", "-1.06 1.31 1.82"); // position="-1.06 1.31 1.82"
+        //  document.getElementById('cameraWrapper').setAttribute("rotation", "-12.834254610930437 -16.844959176846217 0");
+      }); // works the first time
+    </script>
+
     <script type="text/javascript">
           function hide() {
               $("#dialog").removeClass('intro-overlay');
@@ -230,40 +269,60 @@
             download(jsonData, 'my-aframe-city.json', 'text/plain');
           }
 
+          function appendObject(id, file, scale, position, rotation, scale) {
+            console.log(position);
+            $('<a-obj-model />', {
+              id: id,
+              class: 'city object children',
+              position: position,  // doesn't seem to do anything
+              scale: scale,
+              rotation: rotation,
+              file: file,
+              src: '#' + file + '-obj',
+              mtl: '#' + file + '-mtl',
+              appendTo : $('#city')
+            });
+           document.getElementById(id).setAttribute("position", position); // this does set position
+          }
+
+          function toDOM(jsonInput) {
+            for(var i = 0; i < jsonInput.length; i++) {
+                var obj = jsonInput[i];
+                console.log(obj.id);
+                console.log(obj.file);
+                console.log(obj.rotation);
+                console.log(obj.position);
+                console.log(obj.scale);
+                appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
+            }
+          }
+
+          function loadFileButton() {
+            $.getJSON($("#fileInput")[0].value, function(json) {
+                toDOM(json);
+            });
+          }
+
           function loadButton() {
             console.log("load button clicked");
 
-            function appendObject(id, file, scale, position, rotation, scale) {
-              console.log(position);
-              $('<a-obj-model />', {
-                id: id,
-                class: 'city object children',
-                position: position,  // doesn't seem to do anything
-                scale: scale,
-                rotation: rotation,
-                file: file,
-                src: '#' + file + '-obj',
-                mtl: '#' + file + '-mtl',
-                appendTo : $('#city')
-              });
-             document.getElementById(id).setAttribute("position", position); // this does set position
-            }
-
-            function toDOM(jsonInput) {
-              for(var i = 0; i < jsonInput.length; i++) {
-                  var obj = jsonInput[i];
-                  console.log(obj.id);
-                  console.log(obj.file);
-                  console.log(obj.rotation);
-                  console.log(obj.position);
-                  console.log(obj.scale);
-                  appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
-              }
+            function IsJsonString(str) {
+                try {
+                    JSON.parse(str);
+                } catch (e) {
+                    return false;
+                }
+                return true;
             }
 
             jsonInput = $("#jsonInput")[0].value;
             console.log(jsonInput);
-            toDOM(JSON.parse(jsonInput));
+
+            if (IsJsonString(jsonInput)) {
+              toDOM(JSON.parse(jsonInput));
+            } else {
+              console.log("oops not valid json");
+            }
 
           }
           function show() {
