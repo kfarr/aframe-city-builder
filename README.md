@@ -9,14 +9,13 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot4.png
 
 ## wishlist
-* make the game title look nicer - restore the geometric text from ada
 * have a central registry of objects (json file is fine to start) that is not in index.html file
 * support both oculus touch and vive using https://github.com/chenzlabs/a-painter/blob/5aeaf2bd592a49be5e523474e2c43cc1e225ae7f/src/components/auto-detect-controllers.js
 * support scroll right/left of objects via touch thumbstick/vive touchpad
 * add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a> 
 * firebase or simple db storage for scenes in json or other format
 * switch to all jquery and remove d3 dependency
-* pull d3 out of demo-controls.js, rename this component more appropriately, use a proper build process to combine and minify all the various libraries
+* use a proper build process to combine and minify all the various libraries
 * clear / delete (bulldozer?)
 * adopt a palette or other creative user interface to choose categories of objects, it is tiresome to scroll past many objects
 * "lazy loading" of objects only when necessary, right now all available objects are loaded at once
@@ -31,6 +30,8 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * try isometric view on mobile / non-vr devices (examples https://github.com/aframevr/aframe/issues/84 and http://wafi.iit.cnr.it/webvis/lab/preview.php?gist_id=07b5887a1d57b40b6065)
 
 ## wishlist done
+* * - pull d3 out of demo-controls.js, rename this component more appropriately,
+* * - make the game title look nicer - restore the geometric text from ada
 * * - add an option to load a default example city
 * * - add ability to load from json file
 * * - show a nicer default camera view / rotation
