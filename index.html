@@ -19,6 +19,8 @@
 
     <script src="lib/builder-controls.js"></script>
 
+    <script src="https://cdn.rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script>
+
     <!-- for menu overlay -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
@@ -132,11 +134,13 @@
       </a-entity>
       <!-- <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"></a-entity> -->
 
-      <a-entity builder-controls id="leftController" wasd-controls vive-controls="hand: left">
+      <!-- <a-entity builder-controls id="leftController" wasd-controls vive-controls="hand: left"> -->
+      <a-entity builder-controls id="leftController" wasd-controls auto-detect-controllers="hand:left; trackedcontrols:false">
         <a-obj-model id="leftItem" objectType="bases" objectId="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
-      <a-entity builder-controls id="rightController" vive-controls="hand: right">
+      <!-- <a-entity builder-controls id="rightController" vive-controls="hand: right"> -->
+      <a-entity builder-controls id="rightController" auto-detect-controllers="hand:right; trackedcontrols:false">
         <a-obj-model id="rightItem" objectType="objects" objectId="0" src="#obj_treekf-obj" mtl="#obj_treekf-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 0 0"></a-obj-model>
       </a-entity>
 
@@ -178,7 +182,7 @@
           <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
           <h4><strong>A-Frame City Builder</strong></h4>
           <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive VR headset and tracked hand controllers. You will need a <a href="https://webvr.info/">WebVR compatible browser</a> with an <a href="https://github.com/Web-VR/iswebvrready/wiki/Instructions%3A-Chromium-for-HTC-Vive-on-Windows">HTC Vive</a> to use this.</p>
-          <p>Place objects with <code>trigger</code>, switch objects by pressing <code>trackpad</code> and undo the last placement with the <code>menu</code> button. MIT and CC licenses.</p>
+          <p>Place objects with <code>trigger</code>, switch objects by pressing <code>trackpad</code> and undo the last placement by squeezing the <code>grip</code> buttons. MIT and CC licenses.</p>
           <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
           <p><div class="input-group">
             <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
