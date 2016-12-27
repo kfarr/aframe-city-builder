@@ -9,9 +9,10 @@ A-Frame project to play with Vive controls required to make drawing and layout t
 * https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot4.png
 
 ## wishlist
+* make the game title look nicer - restore the geometric text from ada
 * have a central registry of objects (json file is fine to start) that is not in index.html file
-* support oculus touch using aframe 0.4.0 or https://github.com/tbalouet/touch-controls
-* make the game title look nicer - either restore the geometric text from ada or create a new 2d logo
+* support both oculus touch and vive using https://github.com/chenzlabs/a-painter/blob/5aeaf2bd592a49be5e523474e2c43cc1e225ae7f/src/components/auto-detect-controllers.js
+* support scroll right/left of objects via touch thumbstick/vive touchpad
 * add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a> 
 * firebase or simple db storage for scenes in json or other format
 * switch to all jquery and remove d3 dependency
