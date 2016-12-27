@@ -4,27 +4,24 @@
     <meta charset="utf-8">
     <title>A-Frame City Builder</title>
     <meta name="description" content="A-Frame City Builder">
-    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
-    <script src="lib/aframe-extras.min.js"></script>
-    <script src="lib/demo-controls.js"></script>
-    <!-- <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script> -->
-    <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
 
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script src="https://cdn.rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script>
+    <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script> -->
+    <script src="lib/aframe-extras.min.js"></script>
+
     <script src="lib/skyGradient.js"></script>
     <script src="lib/ground.js"></script>
 
-    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202%20Black_Regular.js"></script>
-    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202_Bold%20Italic.js"></script>
-
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    <script src="lib/builder-controls.js"></script>
 
     <!-- for menu overlay -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-
     <style>
           .intro-overlay {
             z-index: 1;
@@ -57,7 +54,6 @@
             background-size: 40px 40px;
           }
         </style>
-
   </head>
   <body>
     <a-scene id="my-scene" antialias='true'>
@@ -66,10 +62,8 @@
         <img id="chrome" src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" crossorigin="anonymous">
         <img id="pink" src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg" crossorigin="anonymous" />
 
-        <a-mixin id="highlight">
-          <a-animation begin="mouseenter" attribute="material.opacity" from="0" to="0.5"></a-animation>
-          <a-animation begin="mouseleave" attribute="material.opacity" from="0.5" to="0"></a-animation>
-        </a-mixin>
+        <a-asset-item id="exoBlackRegular" src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202%20Black_Regular.js"></a-asset-item>
+        <a-asset-item id="exoBoldItalic" src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202_Bold%20Italic.js"></a-asset-item>
 
         <a-asset-item id="veh_ambulance-obj" src="assets/veh_ambulance.obj"></a-asset-item>
         <a-asset-item id="veh_ambulance-mtl" src="assets/veh_ambulance.mtl"></a-asset-item>
@@ -130,7 +124,6 @@
 
         <a-asset-item id="obj_house3-obj" src="assets/obj_house3.obj"></a-asset-item>
         <a-asset-item id="obj_house3-mtl" src="assets/obj_house3.mtl"></a-asset-item>
-
       </a-assets>
 
       <!-- Player -->
@@ -139,11 +132,11 @@
       </a-entity>
       <!-- <a-entity id="camera" camera look-controls wasd-controls="fly: true" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"></a-entity> -->
 
-      <a-entity demo-controls id="leftController" wasd-controls vive-controls="hand: left">
+      <a-entity builder-controls id="leftController" wasd-controls vive-controls="hand: left">
         <a-obj-model id="leftItem" objectType="bases" objectId="1" src="#base-street-obj" mtl="#base-street-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-obj-model>
       </a-entity>
 
-      <a-entity demo-controls id="rightController" vive-controls="hand: right">
+      <a-entity builder-controls id="rightController" vive-controls="hand: right">
         <a-obj-model id="rightItem" objectType="objects" objectId="0" src="#obj_treekf-obj" mtl="#obj_treekf-mtl" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 0 0"></a-obj-model>
       </a-entity>
 
@@ -161,13 +154,13 @@
 
       <a-entity position="-3 1 -6" rotation="5 0 0">
 
-        <!-- Geometric Text not working in 0.4.0 - City Builder Geometric Text Title adapted from Ada Rose's https://aframe.io/examples/showcase/hello-metaverse/ -->
-        <!--<a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:exo 2 black;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
-        <a-entity position="-1 2.15 0.3" text="text:A-Frame; font: exo 2;  style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color:white;" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
-        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:exo 2;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity> -->
+        <!-- City Builder Geometric Text Title adapted from Ada Rose's https://aframe.io/examples/showcase/hello-metaverse/ -->
+        <a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:#exoBlackRegular;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
+        <a-entity position="-1 2.15 0.3" text="text:A-Frame; font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;" material="shader:flat;color:white;" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity>
 
-        <!-- temporary replacement for geometric text -->
-        <a-plane position="3.5 1 -0.5" scale="5 1 0" src="assets/aframecity.png" material="opacity:0.6"></a-plane>
+        <!-- temporary replacement for geometric text when it broke upon aframe 0.4.0 release -->
+        <!-- <a-plane position="3.5 1 -0.5" scale="5 1 0" src="assets/aframecity.png" material="opacity:0.6"></a-plane> -->
 
       </a-entity>
 
@@ -187,27 +180,20 @@
           <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive VR headset and tracked hand controllers. You will need a <a href="https://webvr.info/">WebVR compatible browser</a> with an <a href="https://github.com/Web-VR/iswebvrready/wiki/Instructions%3A-Chromium-for-HTC-Vive-on-Windows">HTC Vive</a> to use this.</p>
           <p>Place objects with <code>trigger</code>, switch objects by pressing <code>trackpad</code> and undo the last placement with the <code>menu</code> button. MIT and CC licenses.</p>
           <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
-
-
           <p><div class="input-group">
             <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
             <span class="input-group-btn">
               <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
             </span>
           </div></p>
-
           <p><div class="input-group">
             <input id="fileInput" type="text" class="form-control" onfocus="this.select();" placeholder="Enter JSON URL" value="example-aframe-city.json">
             <span class="input-group-btn">
               <button onclick="loadFileButton()" class="btn btn-info" type="button">Load JSON URL</button>
             </span>
           </div></p>
-
-          <!-- <p><input id="jsonInput" class="form-control" onfocus="this.select();" value="Paste in JSON here" type="text"></p>
-          <p><a onclick="loadButton()" class="btn btn-info">Load City Layout from JSON String</a></p> -->
           <p><a onclick="saveButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
           <p><a onclick="hide()" class="btn btn-success pull-right">Close</a></p>
-
     </div>
     <a onclick="show()"><div class="menu-overlay btn btn-outline-secondary"></div></a>
 
