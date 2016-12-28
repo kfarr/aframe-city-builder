@@ -2,7 +2,7 @@
 A-Frame project demonstrating touch controls for building a VR city scene.
 
 ## Demo
-<strong><a href="https://kfarr.github.io/aframe-city-builder">If you have an HTC Vive or Oculus Rift with accompanying controllers try it out now! https://kfarr.github.io/aframe-city-builder</a></strong>
+<strong><a href="https://kfarr.github.io/aframe-city-builder">If you have an HTC Vive or Oculus Rift with accompanying controllers, click here to try it out now!</a></strong>
 
 ## Screenshots
 <img src="./images/screenshots.gif" />
