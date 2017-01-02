@@ -12,9 +12,15 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 * https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot4.png
 
 ## wishlist
-* have a central registry of objects (json file is fine to start) that is not in index.html file
+* load object list through json
+* use ply objects instead of obj
+* use preview images for next/previous objects
+* ui to go forward / backward through the json list
+* try progressive enhancement to replace standard ply with baked ply after loading
+* try out https://github.com/takahirox/aframe-outline component
+* have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e
 * support scroll right/left of objects via touch thumbstick/vive touchpad
-* add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a> 
+* add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a>
 * firebase or simple db storage for scenes in json or other format
 * switch to all jquery and remove d3 dependency
 * use a proper build process to combine and minify all the various libraries
@@ -31,29 +37,8 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 * physics
 * try isometric view on mobile / non-vr devices (examples https://github.com/aframevr/aframe/issues/84 and http://wafi.iit.cnr.it/webvis/lab/preview.php?gist_id=07b5887a1d57b40b6065)
 
-## wishlist done
-* * - support both oculus touch and vive using https://github.com/chenzlabs/a-painter/blob/5aeaf2bd592a49be5e523474e2c43cc1e225ae7f/src/components/auto-detect-controllers.js
-* * - pull d3 out of demo-controls.js, rename this component more appropriately,
-* * - make the game title look nicer - restore the geometric text from ada
-* * - add an option to load a default example city
-* * - add ability to load from json file
-* * - show a nicer default camera view / rotation
-* * - improve the overlay dialogue "close" button styling
-* * - paste in json should autoselect
-* * - upgrade to aframe 0.4.0
-* * - (basic) save/load scenes to/from json file
-* * - basic desktop info ui
-* * - undo
-* * - added houses and vehicles from https://github.com/mikelovesrobots/mmmm
-* * - cars, bikes, trucks - we got em!
-* * - buildings, houses - we got em too!
-* * - snap to grid for bases
-* * - nicer looking table
-* * - display a grid
-* * - background selection - dark starry skies, what else?
-* * - separate right-hand and left-hand object selection: left-hand for "bases", right-hand for "objects"
-* * - add support for switching objects (ie from car to tree, etc.) press trackpad button to see the "preview" change
-* * - add object
+## Changelog
+See here https://github.com/kfarr/aframe-city-builder/blob/master/CHANGELOG.md
 
 ## model credits:
 * most models made by Mike Judge, see more here: https://github.com/mikelovesrobots/mmmm
