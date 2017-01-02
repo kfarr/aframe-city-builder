@@ -1,0 +1,14 @@
+[
+  {
+    "file": "base_grass1",
+    "scale": "0.01 0.01 0.01"
+  },
+  {
+    "file": "base_street1",
+    "scale": "0.01 0.01 0.01"
+  },
+  {
+    "file": "base_crosstreet",
+    "scale": "0.01 0.01 0.01"
+  }
+]

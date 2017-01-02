@@ -1,0 +1,54 @@
+[
+  {
+    "file": "alien_bot1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_bot2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_bot3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_crawl1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_crawl2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_egg1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_egg2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_engi1a",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_engi1b",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_engi1c",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_engi2a",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_engi2b",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "alien_engi2c",
+    "scale": "0.005 0.005 0.005"
+  }
+]
