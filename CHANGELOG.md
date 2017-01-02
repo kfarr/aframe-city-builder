@@ -4,14 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## 0.0.8 - [Unreleased / Date TBD]
 ### Added
-- tbd
+- animate snapping to bases
+- item switching Right only
+- save / load items - fix it
+- add veh objects from mmmm - all of them
+- add scene bases temporarily back to bases file
+- remove d3
+- FEATURE PARITY - test and release --
+- copy ada pictures to local project
+- item switching left / right
+- object type switching up / down
 
 ### Changed
-- tbd
+- changed directory structure, most things are now under assets/
+-
 
-## Unversioned Release - 2017-01-01 and prior
+## [Unversioned Releases] - 2017-01-01 and prior
 ### Added
 - Added a changelog.
 - Prior to the change log, all these things were added or changed:

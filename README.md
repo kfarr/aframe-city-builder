@@ -5,19 +5,18 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 <strong><a href="https://kfarr.github.io/aframe-city-builder">If you have an HTC Vive or Oculus Rift with accompanying controllers, click here to try it out now!</a></strong>
 
 ## Screenshots
-<img src="./images/screenshots.gif" />
-* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot1.png
-* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot2.png
-* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot3.png
-* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/images/screenshot4.png
+<img src="./assets/images/screenshots.gif" />
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/assets/images/screenshot1.png
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/assets/images/screenshot2.png
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/assets/images/screenshot3.png
+* https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/assets/images/screenshot4.png
 
 ## wishlist
 * load object list through json
-* use ply objects instead of obj
 * use preview images for next/previous objects
 * ui to go forward / backward through the json list
-* try progressive enhancement to replace standard ply with baked ply after loading
-* try out https://github.com/takahirox/aframe-outline component
+* try progressive enhancement to replace obj with baked ply after loading
+* try https://github.com/takahirox/aframe-outline component
 * have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e
 * support scroll right/left of objects via touch thumbstick/vive touchpad
 * add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a>
@@ -32,6 +31,7 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 * highlight currently overlapping grid location
 * cars to follow prescribed course on roads
 * user generated objects / global object store
+* add aframe snowplay type support https://github.com/rondagdag/aframe-snow-play
 * persistent multiuser world
 * use geolocation api to with virtual citybuilder locations to create "mini second life"
 * physics
