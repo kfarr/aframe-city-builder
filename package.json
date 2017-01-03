@@ -7,7 +7,8 @@
     "start": "budo --live --verbose --port 3000 --open"
   },
   "devDependencies": {
-    "budo": "^7.0.0"
+    "budo": "^7.0.0",
+    "yargs": "^6.6.0"
   },
   "keywords": [
     "aframe",
