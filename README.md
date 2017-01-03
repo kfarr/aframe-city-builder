@@ -35,6 +35,7 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 * persistent multiuser world
 * use geolocation api to with virtual citybuilder locations to create "mini second life"
 * physics
+* add sunlight day cycle as aframe component http://jeromeetienne.github.io/threex.daynight/examples/basic.html
 * try isometric view on mobile / non-vr devices (examples https://github.com/aframevr/aframe/issues/84 and http://wafi.iit.cnr.it/webvis/lab/preview.php?gist_id=07b5887a1d57b40b6065)
 
 ## Changelog

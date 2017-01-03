@@ -6,20 +6,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.0.8 - [Unreleased / Date TBD]
 ### Added
-- animate snapping to bases
-- item switching Right only
-- save / load items - fix it
-- add veh objects from mmmm - all of them
-- add scene bases temporarily back to bases file
-- remove d3
+- * parity animate snapping to bases
+- * parity item switch both sides
+- * remove d3
+- * parity save / load items - fix it - O- backward compatible with json or fix it
+- TEST new load / save in their own file
+- new feature add veh objects from mmmm - all of them. obj only, no img preview
+- parity add scene bases temporarily back to bases file
+- TEST against vive
 - FEATURE PARITY - test and release --
-- copy ada pictures to local project
-- item switching left / right
+
+- load new scenes without destroying original (load by appending) - does not handle collision case
+- copy ada pictures to local project, ground mesh as well
+- item switching left / right with watch ui concept
 - object type switching up / down
 
 ### Changed
 - changed directory structure, most things are now under assets/
--
 
 ## [Unversioned Releases] - 2017-01-01 and prior
 ### Added

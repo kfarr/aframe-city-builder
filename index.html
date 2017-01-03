@@ -8,7 +8,6 @@
     <!-- <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script> -->
     <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
     <script src="https://cdn.rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
@@ -16,8 +15,7 @@
     <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script> -->
 
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.2.1/dist/aframe-extras.js"></script>
-    <!-- <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.2.0/dist/aframe-extras.loaders.min.js"></script> -->
-    <!-- <script src="lib/aframe-extras.min.js"></script> -->
+
     <!-- <script src="https://github.com/nylki/aframe-fit-texture-component/raw/master/dist/aframe-fit-texture-component.min.js"></script> -->
 
     <script src="lib/skyGradient.js"></script>
@@ -184,7 +182,7 @@
       }); // works the first time
     </script> -->
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     AFRAME.registerComponent('ply-transform', {
       init: function () {
         this.el.addEventListener('model-loaded', function (e) {
@@ -193,7 +191,7 @@
         });
       }
     });
-    </script>
+    </script> -->
 
     <script type="text/javascript">
           function hide() {
@@ -235,28 +233,25 @@
 
           function appendObject(id, file, scale, position, rotation, scale) {
             console.log(position);
-            $('<a-obj-model />', {
+            $('<a-entity />', {
               id: id,
               class: 'city object children',
               position: position,  // doesn't seem to do anything
               scale: scale,
               rotation: rotation,
               file: file,
-              src: '#' + file + '-obj',
-              mtl: '#' + file + '-mtl',
+              "obj-model": "obj: url(assets/obj/" + file + ".obj); mtl: url(assets/obj/" + file + ".mtl)",
+              // src: '#' + file + '-obj',
+              // mtl: '#' + file + '-mtl',
               appendTo : $('#city')
             });
-           document.getElementById(id).setAttribute("position", position); // this does set position
+           document.getElementById(id).setAttribute("position", position); // workaround - this does set position
           }
 
           function toDOM(jsonInput) {
             for(var i = 0; i < jsonInput.length; i++) {
                 var obj = jsonInput[i];
-                console.log(obj.id);
-                console.log(obj.file);
-                console.log(obj.rotation);
-                console.log(obj.position);
-                console.log(obj.scale);
+                console.log("Adding entity #" + obj.id);
                 appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
             }
           }
