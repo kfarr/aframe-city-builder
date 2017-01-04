@@ -15,7 +15,6 @@
     <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script> -->
 
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.2.1/dist/aframe-extras.js"></script>
-
     <!-- <script src="https://github.com/nylki/aframe-fit-texture-component/raw/master/dist/aframe-fit-texture-component.min.js"></script> -->
 
     <script src="lib/skyGradient.js"></script>
@@ -84,25 +83,12 @@
         <a-entity id="camera" camera look-controls wasd-controls="fly: true" ></a-entity>
       </a-entity>
 
-      <a-entity builder-controls id="leftController" wasd-controls auto-detect-controllers="hand:left; trackedcontrols:false">
-      <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left"> -->
+      <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left">
         <a-entity id="leftItem" file="base_street" objectType="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity>
       </a-entity>
 
-      <a-entity builder-controls id="rightController" auto-detect-controllers="hand:right; trackedcontrols:false">
-      <!-- <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right"> -->
-        <a-entity id="rightItem" file="alien_bot1" objectType="mmmm_alien" objectId="0" obj-model="obj: url(assets/obj/alien_bot1.obj); mtl: url(assets/obj/alien_bot1.mtl)" rotation="0 0 0" scale="0.005 0.005 0.005" position="0 0 -0.25"></a-entity>
-
-        <!-- experimental ply objects -->
-        <!-- <a-entity id="obj_tree1-ply" ply-model="src: url(new_assets/obj_tree1.ply)" rotation="-90 0 0"></a-entity>
-        <a-entity id="obj_tree1-bake-ply" ply-model="src: url(new_assets/obj_tree1.bake.ply)" rotation="-90 0 0"></a-entity> -->
-
-                <a-entity id="selectorthingy" data-objectType="mmmm_alien">
-                  <a-entity id="alien_bot1" class="previousObject" data-image="" data-scale="0.01 0.01 0.01"></a-entity>
-                  <a-entity id="alien_bot2" class="currentObject"></a-entity>
-                  <a-entity id="alien_bot3" class="nextObject"></a-entity>
-                </a-entity>
-
+      <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right">
+        <a-entity id="rightItem" file="veh_ambulance" objectType="mmmm_veh" objectId="0" obj-model="obj: url(assets/obj/veh_ambulance.obj); mtl: url(assets/obj/veh_ambulance.mtl)" rotation="0 0 0" scale="0.005 0.005 0.005" position="0 0 -0.25"></a-entity>
       </a-entity>
 
       <!-- City -->
