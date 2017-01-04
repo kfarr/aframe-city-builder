@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var argv = require('yargs')
-    .usage('Create a JSON file for use by City Builder from a directory of object files.\nUsage: $0 <command> [options]')
+    .usage('Create a JSON file for use by City Builder from a directory of 3D model files.\nUsage: $0 <command> [options]')
     .option('output', {
       alias: 'o',
       describe: 'JSON output filename'
@@ -11,11 +11,12 @@ var argv = require('yargs')
     })
     .default('inputpath', './')
     .default('prefix', '')
-    .alias('p', 'prefix')
+    .alias('prefix', 'p')
     .default('ext', '.obj')
     .default('scale', '0.005 0.005 0.005')
     .demandOption('output')
-    .example('$0 -i ../assets/obj/ -o alien_group.json -p alien', 'create json from objects starting with alien')
+    .example('$0 -i ../assets/obj/ -o ../assets/mmmm_alien.json -p alien\n')
+    .example('$0 -i ../assets/obj/ -o ../assets/mmmm_scene.json -p scene --scale "0.004 0.004 0.004"')
     .help()
     .argv
 const fs = require('fs');
