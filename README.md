@@ -12,13 +12,15 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 * https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/assets/images/screenshot4.png
 
 ## wishlist
-* load object list through json
+* copy ada pictures to local project, ground mesh as well
+* object type switching up / down
 * use preview images for next/previous objects
 * ui to go forward / backward through the json list
 * try progressive enhancement to replace obj with baked ply after loading
 * try https://github.com/takahirox/aframe-outline component
 * have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e
 * support scroll right/left of objects via touch thumbstick/vive touchpad
+* load new scenes without destroying original (load by appending) - does not handle collision case
 * add some more fun placeable objects like pixel people and ufo's from <a href="https://github.com/mikelovesrobots/mmmm">mmmm</a>
 * firebase or simple db storage for scenes in json or other format
 * switch to all jquery and remove d3 dependency
