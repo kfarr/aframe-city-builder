@@ -1,0 +1,254 @@
+[
+  {
+    "file": "scene_aliens",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_arcade",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_army",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_bus",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_car",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_carflip",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_checkpoint",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_christmas",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_church1",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_coffee",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_corner",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_crucifix",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_depot",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_depot2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_depot3",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_fall",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_grave",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_hazmat",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_hazmat2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_headache",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_house",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_house2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_house3",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_house4",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_house5",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_house6",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_house7",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_hunt",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_lunch",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_mechanic",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_mechanic2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_mobile",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_orgy",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_parade",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_park",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_park2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_park3",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_park4",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_parked",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_protest",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_riot",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_sacrifice",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_ships",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_sidewalk",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store10",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store11",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store3",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store4",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store5",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store6",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store7",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store8",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_store9",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_sumo",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_tentcity",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_tentcity2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_theater",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_train",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_vehicles1",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_vehicles2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "scene_zombies",
+    "scale": "0.004 0.004 0.004"
+  }
+]

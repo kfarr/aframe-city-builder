@@ -1,0 +1,150 @@
+[
+  {
+    "file": "veh_ambulance",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_bus",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_cab1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_car1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_car2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_car3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_car4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_car5",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_fire",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_lunch1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_lunch2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_lunch3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_lunch4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_mini1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_mini2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_mini3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_mini4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_mini5",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_police1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_suv1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_suv2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_suv3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_tank1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_train",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_train2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_train3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_truck1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_truck2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_truck3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_truck4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_truck5",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_truck6",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_truck7",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_wagon1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_wagon2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_wagon3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "veh_wagon4",
+    "scale": "0.005 0.005 0.005"
+  }
+]
