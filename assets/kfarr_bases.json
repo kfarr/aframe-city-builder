@@ -1,0 +1,26 @@
+[
+  {
+    "file": "base_grass1",
+    "scale": "0.01 0.01 0.01"
+  },
+  {
+    "file": "base_street1",
+    "scale": "0.01 0.01 0.01"
+  },
+  {
+    "file": "base_crossstreet",
+    "scale": "0.01 0.01 0.01"
+  },
+  { "file": "scene_house6",
+    "scale": "0.00390625 0.00390625 0.00390625"
+  },
+  { "file": "scene_house5",
+    "scale": "0.00390625 0.00390625 0.00390625"
+  },
+  { "file": "scene_house2",
+    "scale": "0.00390625 0.00390625 0.00390625"
+  },
+  { "file": "scene_park4",
+    "scale": "0.00390625 0.00390625 0.00390625"
+  }
+]

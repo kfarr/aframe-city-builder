@@ -4,14 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## 0.0.8 - 2017-01-03
 ### Added
-- tbd
+- added support for loading object lists from json files instead of hardcoding in app
+- removed d3 dependencies
+- refactored object loading code
+- new json_builder.js utility to create city builder compatible object lists in json format
+- add all vehicle (veh) objects from mmmm
 
 ### Changed
-- tbd
+- changed directory structure, most things are now under assets
 
-## Unversioned Release - 2017-01-01 and prior
+## [Unversioned Releases] - 2017-01-01 and prior
 ### Added
 - Added a changelog.
 - Prior to the change log, all these things were added or changed:
