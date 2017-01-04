@@ -10,9 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - * parity item switch both sides
 - * remove d3
 - * parity save / load items - fix it - O- backward compatible with json or fix it
+- * new json_builder.js utility to create city builder compatible object lists in json format
+- * new feature add veh objects from mmmm - all of them. obj only, no img preview
+- * parity add scene bases temporarily back to bases file
 - TEST new load / save in their own file
-- new feature add veh objects from mmmm - all of them. obj only, no img preview
-- parity add scene bases temporarily back to bases file
 - TEST against vive
 - FEATURE PARITY - test and release --
 
