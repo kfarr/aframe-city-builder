@@ -56,15 +56,18 @@ var files = fs.readdirSync(argv.inputpath);
 files.forEach(file => {
   if (file.match("^" + argv.inputprefix) && file.match(argv.ext + "$")) {
     var filename = path.parse(file).name;
+    console.log('input: ' + argv.inputpath + file);
 
-    sharp(file)
-      .resize(argv.width, argv.height)
-      .crop()
-      .toFile(path.parse(file).name + argv.format, function(err, info) {
+    sharp(argv.inputpath + file)
+      .extract({ left: argv.width / 2, top: argv.height / 2, width: argv.width, height: argv.height })
+//      .resize(argv.width, argv.height)
+//      .crop()
+      .jpeg({quality: 91})
+      .toFile(argv.outputpath + path.parse(file).name + argv.format, function(err, info) {
         if (err) {
           return console.log(err);
         }
-        console.log('input: ' + file + '; output: ' + path.parse(file).name + argv.format);
+        console.log('output: ' + argv.outputpath + path.parse(file).name + argv.format);
       });
 
   }
