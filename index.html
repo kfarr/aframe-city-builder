@@ -5,17 +5,15 @@
     <title>A-Frame City Builder</title>
     <meta name="description" content="A-Frame City Builder">
 
-    <!-- <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script> -->
     <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
     <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script>
-    <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script> -->
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
 
     <script src="https://rawgit.com/donmccurdy/aframe-extras/v3.2.1/dist/aframe-extras.js"></script>
-    <!-- <script src="https://github.com/nylki/aframe-fit-texture-component/raw/master/dist/aframe-fit-texture-component.min.js"></script> -->
 
     <script src="lib/skyGradient.js"></script>
     <script src="lib/ground.js"></script>
@@ -68,6 +66,7 @@
         <!-- scene items -->
         <a-asset-item id="table-obj" src="assets/environment/table.obj"></a-asset-item>
         <a-asset-item id="table-mtl" src="assets/environment/table.mtl"></a-asset-item>
+        <a-asset-item id="env_arrow" src="assets/environment/env_arrow.obj"></a-asset-item>
 
         <!-- geometric city builder text -->
         <img id="chrome" src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" crossorigin="anonymous">
@@ -82,14 +81,75 @@
       <!-- <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"> -->
         <a-entity id="camera" camera look-controls wasd-controls="fly: true" ></a-entity>
       </a-entity>
+    <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0">
+    </a-entity>
 
-      <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left">
-        <a-entity id="leftItem" file="base_street" objectType="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity>
+      <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
+        <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity>
       </a-entity>
 
       <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right">
-        <a-entity id="rightItem" file="veh_ambulance" objectType="mmmm_veh" objectId="0" obj-model="obj: url(assets/obj/veh_ambulance.obj); mtl: url(assets/obj/veh_ambulance.mtl)" rotation="0 0 0" scale="0.005 0.005 0.005" position="0 0 -0.25"></a-entity>
+        <!-- <a-entity id="rightItem" file="veh_ambulance" objectGroup="mmmm_veh" objectId="0" obj-model="obj: url(assets/obj/veh_ambulance.obj); mtl: url(assets/obj/veh_ambulance.mtl)" rotation="-56.8 0 0" scale="0.005 0.005 0.005" position="0 -0.08 -0.09"></a-entity> -->
+        <a-entity id="rightItem" file="alien_bot1" objectGroup="mmmm_alien" objectId="0" obj-model="obj: url(assets/obj/alien_bot2.obj); mtl: url(assets/obj/alien_bot1.mtl)" rotation="-56.8 0 0" scale="0.005 0.005 0.005" position="0 -0.08 -0.09"></a-entity>
+
+        <a-entity id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
+            <a-box id="menuFrame" scale="0.4 0.15 0.005" position="0 0 -0.0075"  material="opacity: 0.5; transparent: true; color: #000000"></a-box>
+            <a-entity id="groupText" position="-0.18 0.045 -0.003" scale="0.125 0.125 0.125" bmfont-text="text: ALIENS; color: #747474"></a-entity>
+
+            <a-entity id="arrowRight" position="0.225 0 0" rotation="90 180 0" scale="-0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity: 0.5; transparent: true; color: #000000"></a-entity>
+            <a-entity id="arrowLeft" position="-0.225 0 0" rotation="90 180 0" scale="0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity:0.5; transparent:true; color:#000000"></a-entity>
+            <a-entity id="arrowUp" position="0 0.1 0" rotation="0 270 90" scale="0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity: 0.5; transparent: true; color: #000000"></a-entity>
+            <a-entity id="arrowDown" position="0 -0.1 0" rotation="0 270 90" scale="-0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity: 0.5; transparent: true; color: #000000"></a-entity>
+
+            <a-entity id="menuObjectList">
+              <a-entity id="menu32" visible="false" class="preview" objectId="32" file="alien_tool1" objectGroup="mmmm_alien" position="-0.225 0 0">
+                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
+                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_tool1.jpg" ></a-image>
+                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Tool1; color: #747474"></a-entity>
+              </a-entity>
+
+              <a-entity id="menu33" class="preview" objectId="33" file="alien_tool2" objectGroup="mmmm_alien" position="-0.15 0 0">
+                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
+                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_tool2.jpg" ></a-image>
+                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Tool2; color: #747474"></a-entity>
+              </a-entity>
+
+              <a-entity id="menu34" class="preview" objectId="34" file="alien_tool3" objectGroup="mmmm_alien" position="-0.075 0 0">
+                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
+                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_tool3.jpg" ></a-image>
+                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Tool3; color: #747474"></a-entity>
+              </a-entity>
+
+              <a-entity id="menu0" class="preview selected" objectId="0" file="alien_bot1" objectGroup="mmmm_alien" position="0 0 0">
+                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: yellow"></a-box>
+                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_bot1.jpg" ></a-image>
+                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Bot1; color: yellow; opacity: 2"></a-entity>
+              </a-entity>
+
+              <a-entity id="menu1" class="preview" objectId="1" file="alien_bot2" objectGroup="mmmm_alien" position="0.075 0 0">
+                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
+                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_bot2.jpg" ></a-image>
+                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Bot2; color: #747474"></a-entity>
+              </a-entity>
+
+              <a-entity id="menu2" class="preview" objectId="2" file="alien_bot3" objectGroup="mmmm_alien" position="0.15 0 0">
+                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
+                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_bot3.jpg" ></a-image>
+                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Bot3; color: #747474"></a-entity>
+              </a-entity>
+
+              <a-entity id="menu3" visible="false" class="preview" objectId="3" file="alien_crawl1" objectGroup="mmmm_alien" position="0.225 0 0">
+                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
+                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_crawl1.jpg" ></a-image>
+                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Crawl1; color: #747474"></a-entity>
+              </a-entity>
+            </a-entity>
+
+        </a-entity>
+
       </a-entity>
+
+
 
       <!-- City -->
       <a-entity id="city"></a-entity>
@@ -129,8 +189,11 @@
           <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
           <h4><strong>A-Frame City Builder</strong></h4>
           <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
-          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing the <code>grip</code> buttons. Switch objects by pressing <code>trackpad</code> on the Vive controllers and <code>B</code> or <code>X</code> on the Oculus Touch controllers.</p>
           <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
+          <h5>VIVE CONTROLS</h5>
+          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on the <code>trackpad</code>.</p>
+          <h5>OCULUS TOUCH CONTROLS</h5>
+          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch right-hand objects by pressing <code>right</code> or <code>left</code> on the <code>thumbstick</code>. Switch left-hand objects by pressing <code>X</code>.</p>
           <p><div class="input-group">
             <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
             <span class="input-group-btn">
