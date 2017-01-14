@@ -4,10 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.0.9 - [UNRELEASED]
-### REMAINING BEFORE RELEASE
-- fix loading of new base names from json - is there a mismatch?
-
+## 0.0.9 - 2017-01-14
 ### Added
 - mvp of new object menu interface
 - support forward/back object switching with vive and oculus
@@ -20,7 +17,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - This version only allows for placement of base plates and alien voxel objects. More placeable objects will be supported shortly.
 - New grouping prefix "bld" for building objects (renamed those objects from "obj" prefix)
-
 
 ## 0.0.8 - 2017-01-03
 ### Added
