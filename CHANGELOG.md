@@ -6,13 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.0.9 - [UNRELEASED]
 ### REMAINING BEFORE RELEASE
-- oculus touch support - needs trigger on 80 or 90% right/left
 - fix loading of new base names from json - is there a mismatch?
-- update docs and desktop info dialog
 
 ### Added
 - mvp of new object menu interface
 - support forward/back object switching with vive and oculus
+- use 85% axis level to trigger object scroll forward/back when using the oculus touch thumbstick
 - use preview images for next/previous objects
 - added some fun placeable objects like UFOs from https://github.com/mikelovesrobots/mmmm
 - created 2 utilities for creating object group json index and preview images (/utils)
@@ -21,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - This version only allows for placement of base plates and alien voxel objects. More placeable objects will be supported shortly.
 - New grouping prefix "bld" for building objects (renamed those objects from "obj" prefix)
+
 
 ## 0.0.8 - 2017-01-03
 ### Added

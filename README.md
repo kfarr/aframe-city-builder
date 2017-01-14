@@ -12,23 +12,30 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 * https://raw.githubusercontent.com/kfarr/aframe-city-builder/master/assets/images/screenshot4.png
 
 ## Feature Highlights
-- Place voxel objects in a fun and simple virtual world of your creation
-- VR UI for navigating large quantities of place-able objects (experimental)
-- Snapping ground base plates for streets, grass, parks and residential lots
-- Save and load your city to/from JSON
+- Place voxel objects in a fun virtual city of your creation
+- Navigate available voxel objects with a scrolling menu interface in VR
+- Place base plates for streets, grass, parks and residential lots that snap to a simple grid layout
+- Save and load your city to/from JSON format
 - Support for Oculus Touch and HTC Vive Controllers (VR headset and controllers required)
 - Convenience utilities in /utils for creating new object JSON groups for aspiring city voxel artists
 
 ## Changelog
 - See history of newly added features here https://github.com/kfarr/aframe-city-builder/blob/master/CHANGELOG.md
 
+## Credits
+* most models made by Mike Judge, see more here: https://github.com/mikelovesrobots/mmmm
+* table http://tf3dm.com/3d-model/table-65702.html
+* tree and simple base plates created by kfarr using magicavoxel (https://ephtracy.github.io/)
+* city builder text based on https://github.com/ngokevin/kframe/blob/master/components/text/examples/vaporwave/index.html
+
 ## wishlist
 NOT IN THIS RELEASE
-- support for google draco object compression
-- create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
 - object group type switching up / down
 - teleport https://chenzlabs.github.io/aframe-teleport-controls/sample/
-- scale large/small (and rotate?) with both grips being pressed
+- create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
+- blender baking of AO texture and progressive application of AO textures after scene fully loaded
+- support for google draco object compression
+- scale large/small (and rotate?) with both grips being pressed (what would happen to undo?)
 - copy ada pictures to local project, ground mesh as well
 - add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
 - aframe city website - have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e -> this could be done without a server -> use a git based site builder service. register this as aframe.city
@@ -36,7 +43,7 @@ NOT IN THIS RELEASE
 - load new scenes without destroying original (load by appending) - does not handle collision case
 - add support for google draco object compression
 - add some clouds
-- send a VR postcard to facebook / social media http://callumprentice.github.io/apps/double_pendulum/index.html
+- send a VR postcard to facebook / social media
 - add sunlight day cycle as aframe component http://jeromeetienne.github.io/threex.daynight/examples/basic.html
 - firebase or simple db storage for scenes in json or other format
 - use a proper build process to combine and minify all the various libraries
@@ -54,11 +61,7 @@ NOT IN THIS RELEASE
 - try isometric view on mobile / non-vr devices (examples https://github.com/aframevr/aframe/issues/84 and http://wafi.iit.cnr.it/webvis/lab/preview.php?gist_id=07b5887a1d57b40b6065)
 - add non-flat lowpoly terrain like this example https://playcanvas.com/
 
-## model credits:
-* most models made by Mike Judge, see more here: https://github.com/mikelovesrobots/mmmm
-* table http://tf3dm.com/3d-model/table-65702.html
-* tree and simple base plates created by kfarr using magicavoxel (https://ephtracy.github.io/)
-* city builder text based on https://github.com/ngokevin/kframe/blob/master/components/text/examples/vaporwave/index.html
+
 
 ## future cool objects to add
 * more cool vehicles

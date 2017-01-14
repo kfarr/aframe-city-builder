@@ -84,7 +84,7 @@
     <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0">
     </a-entity>
 
-      <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" tracked-controls="controller: 1; id: OpenVR Gamepad">
+      <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
         <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity>
       </a-entity>
 
@@ -189,8 +189,11 @@
           <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
           <h4><strong>A-Frame City Builder</strong></h4>
           <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
-          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing the <code>grip</code> buttons. Switch objects by pressing <code>trackpad</code> on the Vive controllers and <code>B</code> or <code>X</code> on the Oculus Touch controllers.</p>
           <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
+          <h5>VIVE CONTROLS</h5>
+          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on the <code>trackpad</code>.</p>
+          <h5>OCULUS TOUCH CONTROLS</h5>
+          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch right-hand objects by pressing <code>right</code> or <code>left</code> on the <code>thumbstick</code>. Switch left-hand objects by pressing <code>X</code>.</p>
           <p><div class="input-group">
             <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
             <span class="input-group-btn">
