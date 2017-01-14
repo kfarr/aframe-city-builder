@@ -5,34 +5,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.0.9 - [UNRELEASED]
-### IN PROGRESS
-http://callumprentice.github.io/apps/double_pendulum/index.html
-send a postcard
-- support forward/back object switching
-- add some more fun placeable objects like pixel people and ufo's from https://github.com/mikelovesrobots/mmmm
-  - create new definition file for chr and bld
-^
+### REMAINING BEFORE RELEASE
+- oculus touch support - needs trigger on 80 or 90% right/left
+- fix loading of new base names from json - is there a mismatch?
+- update docs and desktop info dialog
+
+### Added
+- mvp of new object menu interface
+- support forward/back object switching with vive and oculus
 - use preview images for next/previous objects
-- support scroll right/left of objects via touch thumbstick/vive touchpad
-
-^
-- object type switching up / down
-
-~
-- teleport https://chenzlabs.github.io/aframe-teleport-controls/sample/
-- scale large/small (and rotate?) with both grips being pressed
-- copy ada pictures to local project, ground mesh as well
-- add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
-
-v- aframe city website - have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e -> this could be done without a server -> use a git based site builder service. register this as aframe.city
-v- try progressive enhancement to replace obj with baked ply after loading
-v- load new scenes without destroying original (load by appending) - does not handle collision case
+- added some fun placeable objects like UFOs from https://github.com/mikelovesrobots/mmmm
+- created 2 utilities for creating object group json index and preview images (/utils)
+- added all original vox files from mmmm (/assets/vox)
 
 ### Changed
-- added original vox files from mmmm
-- created new grouping prefix "bld" for building objects (renamed those objects from "obj" prefix)
-- tried https://github.com/takahirox/aframe-outline component, not great and slows down scene, might be okay as user selectable option in future
-
+- This version only allows for placement of base plates and alien voxel objects. More placeable objects will be supported shortly.
+- New grouping prefix "bld" for building objects (renamed those objects from "obj" prefix)
 
 ## 0.0.8 - 2017-01-03
 ### Added
