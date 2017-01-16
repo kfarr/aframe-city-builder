@@ -37,6 +37,9 @@ NOT IN THIS RELEASE
 - support for google draco object compression
 - scale large/small (and rotate?) with both grips being pressed (what would happen to undo?)
 - copy ada pictures to local project, ground mesh as well
+- placing a baseplate over another object should replace the baseplate, not place both on same location
+  - use flushtodom to force update of position to DOM https://aframe.io/docs/0.4.0/components/debug.html#component-to-dom-serialization
+- sound effects - commodore 64 style
 - add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
 - aframe city website - have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e -> this could be done without a server -> use a git based site builder service. register this as aframe.city
 - try progressive enhancement to replace obj with baked ply after loading

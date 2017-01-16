@@ -17,7 +17,7 @@
 
     <script src="lib/skyGradient.js"></script>
     <script src="lib/ground.js"></script>
-
+    <script src="lib/aframe-select-bar.js"></script>
     <script src="lib/builder-controls.js"></script>
 
     <script src="https://rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script>
@@ -92,61 +92,18 @@
         <!-- <a-entity id="rightItem" file="veh_ambulance" objectGroup="mmmm_veh" objectId="0" obj-model="obj: url(assets/obj/veh_ambulance.obj); mtl: url(assets/obj/veh_ambulance.mtl)" rotation="-56.8 0 0" scale="0.005 0.005 0.005" position="0 -0.08 -0.09"></a-entity> -->
         <a-entity id="rightItem" file="alien_bot1" objectGroup="mmmm_alien" objectId="0" obj-model="obj: url(assets/obj/alien_bot2.obj); mtl: url(assets/obj/alien_bot1.mtl)" rotation="-56.8 0 0" scale="0.005 0.005 0.005" position="0 -0.08 -0.09"></a-entity>
 
-        <a-entity id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
-            <a-box id="menuFrame" scale="0.4 0.15 0.005" position="0 0 -0.0075"  material="opacity: 0.5; transparent: true; color: #000000"></a-box>
-            <a-entity id="groupText" position="-0.18 0.045 -0.003" scale="0.125 0.125 0.125" bmfont-text="text: ALIENS; color: #747474"></a-entity>
-
-            <a-entity id="arrowRight" position="0.225 0 0" rotation="90 180 0" scale="-0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity: 0.5; transparent: true; color: #000000"></a-entity>
-            <a-entity id="arrowLeft" position="-0.225 0 0" rotation="90 180 0" scale="0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity:0.5; transparent:true; color:#000000"></a-entity>
-            <a-entity id="arrowUp" position="0 0.1 0" rotation="0 270 90" scale="0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity: 0.5; transparent: true; color: #000000"></a-entity>
-            <a-entity id="arrowDown" position="0 -0.1 0" rotation="0 270 90" scale="-0.004 0.002 0.004" obj-model="obj:#env_arrow" material="opacity: 0.5; transparent: true; color: #000000"></a-entity>
-
-            <a-entity id="menuObjectList">
-              <a-entity id="menu32" visible="false" class="preview" objectId="32" file="alien_tool1" objectGroup="mmmm_alien" position="-0.225 0 0">
-                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
-                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_tool1.jpg" ></a-image>
-                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Tool1; color: #747474"></a-entity>
-              </a-entity>
-
-              <a-entity id="menu33" class="preview" objectId="33" file="alien_tool2" objectGroup="mmmm_alien" position="-0.15 0 0">
-                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
-                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_tool2.jpg" ></a-image>
-                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Tool2; color: #747474"></a-entity>
-              </a-entity>
-
-              <a-entity id="menu34" class="preview" objectId="34" file="alien_tool3" objectGroup="mmmm_alien" position="-0.075 0 0">
-                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
-                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_tool3.jpg" ></a-image>
-                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Tool3; color: #747474"></a-entity>
-              </a-entity>
-
-              <a-entity id="menu0" class="preview selected" objectId="0" file="alien_bot1" objectGroup="mmmm_alien" position="0 0 0">
-                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: yellow"></a-box>
-                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_bot1.jpg" ></a-image>
-                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Bot1; color: yellow; opacity: 2"></a-entity>
-              </a-entity>
-
-              <a-entity id="menu1" class="preview" objectId="1" file="alien_bot2" objectGroup="mmmm_alien" position="0.075 0 0">
-                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
-                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_bot2.jpg" ></a-image>
-                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Bot2; color: #747474"></a-entity>
-              </a-entity>
-
-              <a-entity id="menu2" class="preview" objectId="2" file="alien_bot3" objectGroup="mmmm_alien" position="0.15 0 0">
-                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
-                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_bot3.jpg" ></a-image>
-                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Bot3; color: #747474"></a-entity>
-              </a-entity>
-
-              <a-entity id="menu3" visible="false" class="preview" objectId="3" file="alien_crawl1" objectGroup="mmmm_alien" position="0.225 0 0">
-                <a-box class="previewFrame" position="0 0 -0.003" scale="0.06 0.06 0.005" material="color: #222222"></a-box>
-                <a-image class="previewImage" scale="0.05 0.05 0.05" src="assets/preview/alien_crawl1.jpg" ></a-image>
-                <a-entity class="objectName" position="-0.025 -0.04 -0.003" scale="0.05 0.05 0.05" bmfont-text="text: Alien Crawl1; color: #747474"></a-entity>
-              </a-entity>
-            </a-entity>
-
+        <a-entity select-bar id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
+          <optgroup label="Aliens" value="mmmm_alien">
+            <option index=0 value="alien_bot1" src="assets/preview/alien_bot1.jpg" selected>Alien Bot 1</option>
+            <option index=1 value="alien_bot2" src="assets/preview/alien_bot2.jpg">Alien Bot 2</option>
+            <option index=2 value="alien_bot3" src="assets/preview/alien_bot3.jpg">Alien Bot 3</option>
+            <option index=3 value="alien_crawl1" src="assets/preview/alien_crawl1.jpg">Alien Crawl 1</option>
+            <option index=4 value="alien_crawl2" src="assets/preview/alien_crawl2.jpg">Alien Crawl 2</option>
+            <option index=5 value="alien_egg1" src="assets/preview/alien_egg1.jpg">Alien Egg 1</option>
+            <option index=6 value="alien_egg2" src="assets/preview/alien_egg2.jpg">Alien Egg 2</option>
+          </optgroup>
+          <optgroup label="Aliens" src="assets/mmmm_alien.json"></optgroup>
         </a-entity>
-
       </a-entity>
 
 

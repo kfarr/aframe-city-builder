@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.0 - [NOT YET RELEASED]
+### Added / Changed
+- turn menu into component
+  - menu needs an array of possible items, images, metadata
+    - to build a row, menu group title; menu group objects; for each object - name, image, value
+  - menu responds to emitted events independent of controllers
+  - menu has optional built-in bindings to controllers. those bindings simply emit menu events.
+- object group type switching up / down
+- create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
+
+- teleport https://chenzlabs.github.io/aframe-teleport-controls/sample/
+- blender baking of AO texture and progressive application of AO textures after scene fully loaded
+- support for google draco object compression
+- scale large/small (and rotate?) with both grips being pressed (what would happen to undo?)
+- copy ada pictures to local project, ground mesh as well
+- add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
+
 ## 0.0.9 - 2017-01-14
 ### Added
 - mvp of new object menu interface
