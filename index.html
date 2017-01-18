@@ -5,26 +5,30 @@
     <title>A-Frame City Builder</title>
     <meta name="description" content="A-Frame City Builder">
 
+    <!-- using aframe master until next stable -->
     <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
+
+    <!-- jquery for city builder app components -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+    <!-- for desktop menu overlay -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
+    <!-- for local development -->
+    <script src="build.js"></script>
+    <!-- <script src="lib/dist/aframe-city-builder.js"></script> -->
+
+    <!-- these are included in build script, kept here for convenient reference -->
+    <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
     <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
-    <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script>
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/v3.2.1/dist/aframe-extras.js"></script>
-
     <script src="lib/skyGradient.js"></script>
     <script src="lib/ground.js"></script>
     <script src="lib/aframe-select-bar.js"></script>
-    <script src="lib/builder-controls.js"></script>
+    <script src="lib/builder-controls.js"></script> -->
 
-    <script src="https://rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script>
-
-    <!-- for menu overlay -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
     <style>
           .intro-overlay {
             z-index: 1;
@@ -59,7 +63,7 @@
         </style>
   </head>
   <body>
-    <a-scene id="my-scene" antialias='true'>
+    <a-scene id="my-scene" antialias='true' debug>
 
       <a-assets>
 
@@ -69,10 +73,9 @@
         <a-asset-item id="env_arrow" src="assets/environment/env_arrow.obj"></a-asset-item>
 
         <!-- geometric city builder text -->
-        <img id="chrome" src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" crossorigin="anonymous">
-        <img id="pink" src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg" crossorigin="anonymous" />
-        <a-asset-item id="exoBlackRegular" src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202%20Black_Regular.js"></a-asset-item>
-        <a-asset-item id="exoBoldItalic" src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202_Bold%20Italic.js"></a-asset-item>
+        <img id="chrome" src="assets/environment/env_map_chrome.jpg">
+        <a-asset-item id="exoBlackRegular" src="assets/environment/env_exo_black_regular.js"></a-asset-item>
+        <a-asset-item id="exoBoldItalic" src="assets/environment/env_exo_bold_italic.js"></a-asset-item>
 
       </a-assets>
 
@@ -82,6 +85,7 @@
         <a-entity id="camera" camera look-controls wasd-controls="fly: true" ></a-entity>
       </a-entity>
     <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0">
+
     </a-entity>
 
       <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
@@ -102,8 +106,9 @@
             <option index=5 value="alien_egg1" src="assets/preview/alien_egg1.jpg">Alien Egg 1</option>
             <option index=6 value="alien_egg2" src="assets/preview/alien_egg2.jpg">Alien Egg 2</option>
           </optgroup>
-          <optgroup label="Aliens" src="assets/mmmm_alien.json"></optgroup>
+          <!-- <optgroup label="Aliens" src="assets/mmmm_alien.json"></optgroup> -->
         </a-entity>
+
       </a-entity>
 
 
