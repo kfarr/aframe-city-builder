@@ -63,7 +63,7 @@
         </style>
   </head>
   <body>
-    <a-scene id="my-scene" antialias='true' debug>
+    <a-scene id="my-scene" antialias='true'>
 
       <a-assets>
 
@@ -98,13 +98,22 @@
 
         <a-entity select-bar id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
           <optgroup label="Aliens" value="mmmm_alien">
-            <option index=0 value="alien_bot1" src="assets/preview/alien_bot1.jpg" selected>Alien Bot 1</option>
-            <option index=1 value="alien_bot2" src="assets/preview/alien_bot2.jpg">Alien Bot 2</option>
-            <option index=2 value="alien_bot3" src="assets/preview/alien_bot3.jpg">Alien Bot 3</option>
-            <option index=3 value="alien_crawl1" src="assets/preview/alien_crawl1.jpg">Alien Crawl 1</option>
-            <option index=4 value="alien_crawl2" src="assets/preview/alien_crawl2.jpg">Alien Crawl 2</option>
-            <option index=5 value="alien_egg1" src="assets/preview/alien_egg1.jpg">Alien Egg 1</option>
-            <option index=6 value="alien_egg2" src="assets/preview/alien_egg2.jpg">Alien Egg 2</option>
+            <option value="alien_bot1" src="assets/preview/alien_bot1.jpg" selected>Alien Bot 1</option>
+            <option value="alien_bot2" src="assets/preview/alien_bot2.jpg">Alien Bot 2</option>
+            <option value="alien_bot3" src="assets/preview/alien_bot3.jpg">Alien Bot 3</option>
+            <option value="alien_crawl1" src="assets/preview/alien_crawl1.jpg">Alien Crawl 1</option>
+            <option value="alien_crawl2" src="assets/preview/alien_crawl2.jpg">Alien Crawl 2</option>
+            <option value="alien_egg1" src="assets/preview/alien_egg1.jpg">Alien Egg 1</option>
+            <option value="alien_egg2" src="assets/preview/alien_egg2.jpg">Alien Egg 2</option>
+          </optgroup>
+          <optgroup label="Bases" value="kfarr_bases">
+            <option value="base_grass1" src="assets/preview/base_grass1.jpg" selected>Alien Bot 1</option>
+            <option value="base_street1" src="assets/preview/base_street1.jpg">Alien Bot 2</option>
+            <option value="base_crossstreet" src="assets/preview/base_crossstreet.jpg">Alien Bot 3</option>
+            <option value="scene_house6" src="assets/preview/scene_house6.jpg">Alien Crawl 1</option>
+            <option value="scene_house5" src="assets/preview/scene_house5.jpg">Alien Crawl 2</option>
+            <option value="scene_house2" src="assets/preview/scene_house2.jpg">Alien Egg 1</option>
+            <option value="scene_park4" src="assets/preview/scene_park4.jpg">Alien Egg 2</option>
           </optgroup>
           <!-- <optgroup label="Aliens" src="assets/mmmm_alien.json"></optgroup> -->
         </a-entity>
