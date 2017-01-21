@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "budo index.js:build.js --verbose --port 8000 --live --open",
+    "start": "budo index.js:lib/dist/aframe-city-builder.js --verbose --port 8000 --live --open",
     "build": "browserify index.js -o build.js",
     "dist": "webpack"
   },
