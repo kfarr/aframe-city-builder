@@ -2,20 +2,23 @@
 // experimental, uses "sharp" library a dependency that seems to fail on Windows machines, so not including this in package.json
 // if you want to try it, use `npm install sharp` before trying to run this script
 var argv = require('yargs')
-    .usage('Create a resized and optimized JPEGs from high resolution source images.\nUsage: $0 <command> [options]')
+    .usage('*** COMMAND LINE OPTIONS ARE IGNORE, I CANNOT GET YARGS TO WORK RIGHT, so edit this js file directly\nCreate a resized and optimized JPEGs from high resolution source images.\nUsage: $0 <command> [options]')
     .option('outputpath', {
       alias: 'o',
       describe: 'output path to place finished files',
+      type: 'string',
       default: './'
     })
     .option('inputpath', {
       alias: 'i',
       describe: 'path of files to scan',
-      default: './'
+      type: 'string',
+      default: '../assets/preview'
     })
     .option('inputprefix', {
       default: '',
       describe: 'process only files with this prefix',
+      type: 'string',
       alias: 'ip'
     })
     .option('outputprefix', {
@@ -51,23 +54,51 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-var files = fs.readdirSync(argv.inputpath);
+var inputPath = "../assets/preview/";
+// var inputpath = argv.inputpath[0];
+console.log("inputPath: " + inputPath);
+
+var inputPrefix = "bld";
+// var inputprefix = argv.inputprefix[0];
+console.log("inputPrefix: " + inputPrefix);
+
+var ext = ".png";
+// var ext = argv.ext;
+console.log("ext: " + ext);
+
+// var outputWidth = argv.width;
+var outputWidth = 256;
+console.log("outputWidth: " + outputWidth);
+
+// var outputHeight = argv.height;
+var outputHeight = 256;
+console.log("outputHeight: " + outputHeight);
+
+var outputPath = "./";
+// var outputPath = argv.outputpath;
+console.log("outputPath: " + outputPath);
+
+var outputFormat = ".jpg";
+// var outputFormat = argv.format;
+console.log("outputFormat: " + outputFormat);
+
+var files = fs.readdirSync(inputPath);
 
 files.forEach(file => {
-  if (file.match("^" + argv.inputprefix) && file.match(argv.ext + "$")) {
+  if (file.match("^" + inputPrefix) && file.match(ext + "$")) {
     var filename = path.parse(file).name;
-    console.log('input: ' + argv.inputpath + file);
+    console.log('input: ' + inputPath + file);
 
-    sharp(argv.inputpath + file)
-      .extract({ left: argv.width / 2, top: argv.height / 2, width: argv.width, height: argv.height })
-//      .resize(argv.width, argv.height)
+    sharp(inputPath + file)
+//      .extract({ left: outputWidth / 2, top: outputHeight / 2, width: outputWidth, height: outputHeight })
+      .resize(outputWidth, outputHeight)
 //      .crop()
       .jpeg({quality: 91})
-      .toFile(argv.outputpath + path.parse(file).name + argv.format, function(err, info) {
+      .toFile(outputPath + path.parse(file).name + outputFormat, function(err, info) {
         if (err) {
           return console.log(err);
         }
-        console.log('output: ' + argv.outputpath + path.parse(file).name + argv.format);
+        console.log('output: ' + outputPath + path.parse(file).name + outputFormat);
       });
 
   }
