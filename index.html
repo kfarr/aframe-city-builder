@@ -6,7 +6,7 @@
     <meta name="description" content="A-Frame City Builder">
 
     <!-- using aframe master until next stable -->
-    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
 
     <!-- jquery for city builder app components -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -87,7 +87,8 @@
 
     </a-entity>
 
-      <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
+      <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
+      <a-entity id="leftController" wasd-controls >
         <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity>
       </a-entity>
 

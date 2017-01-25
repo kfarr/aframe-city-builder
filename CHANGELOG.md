@@ -6,12 +6,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.1.0 - [NOT YET RELEASED]
 ### Added / Changed
-- turn menu into component
-  - menu needs an array of possible items, images, metadata
-    - to build a row, menu group title; menu group objects; for each object - name, image, value
-  - menu responds to emitted events independent of controllers
-  - menu has optional built-in bindings to controllers. those bindings simply emit menu events.
-- object group type switching up / down
+-* turn menu into component
+  -* menu needs an array of possible items, images, metadata
+    -* to build a row, menu group title; menu group objects; for each object - name, image, value
+  -* menu responds to emitted events independent of controllers
+  -* menu has optional built-in bindings to controllers. those bindings simply emit menu events.
+-* object group type switching down
+*  - function to delete a group
+
+* - object group type switching up
+*  - support hover up / hover up detection of not able to hover up
+*  - support switch in reverse
+* - ability to load objects from json files into the dom for the select bar component
+O- add promise to know when all objects are loaded (or fail)
+O- ability for select bar component to delay loading / init
+
 - create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
 
 - teleport https://chenzlabs.github.io/aframe-teleport-controls/sample/
