@@ -2,7 +2,7 @@
 // experimental, uses "sharp" library a dependency that seems to fail on Windows machines, so not including this in package.json
 // if you want to try it, use `npm install sharp` before trying to run this script
 var argv = require('yargs')
-    .usage('*** COMMAND LINE OPTIONS ARE IGNORE, I CANNOT GET YARGS TO WORK RIGHT, so edit this js file directly\nCreate a resized and optimized JPEGs from high resolution source images.\nUsage: $0 <command> [options]')
+    .usage('*** COMMAND LINE OPTIONS ARE IGNORED, I CANNOT GET YARGS TO WORK RIGHT, so edit this js file directly\nCreate a resized and optimized JPEGs from high resolution source images.\nUsage: $0 <command> [options]')
     .option('outputpath', {
       alias: 'o',
       describe: 'output path to place finished files',
