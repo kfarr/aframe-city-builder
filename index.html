@@ -98,15 +98,7 @@
         <a-entity id="rightItem" file="base_street1" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" rotation="-56.8 0 0" scale="0.01 0.01 0.01" position="0 -0.08 -0.09"></a-entity>
 
         <a-entity select-bar id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
-          <!-- <optgroup label="Aliens" value="mmmm_alien">
-            <option value="alien_bot1" src="assets/preview/alien_bot1.jpg" selected>Alien Bot 1</option>
-            <option value="alien_bot2" src="assets/preview/alien_bot2.jpg">Alien Bot 2</option>
-            <option value="alien_bot3" src="assets/preview/alien_bot3.jpg">Alien Bot 3</option>
-            <option value="alien_crawl1" src="assets/preview/alien_crawl1.jpg">Alien Crawl 1</option>
-            <option value="alien_crawl2" src="assets/preview/alien_crawl2.jpg">Alien Crawl 2</option>
-            <option value="alien_egg1" src="assets/preview/alien_egg1.jpg">Alien Egg 1</option>
-            <option value="alien_egg2" src="assets/preview/alien_egg2.jpg">Alien Egg 2</option>
-          </optgroup> -->
+
           <optgroup label="Bases" value="kfarr_bases">
             <option value="base_street1" src="assets/preview/base_street1.jpg" selected>Street</option>
             <option value="base_grass1" src="assets/preview/base_grass1.jpg">Grass</option>
@@ -120,8 +112,6 @@
         </a-entity>
 
       </a-entity>
-
-
 
       <!-- City -->
       <a-entity id="city"></a-entity>
@@ -162,20 +152,19 @@
           <h4><strong>A-Frame City Builder</strong></h4>
           <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
           <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
-          <h5>VIVE CONTROLS</h5>
-          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on the <code>trackpad</code>.</p>
-          <h5>OCULUS TOUCH CONTROLS</h5>
-          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch right-hand objects by pressing <code>right</code> or <code>left</code> on the <code>thumbstick</code>. Switch left-hand objects by pressing <code>X</code>.</p>
-          <p><div class="input-group">
-            <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
-            <span class="input-group-btn">
-              <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
-            </span>
-          </div></p>
+          <h5>CONTROLS - Supports both Oculus Touch and Vive Controls</h5>
+          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on touchpad or thumbstick. Press <code>up</code> or <code>down</code> to switch object groups.
+          <h5>LOAD and SAVE:</h5>
           <p><div class="input-group">
             <input id="fileInput" type="text" class="form-control" onfocus="this.select();" placeholder="Enter JSON URL" value="example-aframe-city.json">
             <span class="input-group-btn">
               <button onclick="loadFileButton()" class="btn btn-info" type="button">Load JSON URL</button>
+            </span>
+          </div></p>
+          <p><div class="input-group">
+            <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
+            <span class="input-group-btn">
+              <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
             </span>
           </div></p>
           <p><a onclick="saveButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>

@@ -30,17 +30,19 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 
 ## wishlist
 NOT IN THIS RELEASE
-- object group type switching up / down
+- enable second controller
+- new bases to fit scene (http://streetmix.net/kfarr/3/a-frame-city-builder-street-only)
+- ability for select bar component to delay loading / init
+- add promise to know when all objects are loaded (or fail)
 - teleport https://chenzlabs.github.io/aframe-teleport-controls/sample/
-- create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
 - blender baking of AO texture and progressive application of AO textures after scene fully loaded
 - support for google draco object compression
 - scale large/small (and rotate?) with both grips being pressed (what would happen to undo?)
-- copy ada pictures to local project, ground mesh as well
+- add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
+- create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
 - placing a baseplate over another object should replace the baseplate, not place both on same location
   - use flushtodom to force update of position to DOM https://aframe.io/docs/0.4.0/components/debug.html#component-to-dom-serialization
 - sound effects - commodore 64 style
-- add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
 - aframe city website - have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e -> this could be done without a server -> use a git based site builder service. register this as aframe.city
 - try progressive enhancement to replace obj with baked ply after loading
 - load new scenes without destroying original (load by appending) - does not handle collision case

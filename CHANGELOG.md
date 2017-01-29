@@ -4,45 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.1.0 - [NOT YET RELEASED]
-### Added / Changed
--* turn menu into component
-  -* menu needs an array of possible items, images, metadata
-    -* to build a row, menu group title; menu group objects; for each object - name, image, value
-  -* menu responds to emitted events independent of controllers
-  -* menu has optional built-in bindings to controllers. those bindings simply emit menu events.
--* object group type switching down
-*  - function to delete a group
-* - object group type switching up
-*  - support hover up / hover up detection of not able to hover up
-*  - support switch in reverse
-* - ability to load objects from json files into the dom for the select bar component
-* - create preview images for veh and scene objects
-* - hide right controller object
-* - don't duplicate bases optgroup
-* - first item is not alien robot 1
-* - select previous optgroup sometimes shows prior optgroup's selected object
-*  - look at the previous code compare to next code
-* - test save/load
-- overlay instructions
-- change readme / / changelog
-O- test on oculus rift
-  - add 85% move to next
+## 0.1.0 - 2017-01-29
+### Added
+- Added many more objects! vehicles, aliens, buildings, and pre-fab scenes!
+- New support for switching through different object group types!
+- Added webpack and basic build process (minification not working)
 
-
-
-- enable second controller
-- new bases to fit scene (http://streetmix.net/kfarr/3/a-frame-city-builder-street-only)
-- ability for select bar component to delay loading / init
-- add promise to know when all objects are loaded (or fail)
-- create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
-
-- teleport https://chenzlabs.github.io/aframe-teleport-controls/sample/
-- blender baking of AO texture and progressive application of AO textures after scene fully loaded
-- support for google draco object compression
-- scale large/small (and rotate?) with both grips being pressed (what would happen to undo?)
-- copy ada pictures to local project, ground mesh as well
-- add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
+### Changed
+- Select menu is now separate component apart from city builder logic
+  - select menu accepts an array of possible items, images, metadata
+  - menu responds to emitted events independent of controllers
+  - menu has optional built-in bindings to controllers. those bindings simply emit menu events.
+  - this will be released as a separate repo with add'l documentation
+- City builder controls logic now loads objects from json files into the dom for the select bar component
+- Right controller and object hidden for now, needs add'l work to support two controllers with new menu bar component
+- Copied more remote items to repo such as text textures, ground mesh
 
 ## 0.0.9 - 2017-01-14
 ### Added
