@@ -13,14 +13,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   -* menu has optional built-in bindings to controllers. those bindings simply emit menu events.
 -* object group type switching down
 *  - function to delete a group
-
 * - object group type switching up
 *  - support hover up / hover up detection of not able to hover up
 *  - support switch in reverse
 * - ability to load objects from json files into the dom for the select bar component
-O- add promise to know when all objects are loaded (or fail)
-O- ability for select bar component to delay loading / init
+* - create preview images for veh and scene objects
+* - hide right controller object
+* - don't duplicate bases optgroup
+* - first item is not alien robot 1
+* - select previous optgroup sometimes shows prior optgroup's selected object
+*  - look at the previous code compare to next code
+* - test save/load
+- overlay instructions
+- change readme / / changelog
+O- test on oculus rift
+  - add 85% move to next
 
+
+
+- enable second controller
+- new bases to fit scene (http://streetmix.net/kfarr/3/a-frame-city-builder-street-only)
+- ability for select bar component to delay loading / init
+- add promise to know when all objects are loaded (or fail)
 - create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
 
 - teleport https://chenzlabs.github.io/aframe-teleport-controls/sample/

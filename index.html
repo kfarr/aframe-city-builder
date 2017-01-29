@@ -91,12 +91,11 @@
 
       <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
       <a-entity id="leftController" wasd-controls >
-        <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity>
+        <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
       </a-entity>
 
       <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right">
-        <!-- <a-entity id="rightItem" file="veh_ambulance" objectGroup="mmmm_veh" objectId="0" obj-model="obj: url(assets/obj/veh_ambulance.obj); mtl: url(assets/obj/veh_ambulance.mtl)" rotation="-56.8 0 0" scale="0.005 0.005 0.005" position="0 -0.08 -0.09"></a-entity> -->
-        <a-entity id="rightItem" file="alien_bot1" objectGroup="mmmm_alien" objectId="0" obj-model="obj: url(assets/obj/alien_bot1.obj); mtl: url(assets/obj/alien_bot1.mtl)" rotation="-56.8 0 0" scale="0.005 0.005 0.005" position="0 -0.08 -0.09"></a-entity>
+        <a-entity id="rightItem" file="base_street1" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" rotation="-56.8 0 0" scale="0.01 0.01 0.01" position="0 -0.08 -0.09"></a-entity>
 
         <a-entity select-bar id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
           <!-- <optgroup label="Aliens" value="mmmm_alien">
@@ -109,8 +108,8 @@
             <option value="alien_egg2" src="assets/preview/alien_egg2.jpg">Alien Egg 2</option>
           </optgroup> -->
           <optgroup label="Bases" value="kfarr_bases">
-            <option value="base_grass1" src="assets/preview/base_grass1.jpg" selected>Grass</option>
-            <option value="base_street1" src="assets/preview/base_street1.jpg">Street</option>
+            <option value="base_street1" src="assets/preview/base_street1.jpg" selected>Street</option>
+            <option value="base_grass1" src="assets/preview/base_grass1.jpg">Grass</option>
             <option value="base_crossstreet" src="assets/preview/base_crossstreet.jpg">Cross Street</option>
             <option value="scene_house6" src="assets/preview/scene_house6.jpg">House Scene 6</option>
             <option value="scene_house5" src="assets/preview/scene_house5.jpg">House Scene 5</option>
