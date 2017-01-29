@@ -1,0 +1,310 @@
+[
+  {
+    "file": "bld_house1",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house1a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house1b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house1c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house2",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house2a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house2b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house2c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house2d",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house3",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house3a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house3b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house3c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house4",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house4a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house4b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house4c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house4d",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house5",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house5a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house5b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house5c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house6",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house6a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house6b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house6c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house6d",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house7",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house7a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house7b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house7c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house8",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house8a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house8b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_house8c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store01",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store02",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store03",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store03a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store04",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store05",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store06",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store07",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store08",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store09",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store10",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store11",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store12",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store13",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store14",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store15",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store16",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store16a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store16b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store17",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_store17a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story01",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story01a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story01b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story02",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story03",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story03a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story03b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story03c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story03d",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story04",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story04a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story04b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story04c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story04d",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story05",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story05a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story06",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story06a",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story06b",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story06c",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "bld_story06d",
+    "scale": "0.004 0.004 0.004"
+  }
+]

@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.0 - 2017-01-29
+### Added
+- Added many more objects! vehicles, aliens, buildings, and pre-fab scenes!
+- New support for switching through different object group types!
+- Added webpack and basic build process (minification not working)
+
+### Changed
+- Select menu is now separate component apart from city builder logic
+  - select menu accepts an array of possible items, images, metadata
+  - menu responds to emitted events independent of controllers
+  - menu has optional built-in bindings to controllers. those bindings simply emit menu events.
+  - this will be released as a separate repo with add'l documentation
+- City builder controls logic now loads objects from json files into the dom for the select bar component
+- Right controller and object hidden for now, needs add'l work to support two controllers with new menu bar component
+- Copied more remote items to repo such as text textures, ground mesh
+
 ## 0.0.9 - 2017-01-14
 ### Added
 - mvp of new object menu interface
