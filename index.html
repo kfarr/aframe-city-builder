@@ -30,6 +30,9 @@
     <script src="lib/aframe-select-bar.js"></script>
     <script src="lib/builder-controls.js"></script>
 
+    <!-- <script src="https://unpkg.com/aframe-firebase-component@^4.0.0/dist/aframe-firebase-component.min.js"></script> -->
+    <script src="https://rawgit.com/kfarr/aframe-city-firebase/master/dist/aframe-city-firebase-component.js"></script>
+
     <style>
           .intro-overlay {
             z-index: 1;
@@ -64,8 +67,11 @@
         </style>
   </head>
   <body>
-    <a-scene id="my-scene" antialias='true'>
-
+    <a-scene id="my-scene" antialias="true" firebase="apiKey: AIzaSyBcPajwJo7PyqEjQ70GuvQyIXGOE8xW7Cs;
+      authDomain: test-b0c62.firebaseapp.com;
+      databaseURL: https://test-b0c62.firebaseio.com;
+      storageBucket: test-b0c62.appspot.com;
+      interval: 250;">
       <a-assets>
 
         <!-- scene items -->
@@ -78,25 +84,49 @@
         <a-asset-item id="exoBlackRegular" src="assets/environment/env_exo_black_regular.js"></a-asset-item>
         <a-asset-item id="exoBoldItalic" src="assets/environment/env_exo_bold_italic.js"></a-asset-item>
 
+        <a-mixin id="avatar"
+                        geometry="primitive: box; depth: 0.3; height: 0.3; width: 0.3"
+                        material="color: #222"></a-mixin>
+        <a-mixin id="eye" geometry="primitive: circle; radius: 0.08"
+                        material="shader: flat; side: double"></a-mixin>
+        <a-mixin id="eyePupil" geometry="primitive: circle; radius: 0.02"
+                        material="shader: flat; side: double; color: #222"></a-mixin>
+
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="cameraWrapper">
+      <a-entity id="cameraWrapper" firebase-broadcast >
       <!-- <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"> -->
-        <a-entity id="camera" camera look-controls wasd-controls="fly: true" ></a-entity>
+        <a-entity id="camera" camera look-controls wasd-controls="fly: true"  firebase-broadcast="components: position, rotation" >
+
+          <!-- Avatar - should be invisible for local player -->
+          <a-entity mixin="avatar" visible="false" firebase-broadcast="components: mixin">
+            <a-entity rotation="0 180 0" firebase-broadcast="components: rotation">
+              <a-entity mixin="eye" position="-0.1 0.1 0.18" firebase-broadcast="components: mixin, position">
+                <a-entity mixin="eyePupil" position="0 0 0.03" firebase-broadcast="components: mixin, position"></a-entity>
+              </a-entity>
+              <a-entity mixin="eye" position="0.1 0.1 0.18" firebase-broadcast="components: mixin, position">
+                <a-entity mixin="eyePupil" position="0 0 0.03" firebase-broadcast="components: mixin, position"></a-entity>
+              </a-entity>
+            </a-entity>
+          </a-entity>
+
+        </a-entity>
       </a-entity>
-    <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0">
 
-    </a-entity>
+      <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0"></a-entity>
 
+      <!-- Left Hand -->
+      <!-- <a-entity id="leftController" wasd-controls > -->
       <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
-      <a-entity id="leftController" wasd-controls >
-        <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
+      <a-entity id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
+      <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
       </a-entity>
 
-      <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right">
-        <a-entity id="rightItem" file="base_street1" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" rotation="-56.8 0 0" scale="0.01 0.01 0.01" position="0 -0.08 -0.09"></a-entity>
-
+      <!-- Right Hand -->
+      <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right" firebase-broadcast="components: position, scale, rotation">
+        <a-entity id="rightItem" firebase-broadcast="components: position, obj-model, scale, rotation" file="base_street1" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" rotation="-56.8 0 0" scale="0.01 0.01 0.01" position="0 -0.08 -0.09"></a-entity>
+        <a-entity id="rightArm" mixins="arm" firebase-broadcast="components: mixins" ></a-entity>
         <a-entity select-bar id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Bases" value="kfarr_bases">
@@ -114,7 +144,7 @@
       </a-entity>
 
       <!-- City -->
-      <a-entity id="city"></a-entity>
+      <a-entity id="city" firebase-broadcast></a-entity>
 
       <!-- Table and Grid -->
       <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="divisions:20">
@@ -256,6 +286,8 @@
               appendTo : $('#city')
             });
            document.getElementById(id).setAttribute("position", position); // workaround - this does set position
+           document.getElementById(id).setAttribute("firebase-broadcast", "components: position, scale, rotation, file, obj-model, class");
+
           }
 
           function toDOM(jsonInput) {
