@@ -4,6 +4,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+2/8/17
+* - create new branch for firebase - 0.1.1
+- deploy on static server - use surge.sh
+- reproduce issue
+- share with others
+- 
+
+Firebase roadmap:
+- USER A: LOAD CITY - CITY NAME MADE
+- BUILD CITY
+- COPY / PASTE CITY HASH NAME LINK, SHARE WITH FRIENDS VIA CHAT OR SOCIAL
+V0 - objects exists only during session, are removed automatically
+
+V1 - then make city persistent
+    - SEE CITY, ADJUST AS BUILT BY OTHERS (REQ ERASE?)
+
+V2 - SYNC CHARACTER / PLAYER WHEN PRESENT (player is not persistent)
+
+b- FRIEND (USER B) JOINS - NOTIFICATION?
+  - PLAYER IS ENTITY IN SCENE W/ASSOCIATED METADATA AS COMPONENT PROPERTIES
+  - SEE EACH OTHER AS MINECRAFT AVATARS? MVP RECTANGLES
+
+
+## 0.1.1 - [UNRELEASED]
+### Work in progress
+* - Removed reference to webpack built dist in index.html
+* - youtube video of city builder
+- "first ui" blog post about city builder aframe select bar
+- allow multiple select-bar elements on same scene
+- separate select-bar component into new repo
+
+
 ## 0.1.0 - 2017-01-29
 ### Added
 - Added many more objects! vehicles, aliens, buildings, and pre-fab scenes!

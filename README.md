@@ -30,6 +30,8 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 
 ## wishlist
 NOT IN THIS RELEASE
+- load directly from voxel https://gist.github.com/JoshGalvin/398ad2339ad7ae93e72489684d599466 https://github.com/daishihmr/vox.js
+
 - enable second controller
 - new bases to fit scene (http://streetmix.net/kfarr/3/a-frame-city-builder-street-only)
 - ability for select bar component to delay loading / init
