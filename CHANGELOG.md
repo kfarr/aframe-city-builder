@@ -4,36 +4,49 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-2/8/17
-* - create new branch for firebase - 0.1.1
-- deploy on static server - use surge.sh
-- reproduce issue
-- share with others
-- 
-
-Firebase roadmap:
-- USER A: LOAD CITY - CITY NAME MADE
-- BUILD CITY
-- COPY / PASTE CITY HASH NAME LINK, SHARE WITH FRIENDS VIA CHAT OR SOCIAL
-V0 - objects exists only during session, are removed automatically
-
-V1 - then make city persistent
-    - SEE CITY, ADJUST AS BUILT BY OTHERS (REQ ERASE?)
-
-V2 - SYNC CHARACTER / PLAYER WHEN PRESENT (player is not persistent)
-
-b- FRIEND (USER B) JOINS - NOTIFICATION?
-  - PLAYER IS ENTITY IN SCENE W/ASSOCIATED METADATA AS COMPONENT PROPERTIES
-  - SEE EACH OTHER AS MINECRAFT AVATARS? MVP RECTANGLES
-
 
 ## 0.1.1 - [UNRELEASED]
 ### Work in progress
 * - Removed reference to webpack built dist in index.html
 * - youtube video of city builder
-- "first ui" blog post about city builder aframe select bar
-- allow multiple select-bar elements on same scene
-- separate select-bar component into new repo
+* - "first ui" blog post about city builder aframe select bar
+* - convert from bmfont to new text component
+*  - try it out
+O - allow multiple select-bar elements on same scene
+    - issue: 2nd menu bar stops working after first trackpad press
+      - swap the items first
+      - try without controller - does this happen w/event trigger?
+      - try the 2nd menu bar by itself
+      - swap one menu bar from one to the other
+  - fix to use proper multiple component syntax
+  - separate select-bar component into new repo
+
+
+what is missing from being able to "escape" in city builder? teleport, reliable save
+
+  - 2nd controller with menu commands
+    - teleport
+    - save
+      - message re URL and city name
+      - auto save with visual indicator (custom firebase that works)
+    - save as
+    - new city
+    - erase tool
+    - inspect (magnifying glass)
+
+- get people to use the things
+  - city builder as a multi platform app
+  - top 10:
+    - size of city (objects, area)
+    - visitors (is this a self fulfilling prophecy?)
+    - recently saved
+    -
+- select menu as separate component
+  - documentation
+  - work with more than 1 controller
+
+- avatars later
+
 
 
 ## 0.1.0 - 2017-01-29

@@ -6,14 +6,12 @@
     <meta name="description" content="A-Frame City Builder">
 
     <!-- using aframe master until next stable -->
-    <!-- <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script> -->
-    <script src="https://rawgit.com/aframevr/aframe/1a74a089df988f018f4fb206338fb6f30a1aeb41/dist/aframe-master.min.js"></script>
-
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
 
     <!-- jquery for city builder app components -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <!-- this was a build script but webpack and friends were too annoying so not used for now -->
+    <!-- this was a build script but webpack was too annoying so not used for now -->
     <!-- <script src="lib/dist/aframe-city-builder.js"></script> -->
 
     <!-- for desktop menu overlay -->
@@ -21,8 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 
     <!-- components used -->
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-    <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script>
+    <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script> -->
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
     <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
     <script src="lib/skyGradient.js"></script>
@@ -31,7 +29,7 @@
     <script src="lib/builder-controls.js"></script>
 
     <!-- <script src="https://unpkg.com/aframe-firebase-component@^4.0.0/dist/aframe-firebase-component.min.js"></script> -->
-    <script src="https://rawgit.com/kfarr/aframe-city-firebase/master/dist/aframe-city-firebase-component.js"></script>
+    <!-- <script src="https://rawgit.com/kfarr/aframe-city-firebase/master/dist/aframe-city-firebase-component.js"></script> -->
 
     <style>
           .intro-overlay {
@@ -39,7 +37,7 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            max-width: 500px;
+            max-width: 700px;
             box-sizing: border-box;
             padding: 1.5em;
             color: #FFF;
@@ -67,11 +65,7 @@
         </style>
   </head>
   <body>
-    <a-scene id="my-scene" antialias="true" firebase="apiKey: AIzaSyBcPajwJo7PyqEjQ70GuvQyIXGOE8xW7Cs;
-      authDomain: test-b0c62.firebaseapp.com;
-      databaseURL: https://test-b0c62.firebaseio.com;
-      storageBucket: test-b0c62.appspot.com;
-      interval: 250;">
+    <a-scene id="my-scene" antialias="true" >
       <a-assets>
 
         <!-- scene items -->
@@ -95,7 +89,7 @@
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="cameraWrapper" firebase-broadcast >
+      <a-entity id="cameraWrapper" position="0.05 0.41 0.34" rotation="-43.5 0.80 0" firebase-broadcast >
       <!-- <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"> -->
         <a-entity id="camera" camera look-controls wasd-controls="fly: true"  firebase-broadcast="components: position, rotation" >
 
@@ -121,13 +115,29 @@
       <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
       <a-entity id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
       <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
+        <a-entity select-bar="controllerID: leftController" id="menuActions" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
+
+          <optgroup label="Actions" value="actions">
+            <option value="teleport" src="assets/environment/icon_teleport.png" selected>Teleport</option>
+            <option value="save" src="assets/environment/icon_save.png">Save</option>
+            <option value="saveAs" src="assets/environment/icon_saveAs.png">Save As Copy</option>
+            <option value="new" src="assets/environment/icon_new.png">New</option>
+            <option value="erase" src="assets/environment/icon_erase.png">Erase</option>
+            <option value="inspect" src="assets/environment/icon_inspect.png">Inspect</option>
+            <option value="inspect2" src="assets/environment/icon_inspect.png">Inspect2</option>
+            <option value="inspect3" src="assets/environment/icon_inspect.png">Inspect3</option>
+          </optgroup>
+
+        </a-entity>
+
+
       </a-entity>
 
       <!-- Right Hand -->
-      <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right" firebase-broadcast="components: position, scale, rotation">
+      <a-entity builder-controls="menuId: menuObjects" id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right" firebase-broadcast="components: position, scale, rotation">
         <a-entity id="rightItem" firebase-broadcast="components: position, obj-model, scale, rotation" file="base_street1" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" rotation="-56.8 0 0" scale="0.01 0.01 0.01" position="0 -0.08 -0.09"></a-entity>
         <a-entity id="rightArm" mixins="arm" firebase-broadcast="components: mixins" ></a-entity>
-        <a-entity select-bar id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
+        <a-entity select-bar id="menuObjects" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Bases" value="kfarr_bases">
             <option value="base_street1" src="assets/preview/base_street1.jpg" selected>Street</option>
@@ -158,12 +168,12 @@
       <a-entity position="-3 1 -6" rotation="5 0 0">
 
         <!-- City Builder Geometric Text Title adapted from Ada Rose's https://aframe.io/examples/showcase/hello-metaverse/ -->
-        <a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:#exoBlackRegular;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
+        <!-- <a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:#exoBlackRegular;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
         <a-entity position="-1 2.15 0.3" text="text:A-Frame; font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;" material="shader:flat;color:white;" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
-        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity>
+        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity> -->
 
         <!-- temporary replacement for geometric text when it broke upon aframe 0.4.0 release -->
-        <!-- <a-plane position="3.5 1 -0.5" scale="5 1 0" src="assets/images/aframecity.png" material="opacity:0.6"></a-plane> -->
+        <a-plane position="3.5 1 -0.5" scale="5 1 0" src="assets/images/aframecity.png" material="opacity:0.6"></a-plane>
 
       </a-entity>
 
@@ -178,31 +188,31 @@
 
     <!-- dialog box overlay for desktop users -->
     <div id="dialog" class="img-rounded intro-overlay">
-          <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
-          <h4><strong>A-Frame City Builder</strong></h4>
-          <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
-          <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
-          <h5>CONTROLS - Supports both Oculus Touch and Vive Controls</h5>
-          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on touchpad or thumbstick. Press <code>up</code> or <code>down</code> to switch object groups.
-          <h5>LOAD and SAVE:</h5>
-          <p><div class="input-group">
-            <input id="fileInput" type="text" class="form-control" onfocus="this.select();" placeholder="Enter JSON URL" value="example-aframe-city.json">
-            <span class="input-group-btn">
-              <button onclick="loadFileButton()" class="btn btn-info" type="button">Load JSON URL</button>
-            </span>
-          </div></p>
-          <p><div class="input-group">
-            <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
-            <span class="input-group-btn">
-              <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
-            </span>
-          </div></p>
-          <p><a onclick="saveButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
-          <p><a onclick="hide()" class="btn btn-success pull-right">Close</a></p>
+              <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
+              <h4><strong>A-Frame City Builder</strong></h4>
+              <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
+              <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
+              <h5>CONTROLS - Supports both Oculus Touch and Vive Controls</h5>
+              <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on touchpad or thumbstick. Press <code>up</code> or <code>down</code> to switch object groups.
+              <h5>LOAD and SAVE:</h5>
+              <p><div class="input-group">
+                <input id="fileInput" type="text" class="form-control" onfocus="this.select();" placeholder="Enter JSON URL" value="example-aframe-city.json">
+                <span class="input-group-btn">
+                  <button onclick="loadFileButton()" class="btn btn-info" type="button">Load JSON URL</button>
+                </span>
+              </div></p>
+              <p><div class="input-group">
+                <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
+                <span class="input-group-btn">
+                  <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
+                </span>
+              </div></p>
+              <p><a onclick="saveButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
+              <p><a onclick="hide()" class="btn btn-success pull-right">Close</a></p>
     </div>
     <a onclick="show()"><div class="menu-overlay btn btn-outline-secondary"></div></a>
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       var enteredVR = false;
 
       document.querySelector('a-scene').addEventListener('enter-vr', function () {
@@ -220,7 +230,7 @@
         //  document.getElementById('cameraWrapper').setAttribute("position", "-1.06 1.31 1.82"); // position="-1.06 1.31 1.82"
         //  document.getElementById('cameraWrapper').setAttribute("rotation", "-12.834254610930437 -16.844959176846217 0");
       }); // works the first time
-    </script> -->
+    </script>
 
     <!-- <script type="text/javascript">
     AFRAME.registerComponent('ply-transform', {
@@ -237,6 +247,18 @@
           function hide() {
               $("#dialog").removeClass('intro-overlay');
           }
+
+          function loadTest() {
+            // test a user going through the menu options a bunch
+            for (g = 0; g < 5; g++) {
+              for (i = 0; i < 20; i++) {
+                setTimeout(function(){document.getElementById("menu").emit("onOptionNext")}, 500);
+              }
+              setTimeout(function(){document.getElementById("menu").emit("onOptgroupNext")}, 500);
+            }
+
+          }
+
           function saveButton() {
             var cityNode = $("#city")[0];
             var cityJSON = [];
