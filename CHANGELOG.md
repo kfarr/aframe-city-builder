@@ -12,14 +12,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * - "first ui" blog post about city builder aframe select bar
 * - convert from bmfont to new text component
 *  - try it out
-O - allow multiple select-bar elements on same scene
-    - issue: 2nd menu bar stops working after first trackpad press
-      - swap the items first
-      - try without controller - does this happen w/event trigger?
-      - try the 2nd menu bar by itself
-      - swap one menu bar from one to the other
-  - fix to use proper multiple component syntax
+* - allow multiple select-bar elements on same scene
+*    - issue: 2nd menu bar stops working after first trackpad press
+X  - fix to use proper multiple component syntax
+*  - test multiple select bar in VR
+*  - add exit
+*    - move "trigger" event to select bar component
+*    - game logic should be refined to listen for this
+*    - test and make sure works
   - separate select-bar component into new repo
+
 
 
 what is missing from being able to "escape" in city builder? teleport, reliable save
