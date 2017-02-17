@@ -20,8 +20,8 @@ X  - fix to use proper multiple component syntax
 *    - move "trigger" event to select bar component
 *    - game logic should be refined to listen for this
 *    - test and make sure works
-  - separate select-bar component into new repo
-
+O  - separate select-bar component into new repo
+  - remove from this project and make this project reference the remote repo version
 
 
 what is missing from being able to "escape" in city builder? teleport, reliable save

@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- this was a build script but webpack was too annoying so not used for now -->
-    <!-- <script src="lib/dist/aframe-city-builder.js"></script> -->
+    <script src="lib/dist/aframe-city-builder.js"></script>
 
     <!-- for desktop menu overlay -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
@@ -21,12 +21,14 @@
     <!-- components used -->
     <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script> -->
-    <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
-    <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
-    <script src="lib/skyGradient.js"></script>
+    <!-- <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
+    <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script> -->
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+
+    <!-- <script src="lib/skyGradient.js"></script>
     <script src="lib/ground.js"></script>
     <script src="lib/aframe-select-bar.js"></script>
-    <script src="lib/builder-controls.js"></script>
+    <script src="lib/builder-controls.js"></script> -->
 
     <!-- <script src="https://unpkg.com/aframe-firebase-component@^4.0.0/dist/aframe-firebase-component.min.js"></script> -->
     <!-- <script src="https://rawgit.com/kfarr/aframe-city-firebase/master/dist/aframe-city-firebase-component.js"></script> -->
@@ -113,9 +115,9 @@
       <!-- Left Hand -->
       <!-- <a-entity id="leftController" wasd-controls > -->
       <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
-      <a-entity id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
+      <a-entity id="leftController" teleport-controls="button: trigger; collisionEntities: #ground" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
       <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
-        <a-entity select-bar="controllerID: leftController" id="menuActions" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
+        <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Actions" value="actions">
             <option value="teleport" src="assets/environment/icon_teleport.png" selected>Teleport</option>
