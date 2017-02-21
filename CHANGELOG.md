@@ -20,14 +20,26 @@ X  - fix to use proper multiple component syntax
 *    - move "trigger" event to select bar component
 *    - game logic should be refined to listen for this
 *    - test and make sure works
-O  - separate select-bar component into new repo
-  - remove from this project and make this project reference the remote repo version
+*  - separate select-bar component into new repo
+*    - fix separate select-bar
+*    - remove from this project and make this project reference the remote repo version
 
+* what is missing from being able to "escape" in city builder? teleport, reliable save
 
-what is missing from being able to "escape" in city builder? teleport, reliable save
+*  - 2nd controller with menu commands
+*    - teleport
+*      - test inverted teleport from forked repo
+*        - forked repo should work - use ghetto version
+-
+O     - activate (add component) only when menu item selected
+*        - action-controls
+*          - init - what is the action?
+*            - if teleport, add teleport component
+*              - remove when not selected
+            - if save, add save component?
+      - issue - select bar ID in console log undefined, but code appears correct - is it using an old definition?
 
-  - 2nd controller with menu commands
-    - teleport
+      - bonus prize add animation to currently select action frame to indicate happening
     - save
       - message re URL and city name
       - auto save with visual indicator (custom firebase that works)

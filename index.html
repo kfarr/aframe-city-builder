@@ -19,9 +19,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 
     <!-- components used -->
-    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <!-- <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
+    <script src="https://rawgit.com/kfarr/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+
     <script src="https://rawgit.com/kfarr/aframe-select-bar-component/master/dist/aframe-select-bar-component.js"></script>
-    
+
     <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script> -->
     <!-- <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
@@ -117,18 +119,18 @@
       <!-- Left Hand -->
       <!-- <a-entity id="leftController" wasd-controls > -->
       <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
-      <a-entity id="leftController" teleport-controls="button: trigger; collisionEntities: #ground" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
+      <a-entity id="leftController" action-controls="menuID: menuActions" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
       <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
         <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Actions" value="actions">
             <option value="teleport" src="assets/environment/icon_teleport.png" selected>Teleport</option>
             <option value="save" src="assets/environment/icon_save.png">Save</option>
-            <option value="saveAs" src="assets/environment/icon_saveAs.png">Save As Copy</option>
-            <option value="new" src="assets/environment/icon_new.png">New</option>
-            <option value="erase" src="assets/environment/icon_erase.png">Erase</option>
-            <option value="inspect" src="assets/environment/icon_inspect.png">Inspect</option>
-            <option value="exit" src="assets/environment/icon_exit.png">Exit</option>
+            <option value="saveAs" src="assets/environment/icon_saveAs.png">Coming soon</option>
+            <option value="new" src="assets/environment/icon_new.png">Coming soon</option>
+            <option value="erase" src="assets/environment/icon_erase.png">Coming soon</option>
+            <option value="inspect" src="assets/environment/icon_inspect.png">Coming soon</option>
+            <option value="exit" src="assets/environment/icon_exit.png">Coming soon</option>
           </optgroup>
 
         </a-entity>
