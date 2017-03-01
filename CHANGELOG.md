@@ -34,10 +34,11 @@ X  - fix to use proper multiple component syntax
 O     - activate (add component) only when menu item selected
 *        - action-controls
 *          - init - what is the action?
-*            - if teleport, add teleport component
-*              - remove when not selected
+O            - if teleport, add teleport component
+O              - remove when not selected
             - if save, add save component?
-      - issue - select bar ID in console log undefined, but code appears correct - is it using an old definition?
+        - problem - upon init the thing isn't working
+      - issue - select bar ID in console log undefined, but code appears correct - is console returning an old definition?
 
       - bonus prize add animation to currently select action frame to indicate happening
     - save
