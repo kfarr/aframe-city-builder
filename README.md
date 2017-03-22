@@ -22,16 +22,43 @@ A-Frame project demonstrating touch controls for building a VR city scene.
 ## Changelog
 - See history of newly added features here https://github.com/kfarr/aframe-city-builder/blob/master/CHANGELOG.md
 
-## Credits
-* most models made by Mike Judge, see more here: https://github.com/mikelovesrobots/mmmm
-* table http://tf3dm.com/3d-model/table-65702.html
-* tree and simple base plates created by kfarr using magicavoxel (https://ephtracy.github.io/)
-* city builder text based on https://github.com/ngokevin/kframe/blob/master/components/text/examples/vaporwave/index.html
+## How do I add new objects to City Builder?
+City Builder is only as cool as the objects you can place! So let's add more! (Some day I'd love to have a sketchfab-like fancy cloud interface for uploading objects, an in-app voxel editor and more, but for now you'll have to do a bunch of manual work.)
 
-## wishlist
+### Step-By-Step Guide
+(1) Make the object - I suggest using MagicaVoxel: https://ephtracy.github.io/
+
+(2) Come up with a filename - Each object has unique filename according to this suggested naming convention: "creator_group_object". For example "kfarr_bases_valencia" or "mmmm_obj_candle".
+
+(3) Export to OBJ and take preview image
+For each object, there are multiple files using the same filename but with different extensions to represent their function in the application:
+* .jpg - A preview image used to represent the object in a menu interface, stored here: /assets/preview/. Should be 1:1 aspect ratio, suggested 256 x 256 dimensions. (Required)
+* .obj, .mtl, .png - Object file format used when placing into A-Frame scene, stored as three files per model here: /assets/obj/ (Required)
+* .vox - The object's raw source file that can be edited again in the future, stored here: /assets/vox/ (Optional)
+
+(4) Add to JSON File - To enable placement of the object within the City Builder app, the object needs to be included in a "creator_group" JSON file. Here's an example: /assets/mmmm_veh.json
+
+To make it easier to add a large number of objects at once, there is a utility script to create a new "creator_group" JSON file here: /utils/json_builder.js
+
+(5) Load JSON file from City Builder - You must add the newly created JSON "creator_group" file to the list of included model definitions upon load of City Builder app. Add your filename to this list:
+https://github.com/kfarr/aframe-city-builder/blob/master/lib/builder-controls.js#L57
+
+(5) Test it out! Take a screenshot while you're testing! Submit a pull request and include a note and your fancy screenshot!
+
+## Need inspiration? What are some other objects to make?
+* more cool vehicles
+* flying things
+* more "bases" like intersection, left turn, right turn, green park only, pedestrian and bike path only
+* more advanced light poles, signals, signs
+* people
+* trains
+
+## How can I contribute to City Builder?
+Fork this repo, start making changes, and submit a pull request! Also feel free to file an issue or reach out directly kieran.farr@gmail.com with your idea and I can try to help make your idea work.
+
+## Need inspiration? Here is a partial wishlist for City Builder features:
 NOT IN THIS RELEASE
 - load directly from voxel https://gist.github.com/JoshGalvin/398ad2339ad7ae93e72489684d599466 https://github.com/daishihmr/vox.js
-
 - enable second controller
 - new bases to fit scene (http://streetmix.net/kfarr/3/a-frame-city-builder-street-only)
 - ability for select bar component to delay loading / init
@@ -68,16 +95,13 @@ NOT IN THIS RELEASE
 - try isometric view on mobile / non-vr devices (examples https://github.com/aframevr/aframe/issues/84 and http://wafi.iit.cnr.it/webvis/lab/preview.php?gist_id=07b5887a1d57b40b6065)
 - add non-flat lowpoly terrain like this example https://playcanvas.com/
 
-
-
-## future cool objects to add
-* more cool vehicles
-* flying things
-* more "bases" like intersection, left turn, right turn, green park only, pedestrian and bike path only
-* more advanced light poles, signals, signs
-* people
-* trains
+## Credits
+* most models made by Mike Judge, see more here: https://github.com/mikelovesrobots/mmmm
+* table http://tf3dm.com/3d-model/table-65702.html
+* tree and simple base plates created by kfarr using magicavoxel (https://ephtracy.github.io/)
+* city builder text based on https://github.com/ngokevin/kframe/blob/master/components/text/examples/vaporwave/index.html
+* vox/kfarr_veh_tram_avenio.vox inspired by https://sketchfab.com/models/7e3d9f90af9447dabcb813a4af43ae76
 
 ## License
-* The A-Frame City Builder codebase is MIT License Copyright (c) 2016 Kieran Farr
+* The A-Frame City Builder codebase is MIT License Copyright (c) 2017 Kieran Farr
 * Most nice looking objects are made by Mike Judge from his <a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Minis" project</a> under the <a href="https://github.com/mikelovesrobots/mmmm/blob/master/LICENSE">Creative Commons License.</a>
