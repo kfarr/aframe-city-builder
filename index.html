@@ -140,18 +140,25 @@
 
       <!-- Right Hand -->
       <a-entity builder-controls="menuId: menuObjects" id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right" firebase-broadcast="components: position, scale, rotation">
-        <a-entity id="rightItem" firebase-broadcast="components: position, obj-model, scale, rotation" file="base_street1" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" rotation="-56.8 0 0" scale="0.01 0.01 0.01" position="0 -0.08 -0.09"></a-entity>
+        <a-entity id="rightItem" firebase-broadcast="components: position, obj-model, scale, rotation" file="kfarr_bases_valencia" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/kfarr_bases_valencia.obj); mtl: url(assets/obj/kfarr_bases_valencia.mtl)" rotation="-56.8 0 0" scale="0.004 0.004 0.004" position="0 -0.08 -0.09"></a-entity>
         <a-entity id="rightArm" mixins="arm" firebase-broadcast="components: mixins" ></a-entity>
         <a-entity select-bar id="menuObjects" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Bases" value="kfarr_bases">
-            <option value="base_street1" src="assets/preview/base_street1.jpg" selected>Street</option>
-            <option value="base_grass1" src="assets/preview/base_grass1.jpg">Grass</option>
-            <option value="base_crossstreet" src="assets/preview/base_crossstreet.jpg">Cross Street</option>
-            <option value="scene_house6" src="assets/preview/scene_house6.jpg">House Scene 6</option>
-            <option value="scene_house5" src="assets/preview/scene_house5.jpg">House Scene 5</option>
-            <option value="scene_house2" src="assets/preview/scene_house2.jpg">House Scene 2</option>
-            <option value="scene_park4" src="assets/preview/scene_park4.jpg">Park Scene 4</option>
+            <option value="kfarr_bases_valencia" src="assets/preview/kfarr_bases_valencia.jpg" selected>Valencia Street</option>
+            <option value="kfarr_bases_valencia_dashed" src="assets/preview/kfarr_bases_valencia_dashed.jpg">Valencia Dashed</option>
+            <option value="kfarr_bases_valencia_tram" src="assets/preview/kfarr_bases_valencia_tram.jpg">Valencia w/Tram</option>
+            <option value="kfarr_bases_valencia_intersection" src="assets/preview/kfarr_bases_valencia_intersection.jpg">Valencia Intersection</option>
+            <option value="kfarr_bases_valencia_intersection_tram" src="assets/preview/kfarr_bases_valencia_intersection_tram.jpg">Valencia Tram Intrsctn</option>
+            <option value="kfarr_bases_valencia_tram2" src="assets/preview/kfarr_bases_valencia_tram2.jpg">Valencia w/Tram v2</option>
+            <option value="kfarr_bases_valencia_store-1-11-12" src="assets/preview/kfarr_bases_valencia_store-1-11-12.jpg">Lot Mix 1, 11, 12</option>
+            <option value="kfarr_bases_valencia_store-1-3" src="assets/preview/kfarr_bases_valencia_store-1-3.jpg">Lot Mix 1, 3</option>
+            <option value="kfarr_bases_valencia_store-5-lot" src="assets/preview/kfarr_bases_valencia_store-5-lot.jpg">Lot Mix 5, empty</option>
+            <option value="kfarr_bases_valencia_lot" src="assets/preview/kfarr_bases_valencia_lot.jpg">Lot Empty</option>
+            <option value="kfarr_bases_valencia_store-8-11-13" src="assets/preview/kfarr_bases_valencia_store-8-11-13.jpg">Lot Mix 8, 11, 13</option>
+            <option value="base_street1" src="assets/preview/base_street1.jpg">Basic Street</option>
+            <option value="base_grass1" src="assets/preview/base_grass1.jpg">Grass Lot</option>
+            <option value="base_crossstreet" src="assets/preview/base_crossstreet.jpg">Basic Intersection</option>
           </optgroup>
 
         </a-entity>

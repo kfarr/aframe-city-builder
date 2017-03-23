@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.1.1 - [UNRELEASED]
 ### Work in progress
+* - add new objects (valencia street pack)
 * - Removed reference to webpack built dist in index.html
 * - youtube video of city builder
 * - "first ui" blog post about city builder aframe select bar

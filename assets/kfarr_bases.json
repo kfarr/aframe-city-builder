@@ -12,15 +12,15 @@
     "scale": "0.004 0.004 0.004"
   },
   {
-    "file": "kfarr_bases_valencia_tram2",
-    "scale": "0.004 0.004 0.004"
-  },
-  {
     "file": "kfarr_bases_valencia_intersection",
     "scale": "0.004 0.004 0.004"
   },
   {
     "file": "kfarr_bases_valencia_intersection_tram",
+    "scale": "0.004 0.004 0.004"
+  },
+  {
+    "file": "kfarr_bases_valencia_tram2",
     "scale": "0.004 0.004 0.004"
   },
   {
@@ -54,17 +54,5 @@
   {
     "file": "base_crossstreet",
     "scale": "0.01 0.01 0.01"
-  },
-  { "file": "scene_house6",
-    "scale": "0.00390625 0.00390625 0.00390625"
-  },
-  { "file": "scene_house5",
-    "scale": "0.00390625 0.00390625 0.00390625"
-  },
-  { "file": "scene_house2",
-    "scale": "0.00390625 0.00390625 0.00390625"
-  },
-  { "file": "scene_park4",
-    "scale": "0.00390625 0.00390625 0.00390625"
   }
 ]
