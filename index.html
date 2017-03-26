@@ -117,20 +117,18 @@
       <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0"></a-entity>
 
       <!-- Left Hand -->
-      <!-- <a-entity id="leftController" wasd-controls > -->
-      <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
       <a-entity id="leftController" action-controls="menuID: menuActions" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
-      <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
+
         <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Actions" value="actions">
+            <option value="teleport" src="assets/environment/icon_teleport.png">Teleport</option>
             <option value="save" src="assets/environment/icon_save.png" selected>Save</option>
             <option value="saveAs" src="assets/environment/icon_saveAs.png">Coming soon</option>
             <option value="new" src="assets/environment/icon_new.png">Coming soon</option>
             <option value="erase" src="assets/environment/icon_erase.png">Coming soon</option>
             <option value="inspect" src="assets/environment/icon_inspect.png">Coming soon</option>
             <option value="exit" src="assets/environment/icon_exit.png">Coming soon</option>
-            <option value="teleport" src="assets/environment/icon_teleport.png">Teleport</option>
           </optgroup>
 
         </a-entity>
