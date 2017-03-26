@@ -24,6 +24,9 @@
 
     <script src="https://rawgit.com/kfarr/aframe-select-bar-component/master/dist/aframe-select-bar-component.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="http://konsumer.github.io/randopeep/randopeep.min.js"></script>
+
     <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script> -->
     <!-- <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
@@ -200,7 +203,8 @@
                   <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
                 </span>
               </div></p>
-              <p><a onclick="saveButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
+              <p><a onclick="downloadButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
+              <p><a onclick="saveButton()" class="btn btn-info">Save City Layout to Firebase 💾</a></p>
               <p><a onclick="hide()" class="btn btn-success pull-right">Close</a></p>
     </div>
     <a onclick="show()"><div class="menu-overlay btn btn-outline-secondary"></div></a>
@@ -237,116 +241,178 @@
     </script> -->
 
     <script type="text/javascript">
-          function hide() {
-              $("#dialog").removeClass('intro-overlay');
-          }
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBcPajwJo7PyqEjQ70GuvQyIXGOE8xW7Cs",
+        authDomain: "test-b0c62.firebaseapp.com",
+        databaseURL: "https://test-b0c62.firebaseio.com",
+        storageBucket: "test-b0c62.appspot.com",
+        messagingSenderId: "832504680709"
+      };
+      firebase.initializeApp(config);
 
-          function loadTest() {
-            // test a user going through the menu options a bunch
-            for (g = 0; g < 5; g++) {
-              for (i = 0; i < 20; i++) {
-                setTimeout(function(){document.getElementById("menu").emit("onOptionNext")}, 500);
-              }
-              setTimeout(function(){document.getElementById("menu").emit("onOptgroupNext")}, 500);
+      // Get a reference to the database service
+      var database = firebase.database();
+
+      function writeCityData(cityName, cityJSON) {
+        firebase.database().ref('cities/' + cityName).set({
+          cityJSON: cityJSON
+        });
+      }
+
+      function saveButton() {
+        var cityNode = $("#city")[0];
+        var cityJSON = [];
+
+        // fetch each city object and add into json
+        $('#city').children().each(function () {
+          var thisWorldRotationX = this.object3D.rotation.x / (Math.PI / 180);
+    			var thisWorldRotationY = this.object3D.rotation.y / (Math.PI / 180);
+    			var thisWorldRotationZ = this.object3D.rotation.z / (Math.PI / 180);
+    			var thisEulerRotationString = thisWorldRotationX + ' ' + thisWorldRotationY + ' ' + thisWorldRotationZ;
+
+          var childJSON = {
+              id: this.id,
+              file: this.getAttribute('file'),
+              position: this.object3D.position.x + ' ' + this.object3D.position.y + ' ' + this.object3D.position.z,
+              rotation: thisEulerRotationString,
+              scale: this.object3D.scale.x + ' ' + this.object3D.scale.y + ' ' + this.object3D.scale.z
+          };
+
+          cityJSON.push(childJSON);
+        });
+
+        var jsonData = JSON.stringify(cityJSON);
+
+        function slugify(text) {
+          return text.toString().toLowerCase()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
+        }
+
+        randomCityName = randopeep.address.city();
+        randomCityNameSlug = slugify(randomCityName);
+
+        console.log(randomCityName);
+        console.log(randomCityNameSlug);
+
+        writeCityData(randomCityNameSlug, cityJSON);
+
+        window.location.hash = '#' + randomCityNameSlug;
+      }
+
+
+      function hide() {
+          $("#dialog").removeClass('intro-overlay');
+      }
+
+      function loadTest() {
+        // test a user going through the menu options a bunch
+        for (g = 0; g < 5; g++) {
+          for (i = 0; i < 20; i++) {
+            setTimeout(function(){document.getElementById("menu").emit("onOptionNext")}, 500);
+          }
+          setTimeout(function(){document.getElementById("menu").emit("onOptgroupNext")}, 500);
+        }
+      }
+
+      function downloadButton() {
+        var cityNode = $("#city")[0];
+        var cityJSON = [];
+
+        // fetch each city object and add into json
+        $('#city').children().each(function () {
+          var thisWorldRotationX = this.object3D.rotation.x / (Math.PI / 180);
+    			var thisWorldRotationY = this.object3D.rotation.y / (Math.PI / 180);
+    			var thisWorldRotationZ = this.object3D.rotation.z / (Math.PI / 180);
+    			var thisEulerRotationString = thisWorldRotationX + ' ' + thisWorldRotationY + ' ' + thisWorldRotationZ;
+
+          var childJSON = {
+              id: this.id,
+              file: this.getAttribute('file'),
+              position: this.object3D.position.x + ' ' + this.object3D.position.y + ' ' + this.object3D.position.z,
+              rotation: thisEulerRotationString,
+              scale: this.object3D.scale.x + ' ' + this.object3D.scale.y + ' ' + this.object3D.scale.z
+          };
+
+          cityJSON.push(childJSON);
+        });
+
+        var jsonData = JSON.stringify(cityJSON);
+
+        function download(text, name, type) {
+            var a = document.createElement("a");
+            var file = new Blob([text], {type: type});
+            a.href = URL.createObjectURL(file);
+            a.download = name;
+            a.click();
+        }
+        download(jsonData, 'my-aframe-city.json', 'text/plain');
+      }
+
+      function appendObject(id, file, scale, position, rotation, scale) {
+        console.log(position);
+        $('<a-entity />', {
+          id: id,
+          class: 'city object children',
+          position: position,  // doesn't seem to do anything
+          scale: scale,
+          rotation: rotation,
+          file: file,
+          "obj-model": "obj: url(assets/obj/" + file + ".obj); mtl: url(assets/obj/" + file + ".mtl)",
+          // src: '#' + file + '-obj',
+          // mtl: '#' + file + '-mtl',
+          appendTo : $('#city')
+        });
+       document.getElementById(id).setAttribute("position", position); // workaround - this does set position
+      }
+
+      function toDOM(jsonInput) {
+        for(var i = 0; i < jsonInput.length; i++) {
+            var obj = jsonInput[i];
+            console.log("Adding entity #" + obj.id);
+            appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
+        }
+      }
+
+      function loadFileButton() {
+        $.getJSON($("#fileInput")[0].value, function(json) {
+            toDOM(json);
+        });
+      }
+
+      function loadButton() {
+        console.log("load button clicked");
+
+        function isJsonString(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
             }
+            return true;
+        }
 
-          }
+        jsonInput = $("#jsonInput")[0].value;
+        console.log(jsonInput);
 
-          function saveButton() {
-            var cityNode = $("#city")[0];
-            var cityJSON = [];
+        if (isJsonString(jsonInput)) {
+          toDOM(JSON.parse(jsonInput));
+        } else {
+          console.log("oops not valid json");
+        }
 
-            // fetch each city object and add into json
-            $('#city').children().each(function () {
-              var thisWorldRotationX = this.object3D.rotation.x / (Math.PI / 180);
-        			var thisWorldRotationY = this.object3D.rotation.y / (Math.PI / 180);
-        			var thisWorldRotationZ = this.object3D.rotation.z / (Math.PI / 180);
-        			var thisEulerRotationString = thisWorldRotationX + ' ' + thisWorldRotationY + ' ' + thisWorldRotationZ;
+      }
+      function show() {
+         $("#dialog").toggleClass('intro-overlay');
+      }
 
-              var childJSON = {
-                  id: this.id,
-                  file: this.getAttribute('file'),
-                  position: this.object3D.position.x + ' ' + this.object3D.position.y + ' ' + this.object3D.position.z,
-                  rotation: thisEulerRotationString,
-                  scale: this.object3D.scale.x + ' ' + this.object3D.scale.y + ' ' + this.object3D.scale.z
-              };
-
-              cityJSON.push(childJSON);
-            });
-
-            var jsonData = JSON.stringify(cityJSON);
-
-            function download(text, name, type) {
-                var a = document.createElement("a");
-                var file = new Blob([text], {type: type});
-                a.href = URL.createObjectURL(file);
-                a.download = name;
-                a.click();
-            }
-            download(jsonData, 'my-aframe-city.json', 'text/plain');
-          }
-
-          function appendObject(id, file, scale, position, rotation, scale) {
-            console.log(position);
-            $('<a-entity />', {
-              id: id,
-              class: 'city object children',
-              position: position,  // doesn't seem to do anything
-              scale: scale,
-              rotation: rotation,
-              file: file,
-              "obj-model": "obj: url(assets/obj/" + file + ".obj); mtl: url(assets/obj/" + file + ".mtl)",
-              // src: '#' + file + '-obj',
-              // mtl: '#' + file + '-mtl',
-              appendTo : $('#city')
-            });
-           document.getElementById(id).setAttribute("position", position); // workaround - this does set position
-
-          }
-
-          function toDOM(jsonInput) {
-            for(var i = 0; i < jsonInput.length; i++) {
-                var obj = jsonInput[i];
-                console.log("Adding entity #" + obj.id);
-                appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
-            }
-          }
-
-          function loadFileButton() {
-            $.getJSON($("#fileInput")[0].value, function(json) {
-                toDOM(json);
-            });
-          }
-
-          function loadButton() {
-            console.log("load button clicked");
-
-            function IsJsonString(str) {
-                try {
-                    JSON.parse(str);
-                } catch (e) {
-                    return false;
-                }
-                return true;
-            }
-
-            jsonInput = $("#jsonInput")[0].value;
-            console.log(jsonInput);
-
-            if (IsJsonString(jsonInput)) {
-              toDOM(JSON.parse(jsonInput));
-            } else {
-              console.log("oops not valid json");
-            }
-
-          }
-          function show() {
-             $("#dialog").toggleClass('intro-overlay');
-          }
-
-          if (screen.width <= 699) {
-            $("#dialog").removeClass('intro-overlay');
-          }
+      if (screen.width <= 699) {
+        $("#dialog").removeClass('intro-overlay');
+      }
     </script>
 
     <!--githubcorner-->
