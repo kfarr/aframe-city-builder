@@ -7,63 +7,42 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.1.1 - [UNRELEASED]
 ### Work in progress
-* - add new objects (valencia street pack)
-* - Removed reference to webpack built dist in index.html
-* - youtube video of city builder
-* - "first ui" blog post about city builder aframe select bar
-* - convert from bmfont to new text component
-*  - try it out
-* - allow multiple select-bar elements on same scene
-*    - issue: 2nd menu bar stops working after first trackpad press
-X  - fix to use proper multiple component syntax
-*  - test multiple select bar in VR
-*  - add exit
-*    - move "trigger" event to select bar component
-*    - game logic should be refined to listen for this
-*    - test and make sure works
-*  - separate select-bar component into new repo
-*    - fix separate select-bar
-*    - remove from this project and make this project reference the remote repo version
+* add new objects (valencia street pack)
+* Removed and then re-added reference to webpack built dist in index.html
+* made a few youtube videos of city builder and UI: https://www.youtube.com/watch?v=ni_AF6RYtZo
+* "first ui" blog post about city builder aframe select bar: https://medium.com/p/38b0c86ed7b7/
+* removed select-bar component from this project and added reference to new repo: https://github.com/kfarr/aframe-select-bar-component
+* move "trigger" event to select bar component
+* convert from bmfont to new aframe text component
+* added 2nd controller element with action menu commands
+* added teleport
+* added save to firebase
+* aframe.city domain registration and firebase hosting
 
-* what is missing from being able to "escape" in city builder? teleport, reliable save
+O activate (add component) only when menu item selected
+O test inverted teleport from forked repo
+- separate save component on scene (or city element)
+- test firebase save component
+- test open from firebase URL
+- save message with city name
+- save as new city name - put on bg near logo?
+- test new camera view
+- remove old save / load buttons from UI
+- add emoticons to html page title 🌆🏗️ aframe.city
 
-*  - 2nd controller with menu commands
-*    - teleport
-*      - test inverted teleport from forked repo
-*        - forked repo should work - use ghetto version
--
-O     - activate (add component) only when menu item selected
-*        - action-controls
-*          - init - what is the action?
-O            - if teleport, add teleport component
-O              - remove when not selected
-            - if save, add save component?
-        - problem - upon init the thing isn't working
-      - issue - select bar ID in console log undefined, but code appears correct - is console returning an old definition?
-
-      - bonus prize add animation to currently select action frame to indicate happening
-    - save
-      - message re URL and city name
-      - auto save with visual indicator (custom firebase that works)
-    - save as
-    - new city
-    - erase tool
-    - inspect (magnifying glass)
+LATER THINGS:
+- new city
+- erase tool
+- inspect (magnifying glass)
+- auto save with visual indicator (custom firebase that works)
 
 - get people to use the things
   - city builder as a multi platform app
   - top 10:
     - size of city (objects, area)
+    - population (number of chr objects)
     - visitors (is this a self fulfilling prophecy?)
     - recently saved
-    -
-- select menu as separate component
-  - documentation
-  - work with more than 1 controller
-
-- avatars later
-
-
 
 ## 0.1.0 - 2017-01-29
 ### Added
