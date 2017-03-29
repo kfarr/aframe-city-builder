@@ -12,13 +12,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * made a few youtube videos of city builder and UI: https://www.youtube.com/watch?v=ni_AF6RYtZo
 * "first ui" blog post about city builder aframe select bar: https://medium.com/p/38b0c86ed7b7/
 * removed select-bar component from this project and added reference to new repo: https://github.com/kfarr/aframe-select-bar-component
-* move "trigger" event to select bar component
+* added guide in readme re how to contribute new objects to repo
+* moved "trigger" event to select bar component
 * convert from bmfont to new aframe text component
 * added 2nd controller element with action menu commands
 * added teleport
 * added save to firebase
 * aframe.city domain registration and firebase hosting
-* add emoticons to html page title 🏗️  aframe.city
+* add new game title, city name and favicon, yay 🏗️ aframe.city!
 
 O activate (add component) only when menu item selected
   - double check removal of teleport
