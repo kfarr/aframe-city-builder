@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * added teleport
 * added save to firebase
 * aframe.city domain registration and firebase hosting
+* add emoticons to html page title 🌆🏗️ aframe.city
 
 O activate (add component) only when menu item selected
 O test inverted teleport from forked repo
@@ -28,7 +29,7 @@ O test inverted teleport from forked repo
 - save as new city name - put on bg near logo?
 - test new camera view
 - remove old save / load buttons from UI
-- add emoticons to html page title 🌆🏗️ aframe.city
+- add city name hash to page title when saved / opened / saveAs'ed
 
 LATER THINGS:
 - new city
