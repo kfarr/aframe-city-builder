@@ -102,8 +102,8 @@
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="cameraWrapper" position="0.05 0.41 0.34" rotation="-43.5 0.80 0">
-      <!-- <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"> -->
+      <!-- <a-entity id="cameraWrapper" position="0.05 0.41 0.34" rotation="-43.5 0.80 0"> -->
+      <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0">
         <a-entity id="camera" camera look-controls wasd-controls="fly: true"></a-entity>
       </a-entity>
 
@@ -175,8 +175,19 @@
         <a-entity position="-1 2.15 0.3" text="text:A-Frame; font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;" material="shader:flat;color:white;" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
         <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity> -->
 
-        <!-- temporary replacement for geometric text when it broke upon aframe 0.4.0 release -->
-        <a-plane position="3.5 1 -0.5" scale="5 1 0" src="assets/images/aframecity.png" material="opacity:0.6"></a-plane>
+        <!-- logo replacement when geometric text broke upon aframe 0.4.0 release -->
+        <!-- <a-plane position="3.5 1 -0.5" scale="5 1 0" src="assets/images/aframecity.png" material="opacity:0.6"></a-plane> -->
+
+        <!-- using new text component for appname and cityname -->
+        <a-entity
+          position="3.5 1 -0.5"
+          geometry="primitive: plane; width: 4; height: 1.4"
+          material="color: black; opacity: 0.6"
+          text__appname="color: yellow; align: center; font: exo2bold; wrap-count: 12; z-offset: 0.01; baseline: bottom;
+                value: aframe.city"
+          text__cityname="color: white; align: center; font: exo2semibold; wrap-count: 24; z-offset: 0.01; baseline: top;
+                value: #CityName"
+        ></a-entity>
 
       </a-entity>
 

@@ -18,18 +18,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * added teleport
 * added save to firebase
 * aframe.city domain registration and firebase hosting
-* add emoticons to html page title 🌆🏗️ aframe.city
+* add emoticons to html page title 🏗️  aframe.city
 
 O activate (add component) only when menu item selected
+  - double check removal of teleport
 O test inverted teleport from forked repo
 - separate save component on scene (or city element)
 - test firebase save component
+- change url hash to camel case city name (no hyphen)
 - test open from firebase URL
 - save message with city name
 - save as new city name - put on bg near logo?
 - test new camera view
 - remove old save / load buttons from UI
 - add city name hash to page title when saved / opened / saveAs'ed
+- add aframe.city to chrome/daydream vr whitelist
 
 LATER THINGS:
 - new city
