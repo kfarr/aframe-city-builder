@@ -20,20 +20,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * added save to firebase
 * aframe.city domain registration and firebase hosting
 * add new game title, city name and favicon, yay 🏗️ aframe.city!
+* new camera view before entering VR mode - rotation is a bit wonky
+* check if city name is invalid before saving - note this is client side only, no server validation. it is possible to overwrite all cities with a malformed city name :/
+* add randopeeps npm module for fun random city names
+* city saved as URL camel case hash shortname that can be easily shared
+* open a city by simply visiting the city's hash url (aframe.city/#CityName)
 
-O activate (add component) only when menu item selected
-  - double check removal of teleport
-O test inverted teleport from forked repo
-- separate save component on scene (or city element)
-- test firebase save component
-- change url hash to camel case city name (no hyphen)
-- test open from firebase URL
-- save message with city name
-- save as new city name - put on bg near logo?
-- test new camera view
-- remove old save / load buttons from UI
+- tie firebase save to VR action menu ui
+- show HUD message for save success with city name
+- save as support
+- remove old UI2D, add same icons as menu bar!
+v test inverted teleport from forked repo
+v separate save component on scene (or city element)
+- remove old save / load buttons from UI - remove old UI too?
 - add city name hash to page title when saved / opened / saveAs'ed
 - add aframe.city to chrome/daydream vr whitelist
+- show a city at the start by default
+
 
 LATER THINGS:
 - new city

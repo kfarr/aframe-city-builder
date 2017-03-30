@@ -32,7 +32,7 @@
     <script src="https://rawgit.com/kfarr/aframe-select-bar-component/master/dist/aframe-select-bar-component.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-    <script src="https://rawgit.com/konsumer/randopeep/gh-pages/randopeep.min.js"></script>
+    <script src="https://rawgit.com/konsumer/randopeep/gh-pages/randopeep.js"></script>
 
     <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script> -->
@@ -180,13 +180,14 @@
 
         <!-- using new text component for appname and cityname -->
         <a-entity
+          id="title"
           position="3.5 1 -0.5"
           geometry="primitive: plane; width: 4; height: 1.4"
           material="color: black; opacity: 0.6"
           text__appname="color: yellow; align: center; font: exo2bold; wrap-count: 12; z-offset: 0.01; baseline: bottom;
                 value: aframe.city"
           text__cityname="color: white; align: center; font: exo2semibold; wrap-count: 24; z-offset: 0.01; baseline: top;
-                value: #CityName"
+                value: #NewCity"
         ></a-entity>
 
       </a-entity>
@@ -273,10 +274,14 @@
       var database = firebase.database();
 
       function writeCityData(cityName, cityJSON) {
-        firebase.database().ref('cities/' + cityName).set({
-          cityJSON: cityJSON
-        });
-      }
+        if(((typeof cityName != "undefined") && (typeof cityName.valueOf() == "string")) && (cityName.length > 0)) {
+          firebase.database().ref('cities/' + cityName).set({
+            cityJSON: cityJSON
+          });
+        } else {
+          console.log("invalid city name: " + cityName);
+        }
+      };
 
       function saveButton() {
         var cityNode = $("#city")[0];
@@ -312,14 +317,16 @@
         }
 
         randomCityName = randopeep.address.city();
-        randomCityNameSlug = slugify(randomCityName);
+//        randomCityNameSlug = slugify(randomCityName);
+        randomCityNameCamel = randomCityName.replace(/\s+/g, '');
 
         console.log(randomCityName);
-        console.log(randomCityNameSlug);
+        console.log(randomCityNameCamel);
 
-        writeCityData(randomCityNameSlug, cityJSON);
+        writeCityData(randomCityNameCamel, cityJSON);
 
-        window.location.hash = '#' + randomCityNameSlug;
+        window.location.hash = '#' + randomCityNameCamel;
+        document.getElementById("title").setAttribute("text__cityname", "value", "#" + randomCityNameCamel)
       }
 
 
@@ -336,6 +343,24 @@
           setTimeout(function(){document.getElementById("menu").emit("onOptgroupNext")}, 500);
         }
       }
+
+      // on load - load the city
+
+      setTimeout(function(){
+        // IS THERE A HASH?
+        var cityName = location.hash.substring(1);
+        console.log("hash check: " + cityName);
+        if (cityName) {
+          // LOAD CITY
+          console.log("trying to load");
+          firebase.database().ref('cities/' + cityName).once('value').then(function(snapshot) {
+            var cityJSON = snapshot.val().cityJSON;
+            console.log(cityJSON);
+            toDOM(cityJSON);
+            document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityName)
+          });
+        };
+      }, 1500);
 
       function downloadButton() {
         var cityNode = $("#city")[0];
