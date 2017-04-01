@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-
-## 0.1.1 - [UNRELEASED]
+## 0.1.1 - 2017-04-01
 ### Added
-* add new objects (valencia street pack)
+* added new objects (valencia street pack)
 * made a few youtube videos of city builder and UI: https://www.youtube.com/watch?v=ni_AF6RYtZo
 * added guide in readme re how to contribute new objects to repo
 * "first ui" blog post about city builder aframe select bar: https://medium.com/p/38b0c86ed7b7/
