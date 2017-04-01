@@ -28,18 +28,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * add city name hash to page title when saved / opened / saveAs'ed
 * tie firebase save to VR action menu ui
 * saveas.. support on action menu ui
+
 - new city (clear all children of city entity and reset objectCount = 0)
 
 - remove old UI2D, add same icons as action menu bar! old dialog pops open
-
-- show a city at the start by default
-
+- show a city at the start by default - which one? random? list?
 - show HUD message for save success with city name
 - updating hash should trigger loading new city: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onhashchange
 
 LATER THINGS:
 - error handling when city in hash cannot be loaded from firebase
-- separate save component on scene (or city element)
+- remove load and save functions from index, can add to action-controls or new component
 - try inverted teleport from forked repo
 - add aframe.city to chrome/daydream vr whitelist
 - erase tool
