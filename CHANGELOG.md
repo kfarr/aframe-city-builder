@@ -6,45 +6,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## 0.1.1 - [UNRELEASED]
-### Work in progress
+### Added
 * add new objects (valencia street pack)
-* Removed and then re-added reference to webpack built dist in index.html
 * made a few youtube videos of city builder and UI: https://www.youtube.com/watch?v=ni_AF6RYtZo
-* "first ui" blog post about city builder aframe select bar: https://medium.com/p/38b0c86ed7b7/
-* removed select-bar component from this project and added reference to new repo: https://github.com/kfarr/aframe-select-bar-component
 * added guide in readme re how to contribute new objects to repo
-* moved "trigger" event to select bar component
-* convert from bmfont to new aframe text component
+* "first ui" blog post about city builder aframe select bar: https://medium.com/p/38b0c86ed7b7/
 * added 2nd controller element with action menu commands
 * added teleport
 * added save to firebase
 * aframe.city domain registration and firebase hosting
 * add new game title, city name and favicon, yay 🏗️ aframe.city!
 * new camera view before entering VR mode - rotation is a bit wonky
-* check if city name is invalid before saving - note this is client side only, no server validation. it is possible to overwrite all cities with a malformed city name :/
+* check if city name is invalid before saving - note this is client side only, no server validation. it is possible to overwrite all firebase cities with a malformed city name :/
 * add randopeeps npm module for fun random city names
 * city saved as URL camel case hash shortname that can be easily shared
 * open a city by simply visiting the city's hash url (aframe.city/#CityName)
 * add city name hash to page title when saved / opened / saveAs'ed
 * tie firebase save to VR action menu ui
-* saveas.. support on action menu ui
+* added saveas menu option
+* added new city menu option - no warning, use with care!
 
-- new city (clear all children of city entity and reset objectCount = 0)
-
-- remove old UI2D, add same icons as action menu bar! old dialog pops open
-- show a city at the start by default - which one? random? list?
-- show HUD message for save success with city name
-- updating hash should trigger loading new city: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onhashchange
-
-LATER THINGS:
-- error handling when city in hash cannot be loaded from firebase
-- remove load and save functions from index, can add to action-controls or new component
-- try inverted teleport from forked repo
-- add aframe.city to chrome/daydream vr whitelist
-- erase tool
-- inspect (magnifying glass)
-- auto save with visual indicator (custom firebase that works)
-- show stats in addition to city name - size of city (objects, area), population (number of chr objects)
+### Changed
+* removed select-bar component from this project and added reference to new repo: https://github.com/kfarr/aframe-select-bar-component
+* moved "trigger" event to select bar component
+* convert from bmfont to new aframe text component
 
 ## 0.1.0 - 2017-01-29
 ### Added

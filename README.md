@@ -57,7 +57,20 @@ https://github.com/kfarr/aframe-city-builder/blob/master/lib/builder-controls.js
 Fork this repo, start making changes, and submit a pull request! Also feel free to file an issue or reach out directly kieran.farr@gmail.com with your idea and I can try to help make your idea work.
 
 ## Need inspiration? Here is a partial wishlist for City Builder features:
-NOT IN THIS RELEASE
+NOT IN THIS RELEASE - LATER THINGS TO DO:
+- remove old UI2D, add same icons as action menu bar! old dialog pops open
+- show a list of cities
+- show a city at the start by default - which one? random? list?
+- show HUD message for save success with city name - in VR and on browser desktop
+- updating hash should trigger loading new city: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onhashchange
+- error handling when city in hash cannot be loaded from firebase
+- remove load and save functions from index, can add to action-controls or new component
+- try inverted teleport from forked repo
+- add aframe.city to chrome/daydream vr whitelist
+- erase tool
+- inspect (magnifying glass)
+- auto save with visual indicator (custom firebase that works)
+- show stats in addition to city name - size of city (objects, area), population (number of chr objects)
 - load directly from voxel https://gist.github.com/JoshGalvin/398ad2339ad7ae93e72489684d599466 https://github.com/daishihmr/vox.js
 - enable second controller
 - new bases to fit scene (http://streetmix.net/kfarr/3/a-frame-city-builder-street-only)
