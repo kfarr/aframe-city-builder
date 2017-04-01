@@ -111,13 +111,12 @@
 
       <!-- Left Hand -->
       <a-entity id="leftController" action-controls="menuID: menuActions" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
-
         <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Actions" value="actions">
-            <option value="teleport" src="assets/environment/icon_teleport.png">Teleport</option>
-            <option value="save" src="assets/environment/icon_save.png" selected>Save</option>
-            <option value="saveAs" src="assets/environment/icon_saveAs.png">Coming soon</option>
+            <option value="teleport" src="assets/environment/icon_teleport.png" selected>Teleport</option>
+            <option value="saveAs" src="assets/environment/icon_saveAs.png">Save As</option>
+            <option value="save" src="assets/environment/icon_save.png">Save</option>
             <option value="new" src="assets/environment/icon_new.png">Coming soon</option>
             <option value="erase" src="assets/environment/icon_erase.png">Coming soon</option>
             <option value="inspect" src="assets/environment/icon_inspect.png">Coming soon</option>
@@ -125,8 +124,6 @@
           </optgroup>
 
         </a-entity>
-
-
       </a-entity>
 
       <!-- Right Hand -->
@@ -153,14 +150,13 @@
           </optgroup>
 
         </a-entity>
-
       </a-entity>
 
       <!-- City -->
       <a-entity id="city"></a-entity>
 
       <!-- Table and Grid -->
-      <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="divisions:20">
+      <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="size:10; divisions:20">
         <a-box id="tableTop" position="0.12 -0.01 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78"></a-box>
         <a-entity id="tableBase" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" obj-model="obj:#table-obj;mtl:#table-mtl"></a-entity>
       </a-entity>
@@ -283,7 +279,7 @@
         }
       };
 
-      function saveButton() {
+      function saveButton(overwrite = false) {
         var cityNode = $("#city")[0];
         var cityJSON = [];
 
@@ -323,10 +319,16 @@
         console.log(randomCityName);
         console.log(randomCityNameCamel);
 
+        if (overwrite && location.hash.substring(1)) {  // very lazy way to make save
+          randomCityNameCamel = location.hash.substring(1);
+        }
+
         writeCityData(randomCityNameCamel, cityJSON);
 
         window.location.hash = '#' + randomCityNameCamel;
-        document.getElementById("title").setAttribute("text__cityname", "value", "#" + randomCityNameCamel)
+        document.getElementById("title").setAttribute("text__cityname", "value", "#" + randomCityNameCamel);
+        document.title = "aframe.city#" + randomCityNameCamel;
+
       }
 
 
@@ -344,8 +346,7 @@
         }
       }
 
-      // on load - load the city
-
+      // on load - load the city -- TODO - this should be on a city loader component on the scene entity instead
       setTimeout(function(){
         // IS THERE A HASH?
         var cityName = location.hash.substring(1);
@@ -358,6 +359,7 @@
             console.log(cityJSON);
             toDOM(cityJSON);
             document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityName)
+            document.title = "aframe.city#" + cityName;
           });
         };
       }, 1500);
@@ -414,11 +416,15 @@
       }
 
       function toDOM(jsonInput) {
+        // this assumes it is being run first -- it will start placing objects with id 0 and set objectcount to the number of loaded objects
         for(var i = 0; i < jsonInput.length; i++) {
             var obj = jsonInput[i];
             console.log("Adding entity #" + obj.id);
             appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
         }
+        objectCount = i;
+        console.log("objectCount:" + objectCount);
+
       }
 
       function loadFileButton() {
