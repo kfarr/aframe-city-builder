@@ -1,8 +1,13 @@
-# aframe-city-builder
+# 🏗️ aframe-city-builder
 A-Frame project demonstrating touch controls for building a VR city scene.
 
-## Demo
-<strong><a href="https://kfarr.github.io/aframe-city-builder">If you have an HTC Vive or Oculus Rift with accompanying controllers, click here to try it out now!</a></strong>
+## Build a New City Now: <b><a href="https://aframe.city"> >> aframe.city << </a></b>
+HTC Vive or Oculus Rift with accompanying controllers required to add items to scene.
+
+## Load Existing City
+* https://aframe.city/#NewYington
+* https://aframe.city/#LosTierrashire
+* https://aframe.city/#NewKusunoki
 
 ## Screenshots
 <img src="./assets/images/screenshots.gif" />
