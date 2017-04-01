@@ -26,37 +26,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * city saved as URL camel case hash shortname that can be easily shared
 * open a city by simply visiting the city's hash url (aframe.city/#CityName)
 * add city name hash to page title when saved / opened / saveAs'ed
-- error? loading existing city and then attempting to add objects results in odd behavior
-  - are new objects being set with new ID?
-
-- tie firebase save to VR action menu ui
-- saveas.. support on action menu ui
-
-- error handling when city in hash cannot be loaded from firebase
-
-
+* tie firebase save to VR action menu ui
+* saveas.. support on action menu ui
 - new city (clear all children of city entity and reset objectCount = 0)
-- updating hash should trigger loading new city: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onhashchange
-- remove old UI2D, add same icons as action menu bar! old dialog pops open
-- show a city at the start by default
-v separate save component on scene (or city element)
-- show HUD message for save success with city name
 
+- remove old UI2D, add same icons as action menu bar! old dialog pops open
+
+- show a city at the start by default
+
+- show HUD message for save success with city name
+- updating hash should trigger loading new city: https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onhashchange
 
 LATER THINGS:
+- error handling when city in hash cannot be loaded from firebase
+- separate save component on scene (or city element)
 - try inverted teleport from forked repo
 - add aframe.city to chrome/daydream vr whitelist
 - erase tool
 - inspect (magnifying glass)
 - auto save with visual indicator (custom firebase that works)
-
-- get people to use the things
-  - city builder as a multi platform app
-  - top 10:
-    - size of city (objects, area)
-    - population (number of chr objects)
-    - visitors (is this a self fulfilling prophecy?)
-    - recently saved
+- show stats in addition to city name - size of city (objects, area), population (number of chr objects)
 
 ## 0.1.0 - 2017-01-29
 ### Added
