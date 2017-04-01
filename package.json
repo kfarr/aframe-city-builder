@@ -1,7 +1,7 @@
 {
   "name": "aframe-city-builder",
   "description": "A-Frame project demonstrating touch controls for building a VR city scene.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/kfarr/aframe-city-builder.git"

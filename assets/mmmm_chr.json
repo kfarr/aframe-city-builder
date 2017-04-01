@@ -1,0 +1,386 @@
+[
+  {
+    "file": "chr_army1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army1a",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army1b",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army2a",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army2b",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_army4a",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_base",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_beardo1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_beardo2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_beardo3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_beardo4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_beau",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_bedroll1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_bedroll2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_bridget",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_bro",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_brookie",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_butcher",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_chef",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_cop1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_cop2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_costume1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_costume2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_costume3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_costume4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_eskimo",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_fatkid",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_goth1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_goth2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_goth3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_hazmat1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_hazmat2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_headphones",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_hobo1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_hunter1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_hunter2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_janitor",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_lady1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_lady2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_lady3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_lady4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_mailman",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_mayor",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_mechanic",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_mike",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_mission1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_mission2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_naked1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_naked2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_naked3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_naked4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_naked5",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_naked6",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_nun",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_nurse",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_paramedic1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_paramedic2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_ponytail1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_ponytail2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_ponytail3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_priest",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_punk",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_raver1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_raver2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_raver3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_riotcop",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_robot",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_scientist",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sign1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sign2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sports1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sports2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sports3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sports4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_suit1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_suit2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_suit3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_suit4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sumo1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_sumo2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_super1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_super2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_super3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_super4",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_super5",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_thief",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_worker1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_worker2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_worker3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_zombie1",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_zombie2",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_zombie3",
+    "scale": "0.005 0.005 0.005"
+  },
+  {
+    "file": "chr_zombie4",
+    "scale": "0.005 0.005 0.005"
+  }
+]

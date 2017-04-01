@@ -2,33 +2,47 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A-Frame City Builder</title>
+    <title>aframe.city</title>
     <meta name="description" content="A-Frame City Builder">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="aframe.city"/>
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
 
     <!-- using aframe master until next stable -->
-    <!-- <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script> -->
-    <script src="https://rawgit.com/aframevr/aframe/1a74a089df988f018f4fb206338fb6f30a1aeb41/dist/aframe-master.min.js"></script>
-
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
 
     <!-- jquery for city builder app components -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <!-- this was a build script but webpack and friends were too annoying so not used for now -->
-    <!-- <script src="lib/dist/aframe-city-builder.js"></script> -->
+    <!-- this was a build script but webpack was too annoying so not used for now -->
+    <script src="lib/dist/aframe-city-builder.js"></script>
 
     <!-- for desktop menu overlay -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 
     <!-- components used -->
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-    <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script>
-    <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
-    <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
-    <script src="lib/skyGradient.js"></script>
+    <!-- <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
+    <script src="https://rawgit.com/kfarr/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+
+    <script src="https://rawgit.com/kfarr/aframe-select-bar-component/master/dist/aframe-select-bar-component.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="https://rawgit.com/konsumer/randopeep/gh-pages/randopeep.js"></script>
+
+    <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script> -->
+    <!-- <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
+    <script src="https://rawgit.com/kfarr/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script> -->
+
+    <!-- <script src="lib/skyGradient.js"></script>
     <script src="lib/ground.js"></script>
     <script src="lib/aframe-select-bar.js"></script>
-    <script src="lib/builder-controls.js"></script>
+    <script src="lib/builder-controls.js"></script> -->
 
     <style>
           .intro-overlay {
@@ -36,7 +50,7 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            max-width: 500px;
+            max-width: 700px;
             box-sizing: border-box;
             padding: 1.5em;
             color: #FFF;
@@ -64,8 +78,7 @@
         </style>
   </head>
   <body>
-    <a-scene id="my-scene" antialias='true'>
-
+    <a-scene id="my-scene" antialias="true" >
       <a-assets>
 
         <!-- scene items -->
@@ -78,46 +91,72 @@
         <a-asset-item id="exoBlackRegular" src="assets/environment/env_exo_black_regular.js"></a-asset-item>
         <a-asset-item id="exoBoldItalic" src="assets/environment/env_exo_bold_italic.js"></a-asset-item>
 
+        <a-mixin id="avatar"
+                        geometry="primitive: box; depth: 0.3; height: 0.3; width: 0.3"
+                        material="color: #222"></a-mixin>
+        <a-mixin id="eye" geometry="primitive: circle; radius: 0.08"
+                        material="shader: flat; side: double"></a-mixin>
+        <a-mixin id="eyePupil" geometry="primitive: circle; radius: 0.02"
+                        material="shader: flat; side: double; color: #222"></a-mixin>
+
       </a-assets>
 
       <!-- Player -->
-      <a-entity id="cameraWrapper">
-      <!-- <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0"> -->
-        <a-entity id="camera" camera look-controls wasd-controls="fly: true" ></a-entity>
-      </a-entity>
-    <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0">
-
-    </a-entity>
-
-      <!-- <a-entity builder-controls id="leftController" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" > -->
-      <a-entity id="leftController" wasd-controls >
-        <!-- <a-entity id="leftItem" file="base_street" objectGroup="kfarr_bases" objectId="1" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" scale="0.01 0.01 0.01" position="0 0 -0.25" rotation="0 90 0"></a-entity> -->
+      <!-- <a-entity id="cameraWrapper" position="0.05 0.41 0.34" rotation="-43.5 0.80 0"> -->
+      <a-entity id="cameraWrapper" position="-1.06 1.31 1.82" rotation="-12.834254610930437 -16.844959176846217 0">
+        <a-entity id="camera" camera look-controls wasd-controls="fly: true"></a-entity>
       </a-entity>
 
-      <a-entity builder-controls id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right">
-        <a-entity id="rightItem" file="base_street1" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/base_street1.obj); mtl: url(assets/obj/base_street1.mtl)" rotation="-56.8 0 0" scale="0.01 0.01 0.01" position="0 -0.08 -0.09"></a-entity>
+      <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0"></a-entity>
 
-        <a-entity select-bar id="menu" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
+      <!-- Left Hand -->
+      <a-entity id="leftController" action-controls="menuID: menuActions" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
+        <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
-          <optgroup label="Bases" value="kfarr_bases">
-            <option value="base_street1" src="assets/preview/base_street1.jpg" selected>Street</option>
-            <option value="base_grass1" src="assets/preview/base_grass1.jpg">Grass</option>
-            <option value="base_crossstreet" src="assets/preview/base_crossstreet.jpg">Cross Street</option>
-            <option value="scene_house6" src="assets/preview/scene_house6.jpg">House Scene 6</option>
-            <option value="scene_house5" src="assets/preview/scene_house5.jpg">House Scene 5</option>
-            <option value="scene_house2" src="assets/preview/scene_house2.jpg">House Scene 2</option>
-            <option value="scene_park4" src="assets/preview/scene_park4.jpg">Park Scene 4</option>
+          <optgroup label="Actions" value="actions">
+            <option value="teleport" src="assets/environment/icon_teleport.png" selected>Teleport</option>
+            <option value="saveAs" src="assets/environment/icon_saveAs.png">Save As</option>
+            <option value="save" src="assets/environment/icon_save.png">Save</option>
+            <option value="new" src="assets/environment/icon_new.png">New</option>
+            <option value="erase" src="assets/environment/icon_erase.png">Coming soon</option>
+            <option value="inspect" src="assets/environment/icon_inspect.png">Coming soon</option>
+            <option value="exit" src="assets/environment/icon_exit.png">Coming soon</option>
           </optgroup>
 
         </a-entity>
+      </a-entity>
 
+      <!-- Right Hand -->
+      <a-entity builder-controls="menuId: menuObjects" id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right">
+        <a-entity id="rightItem" file="kfarr_bases_valencia" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/kfarr_bases_valencia.obj); mtl: url(assets/obj/kfarr_bases_valencia.mtl)" rotation="-56.8 0 0" scale="0.004 0.004 0.004" position="0 -0.08 -0.09"></a-entity>
+        <a-entity id="rightArm" mixins="arm"></a-entity>
+        <a-entity select-bar id="menuObjects" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
+
+          <optgroup label="Bases" value="kfarr_bases">
+            <option value="kfarr_bases_valencia" src="assets/preview/kfarr_bases_valencia.jpg" selected>Valencia Street</option>
+            <option value="kfarr_bases_valencia_dashed" src="assets/preview/kfarr_bases_valencia_dashed.jpg">Valencia Dashed</option>
+            <option value="kfarr_bases_valencia_tram" src="assets/preview/kfarr_bases_valencia_tram.jpg">Valencia w/Tram</option>
+            <option value="kfarr_bases_valencia_intersection" src="assets/preview/kfarr_bases_valencia_intersection.jpg">Valencia Intersection</option>
+            <option value="kfarr_bases_valencia_intersection_tram" src="assets/preview/kfarr_bases_valencia_intersection_tram.jpg">Valencia Tram Intrsctn</option>
+            <option value="kfarr_bases_valencia_tram2" src="assets/preview/kfarr_bases_valencia_tram2.jpg">Valencia w/Tram v2</option>
+            <option value="kfarr_bases_valencia_store-1-11-12" src="assets/preview/kfarr_bases_valencia_store-1-11-12.jpg">Lot Mix 1, 11, 12</option>
+            <option value="kfarr_bases_valencia_store-1-3" src="assets/preview/kfarr_bases_valencia_store-1-3.jpg">Lot Mix 1, 3</option>
+            <option value="kfarr_bases_valencia_store-5-lot" src="assets/preview/kfarr_bases_valencia_store-5-lot.jpg">Lot Mix 5, empty</option>
+            <option value="kfarr_bases_valencia_lot" src="assets/preview/kfarr_bases_valencia_lot.jpg">Lot Empty</option>
+            <option value="kfarr_bases_valencia_store-8-11-13" src="assets/preview/kfarr_bases_valencia_store-8-11-13.jpg">Lot Mix 8, 11, 13</option>
+            <option value="base_street1" src="assets/preview/base_street1.jpg">Basic Street</option>
+            <option value="base_grass1" src="assets/preview/base_grass1.jpg">Grass Lot</option>
+            <option value="base_crossstreet" src="assets/preview/base_crossstreet.jpg">Basic Intersection</option>
+          </optgroup>
+
+        </a-entity>
       </a-entity>
 
       <!-- City -->
       <a-entity id="city"></a-entity>
 
       <!-- Table and Grid -->
-      <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="divisions:20">
+      <a-entity id="tableGrid" position="0.25 0.5 0.25" gridhelper="size:10; divisions:20">
         <a-box id="tableTop" position="0.12 -0.01 -1.02" width="3" height="0.1" depth="2" color="#09620b" material="color:#09620b" geometry="primitive:box;width:3;height:0.1;depth:2" scale="0.9 0.19999999999999996 0.78"></a-box>
         <a-entity id="tableBase" scale="0.015 0.015 0.015" position="0.18 -0.02 -1" rotation="0 0 0" obj-model="obj:#table-obj;mtl:#table-mtl"></a-entity>
       </a-entity>
@@ -128,12 +167,24 @@
       <a-entity position="-3 1 -6" rotation="5 0 0">
 
         <!-- City Builder Geometric Text Title adapted from Ada Rose's https://aframe.io/examples/showcase/hello-metaverse/ -->
-        <a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:#exoBlackRegular;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
+        <!-- <a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text="text:CITY BUILDER;font:#exoBlackRegular;bevelEnabled:true;bevelSize:0.1;bevelThickness:0.1;curveSegments:1;size:1.5;height:0.5" material="color:white;metalness:0.9;roughness:0.05;sphericalEnvMap:#chrome"></a-entity>
         <a-entity position="-1 2.15 0.3" text="text:A-Frame; font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;" material="shader:flat;color:white;" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
-        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity>
+        <a-entity position="-1 2.15 0.3" text="text:A-Frame;font:#exoBoldItalic;style:italic;size:0.8;weight:bold;height:0;bevelEnabled:true;bevelSize:0.04;bevelThickness:0.04;curveSegments:1" material="shader:flat;color:white;transparent:true;opacity:0.4"></a-entity> -->
 
-        <!-- temporary replacement for geometric text when it broke upon aframe 0.4.0 release -->
+        <!-- logo replacement when geometric text broke upon aframe 0.4.0 release -->
         <!-- <a-plane position="3.5 1 -0.5" scale="5 1 0" src="assets/images/aframecity.png" material="opacity:0.6"></a-plane> -->
+
+        <!-- using new text component for appname and cityname -->
+        <a-entity
+          id="title"
+          position="3.5 1 -0.5"
+          geometry="primitive: plane; width: 4; height: 1.4"
+          material="color: black; opacity: 0.6"
+          text__appname="color: yellow; align: center; font: exo2bold; wrap-count: 12; z-offset: 0.01; baseline: bottom;
+                value: aframe.city"
+          text__cityname="color: white; align: center; font: exo2semibold; wrap-count: 24; z-offset: 0.01; baseline: top;
+                value: #NewCity"
+        ></a-entity>
 
       </a-entity>
 
@@ -148,31 +199,32 @@
 
     <!-- dialog box overlay for desktop users -->
     <div id="dialog" class="img-rounded intro-overlay">
-          <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
-          <h4><strong>A-Frame City Builder</strong></h4>
-          <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
-          <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
-          <h5>CONTROLS - Supports both Oculus Touch and Vive Controls</h5>
-          <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on touchpad or thumbstick. Press <code>up</code> or <code>down</code> to switch object groups.
-          <h5>LOAD and SAVE:</h5>
-          <p><div class="input-group">
-            <input id="fileInput" type="text" class="form-control" onfocus="this.select();" placeholder="Enter JSON URL" value="example-aframe-city.json">
-            <span class="input-group-btn">
-              <button onclick="loadFileButton()" class="btn btn-info" type="button">Load JSON URL</button>
-            </span>
-          </div></p>
-          <p><div class="input-group">
-            <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
-            <span class="input-group-btn">
-              <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
-            </span>
-          </div></p>
-          <p><a onclick="saveButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
-          <p><a onclick="hide()" class="btn btn-success pull-right">Close</a></p>
+              <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
+              <h4><strong>A-Frame City Builder</strong></h4>
+              <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
+              <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
+              <h5>CONTROLS - Supports both Oculus Touch and Vive Controls</h5>
+              <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on touchpad or thumbstick. Press <code>up</code> or <code>down</code> to switch object groups.
+              <h5>LOAD and SAVE:</h5>
+              <p><div class="input-group">
+                <input id="fileInput" type="text" class="form-control" onfocus="this.select();" placeholder="Enter JSON URL" value="example-aframe-city.json">
+                <span class="input-group-btn">
+                  <button onclick="loadFileButton()" class="btn btn-info" type="button">Load JSON URL</button>
+                </span>
+              </div></p>
+              <p><div class="input-group">
+                <input id="jsonInput" type="text" class="form-control" placeholder="Paste JSON String Here">
+                <span class="input-group-btn">
+                  <button onclick="loadButton()" class="btn btn-info" type="button">Load JSON String</button>
+                </span>
+              </div></p>
+              <p><a onclick="downloadButton()" class="btn btn-info">Download City Layout as JSON ▼</a></p>
+              <p><a onclick="saveButton()" class="btn btn-info">Save City Layout to Firebase 💾</a></p>
+              <p><a onclick="hide()" class="btn btn-success pull-right">Close</a></p>
     </div>
     <a onclick="show()"><div class="menu-overlay btn btn-outline-secondary"></div></a>
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       var enteredVR = false;
 
       document.querySelector('a-scene').addEventListener('enter-vr', function () {
@@ -190,7 +242,7 @@
         //  document.getElementById('cameraWrapper').setAttribute("position", "-1.06 1.31 1.82"); // position="-1.06 1.31 1.82"
         //  document.getElementById('cameraWrapper').setAttribute("rotation", "-12.834254610930437 -16.844959176846217 0");
       }); // works the first time
-    </script> -->
+    </script>
 
     <!-- <script type="text/javascript">
     AFRAME.registerComponent('ply-transform', {
@@ -204,103 +256,212 @@
     </script> -->
 
     <script type="text/javascript">
-          function hide() {
-              $("#dialog").removeClass('intro-overlay');
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBcPajwJo7PyqEjQ70GuvQyIXGOE8xW7Cs",
+        authDomain: "test-b0c62.firebaseapp.com",
+        databaseURL: "https://test-b0c62.firebaseio.com",
+        storageBucket: "test-b0c62.appspot.com",
+        messagingSenderId: "832504680709"
+      };
+      firebase.initializeApp(config);
+
+      // Get a reference to the database service
+      var database = firebase.database();
+
+      function writeCityData(cityName, cityJSON) {
+        if(((typeof cityName != "undefined") && (typeof cityName.valueOf() == "string")) && (cityName.length > 0)) {
+          firebase.database().ref('cities/' + cityName).set({
+            cityJSON: cityJSON
+          });
+        } else {
+          console.log("invalid city name: " + cityName);
+        }
+      };
+
+      function saveButton(overwrite = false) {
+        var cityNode = $("#city")[0];
+        var cityJSON = [];
+
+        // fetch each city object and add into json
+        $('#city').children().each(function () {
+          var thisWorldRotationX = this.object3D.rotation.x / (Math.PI / 180);
+    			var thisWorldRotationY = this.object3D.rotation.y / (Math.PI / 180);
+    			var thisWorldRotationZ = this.object3D.rotation.z / (Math.PI / 180);
+    			var thisEulerRotationString = thisWorldRotationX + ' ' + thisWorldRotationY + ' ' + thisWorldRotationZ;
+
+          var childJSON = {
+              id: this.id,
+              file: this.getAttribute('file'),
+              position: this.object3D.position.x + ' ' + this.object3D.position.y + ' ' + this.object3D.position.z,
+              rotation: thisEulerRotationString,
+              scale: this.object3D.scale.x + ' ' + this.object3D.scale.y + ' ' + this.object3D.scale.z
+          };
+
+          cityJSON.push(childJSON);
+        });
+
+        var jsonData = JSON.stringify(cityJSON);
+
+        function slugify(text) {
+          return text.toString().toLowerCase()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
+        }
+
+        randomCityName = randopeep.address.city();
+//        randomCityNameSlug = slugify(randomCityName);
+        randomCityNameCamel = randomCityName.replace(/\s+/g, '');
+
+        console.log(randomCityName);
+        console.log(randomCityNameCamel);
+
+        if (overwrite && location.hash.substring(1)) {  // very lazy way to make save
+          randomCityNameCamel = location.hash.substring(1);
+        }
+
+        writeCityData(randomCityNameCamel, cityJSON);
+
+        window.location.hash = '#' + randomCityNameCamel;
+        document.getElementById("title").setAttribute("text__cityname", "value", "#" + randomCityNameCamel);
+        document.title = "aframe.city#" + randomCityNameCamel;
+
+      }
+
+
+      function hide() {
+          $("#dialog").removeClass('intro-overlay');
+      }
+
+      function loadTest() {
+        // test a user going through the menu options a bunch
+        for (g = 0; g < 5; g++) {
+          for (i = 0; i < 20; i++) {
+            setTimeout(function(){document.getElementById("menu").emit("onOptionNext")}, 500);
           }
-          function saveButton() {
-            var cityNode = $("#city")[0];
-            var cityJSON = [];
+          setTimeout(function(){document.getElementById("menu").emit("onOptgroupNext")}, 500);
+        }
+      }
 
-            // fetch each city object and add into json
-            $('#city').children().each(function () {
-              var thisWorldRotationX = this.object3D.rotation.x / (Math.PI / 180);
-        			var thisWorldRotationY = this.object3D.rotation.y / (Math.PI / 180);
-        			var thisWorldRotationZ = this.object3D.rotation.z / (Math.PI / 180);
-        			var thisEulerRotationString = thisWorldRotationX + ' ' + thisWorldRotationY + ' ' + thisWorldRotationZ;
+      // on load - load the city -- TODO - this should be on a city loader component on the scene entity instead
+      setTimeout(function(){
+        // IS THERE A HASH?
+        var cityName = location.hash.substring(1);
+        console.log("hash check: " + cityName);
+        if (cityName) {
+          // LOAD CITY
+          console.log("trying to load");
+          firebase.database().ref('cities/' + cityName).once('value').then(function(snapshot) {
+            var cityJSON = snapshot.val().cityJSON;
+            console.log(cityJSON);
+            toDOM(cityJSON);
+            document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityName)
+            document.title = "aframe.city#" + cityName;
+          });
+        };
+      }, 1500);
 
-              var childJSON = {
-                  id: this.id,
-                  file: this.getAttribute('file'),
-                  position: this.object3D.position.x + ' ' + this.object3D.position.y + ' ' + this.object3D.position.z,
-                  rotation: thisEulerRotationString,
-                  scale: this.object3D.scale.x + ' ' + this.object3D.scale.y + ' ' + this.object3D.scale.z
-              };
+      function downloadButton() {
+        var cityNode = $("#city")[0];
+        var cityJSON = [];
 
-              cityJSON.push(childJSON);
-            });
+        // fetch each city object and add into json
+        $('#city').children().each(function () {
+          var thisWorldRotationX = this.object3D.rotation.x / (Math.PI / 180);
+    			var thisWorldRotationY = this.object3D.rotation.y / (Math.PI / 180);
+    			var thisWorldRotationZ = this.object3D.rotation.z / (Math.PI / 180);
+    			var thisEulerRotationString = thisWorldRotationX + ' ' + thisWorldRotationY + ' ' + thisWorldRotationZ;
 
-            var jsonData = JSON.stringify(cityJSON);
+          var childJSON = {
+              id: this.id,
+              file: this.getAttribute('file'),
+              position: this.object3D.position.x + ' ' + this.object3D.position.y + ' ' + this.object3D.position.z,
+              rotation: thisEulerRotationString,
+              scale: this.object3D.scale.x + ' ' + this.object3D.scale.y + ' ' + this.object3D.scale.z
+          };
 
-            function download(text, name, type) {
-                var a = document.createElement("a");
-                var file = new Blob([text], {type: type});
-                a.href = URL.createObjectURL(file);
-                a.download = name;
-                a.click();
+          cityJSON.push(childJSON);
+        });
+
+        var jsonData = JSON.stringify(cityJSON);
+
+        function download(text, name, type) {
+            var a = document.createElement("a");
+            var file = new Blob([text], {type: type});
+            a.href = URL.createObjectURL(file);
+            a.download = name;
+            a.click();
+        }
+        download(jsonData, 'my-aframe-city.json', 'text/plain');
+      }
+
+      function appendObject(id, file, scale, position, rotation, scale) {
+        console.log(position);
+        $('<a-entity />', {
+          id: id,
+          class: 'city object children',
+          position: position,  // doesn't seem to do anything
+          scale: scale,
+          rotation: rotation,
+          file: file,
+          "obj-model": "obj: url(assets/obj/" + file + ".obj); mtl: url(assets/obj/" + file + ".mtl)",
+          // src: '#' + file + '-obj',
+          // mtl: '#' + file + '-mtl',
+          appendTo : $('#city')
+        });
+       document.getElementById(id).setAttribute("position", position); // workaround - this does set position
+      }
+
+      function toDOM(jsonInput) {
+        // this assumes it is being run first -- it will start placing objects with id 0 and set objectcount to the number of loaded objects
+        for(var i = 0; i < jsonInput.length; i++) {
+            var obj = jsonInput[i];
+            console.log("Adding entity #" + obj.id);
+            appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
+        }
+        objectCount = i;
+        console.log("objectCount:" + objectCount);
+
+      }
+
+      function loadFileButton() {
+        $.getJSON($("#fileInput")[0].value, function(json) {
+            toDOM(json);
+        });
+      }
+
+      function loadButton() {
+        console.log("load button clicked");
+
+        function isJsonString(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
             }
-            download(jsonData, 'my-aframe-city.json', 'text/plain');
-          }
+            return true;
+        }
 
-          function appendObject(id, file, scale, position, rotation, scale) {
-            console.log(position);
-            $('<a-entity />', {
-              id: id,
-              class: 'city object children',
-              position: position,  // doesn't seem to do anything
-              scale: scale,
-              rotation: rotation,
-              file: file,
-              "obj-model": "obj: url(assets/obj/" + file + ".obj); mtl: url(assets/obj/" + file + ".mtl)",
-              // src: '#' + file + '-obj',
-              // mtl: '#' + file + '-mtl',
-              appendTo : $('#city')
-            });
-           document.getElementById(id).setAttribute("position", position); // workaround - this does set position
-          }
+        jsonInput = $("#jsonInput")[0].value;
+        console.log(jsonInput);
 
-          function toDOM(jsonInput) {
-            for(var i = 0; i < jsonInput.length; i++) {
-                var obj = jsonInput[i];
-                console.log("Adding entity #" + obj.id);
-                appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
-            }
-          }
+        if (isJsonString(jsonInput)) {
+          toDOM(JSON.parse(jsonInput));
+        } else {
+          console.log("oops not valid json");
+        }
 
-          function loadFileButton() {
-            $.getJSON($("#fileInput")[0].value, function(json) {
-                toDOM(json);
-            });
-          }
+      }
+      function show() {
+         $("#dialog").toggleClass('intro-overlay');
+      }
 
-          function loadButton() {
-            console.log("load button clicked");
-
-            function IsJsonString(str) {
-                try {
-                    JSON.parse(str);
-                } catch (e) {
-                    return false;
-                }
-                return true;
-            }
-
-            jsonInput = $("#jsonInput")[0].value;
-            console.log(jsonInput);
-
-            if (IsJsonString(jsonInput)) {
-              toDOM(JSON.parse(jsonInput));
-            } else {
-              console.log("oops not valid json");
-            }
-
-          }
-          function show() {
-             $("#dialog").toggleClass('intro-overlay');
-          }
-
-          if (screen.width <= 699) {
-            $("#dialog").removeClass('intro-overlay');
-          }
+      if (screen.width <= 699) {
+        $("#dialog").removeClass('intro-overlay');
+      }
     </script>
 
     <!--githubcorner-->
