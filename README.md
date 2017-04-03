@@ -66,26 +66,26 @@ NOT IN THIS RELEASE - LATER THINGS TO DO:
 - remove old UI2D, add same icons as action menu bar! old dialog pops open https://github.com/kfarr/aframe-city-builder/issues/9
 - updating hash should trigger loading new city https://github.com/kfarr/aframe-city-builder/issues/10
 - show HUD message for save success with city name - in VR and on browser desktop https://github.com/kfarr/aframe-city-builder/issues/11
-- scale large/small (and rotate?) with both grips being pressed (what would happen to undo?)
-- remove load and save functions from index html file, can add to action-controls or new component
-- add aframe.city to chrome/daydream vr whitelist
-- show a list of cities and/or show a city at the start by default - which one? random? list? 
-- error handling when city in hash cannot be loaded from firebase
+- scale large/small (and rotate?) with both grips being pressed (what would happen to undo?) https://github.com/kfarr/aframe-city-builder/issues/6
+- remove load and save functions from index html file, can add to action-controls or new component https://github.com/kfarr/aframe-city-builder/issues/12
+- add aframe.city to chrome/daydream vr whitelist https://github.com/kfarr/aframe-city-builder/issues/13
+- erase tool https://github.com/kfarr/aframe-city-builder/issues/14
+- placing an object directly over another (especially for snapping baseplates) should replace the existing object, not place both on same location
+  - How to do this? One person on slack suggested use flushtodom to force update of position to DOM https://aframe.io/docs/0.4.0/components/debug.html#component-to-dom-serialization and then use javascript to figure out of another object is close.
+- create a nice "screensaver" or "viewer" mode to entice people to enter VR. For example: show a list of cities and/or show a city at the start by default
+- try adding basic avatar presence using something like: https://github.com/haydenjameslee/networked-aframe
+- auto save with visual indicator (this might be required for multi-user collaboration - i want to see what they've added immediately)
 - try inverted teleport from forked repo
-- erase tool
-- inspect (magnifying glass)
 - add sunlight day cycle as aframe component http://jeromeetienne.github.io/threex.daynight/examples/basic.html; try adding shadow to this too
-- auto save with visual indicator (custom firebase that works)
+- error handling when city in hash cannot be loaded from firebase
+- inspect (magnifying glass)
 - show stats in addition to city name - size of city (objects, area), population (number of chr objects)
 - load directly from voxel https://gist.github.com/JoshGalvin/398ad2339ad7ae93e72489684d599466 https://github.com/daishihmr/vox.js
-- enable second controller
-- ability for select bar component to delay loading / init
+- ability for select bar component to delay loading / init - fetch first set of optgroup options from database instead of in index.html
 - blender baking of AO texture and progressive application of AO textures after scene fully loaded
 - support for google draco object compression
 - add a small haptic feedback see: https://github.com/imgntn/jBow/blob/ab2d254f288c563f33e6ed745e41a72ee2b7f759/components/bow-and-arrow.js#L163
 - create components from the useful a-frame stuff (menu switcher, save/load json, desktop dialog ui, message notification)
-- placing a baseplate over another object should replace the baseplate, not place both on same location
-  - use flushtodom to force update of position to DOM https://aframe.io/docs/0.4.0/components/debug.html#component-to-dom-serialization
 - sound effects - commodore 64 style?
 - aframe city website - have a central registry of objects (json file is fine to start) that is not in index.html file ui inspiration - https://buffy.run/model/578e438962c6c80000ea4c5e -> this could be done without a server -> use a git based site builder service. register this as aframe.city
 - try progressive enhancement to replace obj with baked ply after loading
