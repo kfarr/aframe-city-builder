@@ -34,6 +34,24 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
     <script src="https://rawgit.com/konsumer/randopeep/gh-pages/randopeep.js"></script>
 
+    <!-- anonymous tracking using amplitude.com, see https://github.com/kfarr/aframe-city-builder/issues/19 -->
+    <script type="text/javascript">
+      (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script");r.type="text/javascript";
+      r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-3.4.0-min.gz.js";
+      r.onload=function(){e.amplitude.runQueuedFunctions()};var i=t.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(r,i);function s(e,t){e.prototype[t]=function(){this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+      return this}}var o=function(){this._q=[];return this};var a=["add","append","clearAll","prepend","set","setOnce","unset"];
+      for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[];return this;
+      };var p=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"];
+      for(var l=0;l<p.length;l++){s(c,p[l])}n.Revenue=c;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","logEventWithTimestamp","logEventWithGroups"];
+      function v(e){function t(t){e[t]=function(){e._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+      }}for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){e=(!e||e.length===0?"$default_instance":e).toLowerCase();
+      if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]};e.amplitude=n;
+      })(window,document);
+      amplitude.getInstance().init("33201f4a9c574462a955bc71d76ba945");
+      amplitude.getInstance().logEvent('Loaded Amplitude', {'location': window.location.href});
+    </script>
+
     <!-- <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/components/text/dist/aframe-text-component.min.js"></script> -->
     <!-- <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.js"></script>
@@ -202,7 +220,7 @@
               <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
               <h4><strong>A-Frame City Builder</strong></h4>
               <p>This app lets you create a virtual city in 8-bit "pixel" style using the HTC Vive or Oculus Rift VR headset and tracked hand controllers. You will also need a <a href="https://webvr.info/">WebVR compatible browser</a>.</p>
-              <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT</a>.</p>
+              <p><a href="https://github.com/mikelovesrobots/mmmm">"Mini Mike's Metro Mini"</a> objects are CC License, <a href="https://github.com/kfarr/aframe-city-builder">codebase is MIT License</a>. <a href="https://github.com/kfarr/aframe-city-builder/issues/19">Anonymous usage data collected using Amplitude</a>.</p>
               <h5>CONTROLS - Supports both Oculus Touch and Vive Controls</h5>
               <p>Place objects with <code>trigger</code> and undo the last placement by squeezing a <code>grip</code> button. Switch objects by pressing <code>right</code> or <code>left</code> on touchpad or thumbstick. Press <code>up</code> or <code>down</code> to switch object groups.
               <h5>LOAD and SAVE:</h5>
@@ -235,12 +253,14 @@
            document.getElementById('cameraWrapper').setAttribute("rotation", "0 0 0");
            enteredVR = true;
          };
+         amplitude.getInstance().logEvent('Enter VR');
       }); // works the first time, but then makes things wonky the 2nd time
 
       document.querySelector('a-scene').addEventListener('exit-vr', function () {
          console.log("EXIT VR");
         //  document.getElementById('cameraWrapper').setAttribute("position", "-1.06 1.31 1.82"); // position="-1.06 1.31 1.82"
         //  document.getElementById('cameraWrapper').setAttribute("rotation", "-12.834254610930437 -16.844959176846217 0");
+        amplitude.getInstance().logEvent('Exit VR');
       }); // works the first time
     </script>
 
@@ -255,7 +275,16 @@
     });
     </script> -->
 
+
     <script type="text/javascript">
+      document.querySelector('a-scene').addEventListener('loaded', function () {
+        amplitude.getInstance().logEvent('Loaded A-Frame Scene');
+      })
+    </script>
+
+    <script type="text/javascript">
+
+
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyBcPajwJo7PyqEjQ70GuvQyIXGOE8xW7Cs",
@@ -314,21 +343,31 @@
 
         randomCityName = randopeep.address.city();
 //        randomCityNameSlug = slugify(randomCityName);
-        randomCityNameCamel = randomCityName.replace(/\s+/g, '');
+        cityNameCamel = randomCityName.replace(/\s+/g, '');
 
         console.log(randomCityName);
-        console.log(randomCityNameCamel);
+        console.log(cityNameCamel);
 
         if (overwrite && location.hash.substring(1)) {  // very lazy way to make save
-          randomCityNameCamel = location.hash.substring(1);
+          cityNameCamel = location.hash.substring(1);
         }
 
-        writeCityData(randomCityNameCamel, cityJSON);
+        writeCityData(cityNameCamel, cityJSON);
 
-        window.location.hash = '#' + randomCityNameCamel;
-        document.getElementById("title").setAttribute("text__cityname", "value", "#" + randomCityNameCamel);
-        document.title = "aframe.city#" + randomCityNameCamel;
-
+        window.location.hash = '#' + cityNameCamel;
+        document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityNameCamel);
+        document.title = "aframe.city#" + cityNameCamel;
+        var ampEventProperties = {
+         'name': cityNameCamel
+//         'size': 20 // how many objects in city? (first get rid of jquery above)
+//         'hash': 'value' // hash of serialized json of city - just an idea to weed out duplicate cities with different names
+        };
+//        amplitude.getInstance().logEvent('EVENT_TYPE', eventProperties);
+        if (overwrite) {
+          amplitude.getInstance().logEvent('Save', ampEventProperties);
+        } else {
+          amplitude.getInstance().logEvent('Save As', ampEventProperties);
+        };
       }
 
 
@@ -360,6 +399,8 @@
             toDOM(cityJSON);
             document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityName)
             document.title = "aframe.city#" + cityName;
+
+            amplitude.getInstance().logEvent('Loaded City', {'name': cityName});
           });
         };
       }, 1500);
