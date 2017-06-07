@@ -29,6 +29,8 @@
     <!-- <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
     <script src="https://rawgit.com/kfarr/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
 
+    <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.7/dist/aframe-controller-cursor-component.min.js"></script>
+
     <script src="https://rawgit.com/kfarr/aframe-select-bar-component/master/dist/aframe-select-bar-component.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
@@ -132,13 +134,13 @@
         <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Actions" value="actions">
-            <option value="teleport" src="assets/environment/icon_teleport.png" selected>Teleport</option>
+            <option value="undo" src="assets/environment/icon_undo.png" selected>Undo</option>
+            <option value="teleport" src="assets/environment/icon_teleport.png">Teleport</option>
             <option value="saveAs" src="assets/environment/icon_saveAs.png">Save As</option>
             <option value="save" src="assets/environment/icon_save.png">Save</option>
             <option value="new" src="assets/environment/icon_new.png">New</option>
-            <option value="erase" src="assets/environment/icon_erase.png">Coming soon</option>
-            <option value="inspect" src="assets/environment/icon_inspect.png">Coming soon</option>
-            <option value="exit" src="assets/environment/icon_exit.png">Coming soon</option>
+            <option value="exit" src="assets/environment/icon_exit.png">Exit VR</option>
+            <option value="erase" src="assets/environment/icon_erase.png">Erase</option>
           </optgroup>
 
         </a-entity>
