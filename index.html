@@ -266,18 +266,6 @@
       }); // works the first time
     </script>
 
-    <!-- <script type="text/javascript">
-    AFRAME.registerComponent('ply-transform', {
-      init: function () {
-        this.el.addEventListener('model-loaded', function (e) {
-          var model = e.detail.model;
-          model.rotation.x = Math.PI / 2;
-        });
-      }
-    });
-    </script> -->
-
-
     <script type="text/javascript">
       document.querySelector('a-scene').addEventListener('loaded', function () {
         amplitude.getInstance().logEvent('Loaded A-Frame Scene');
@@ -387,23 +375,33 @@
         }
       }
 
+      function loadCityData(cityNameCamel) {
+        console.log("trying to load city:" + cityNameCamel);
+
+        // Erase exiting city (if any)
+        var cityEl = document.getElementById("city");
+        while (cityEl.firstChild) {
+          cityEl.removeChild(cityEl.firstChild);
+        }
+
+        firebase.database().ref('cities/' + cityNameCamel).once('value').then(function(snapshot) {
+          var cityJSON = snapshot.val().cityJSON;
+          console.log(cityJSON);
+          toDOM(cityJSON);
+          document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityNameCamel)
+          document.title = "aframe.city#" + cityNameCamel;
+
+          amplitude.getInstance().logEvent('Loaded City', {'name': cityNameCamel});
+        });
+      }
+
       // on load - load the city -- TODO - this should be on a city loader component on the scene entity instead
       setTimeout(function(){
         // IS THERE A HASH?
         var cityName = location.hash.substring(1);
         console.log("hash check: " + cityName);
         if (cityName) {
-          // LOAD CITY
-          console.log("trying to load");
-          firebase.database().ref('cities/' + cityName).once('value').then(function(snapshot) {
-            var cityJSON = snapshot.val().cityJSON;
-            console.log(cityJSON);
-            toDOM(cityJSON);
-            document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityName)
-            document.title = "aframe.city#" + cityName;
-
-            amplitude.getInstance().logEvent('Loaded City', {'name': cityName});
-          });
+          loadCityData(cityName);
         };
       }, 1500);
 
@@ -496,8 +494,19 @@
         } else {
           console.log("oops not valid json");
         }
-
       }
+
+      function locationHashChanged() {
+        // check if valid hash
+        // if yes, then clear old city // load new city with that hash
+        var cityName = location.hash.substring(1);
+        console.log("hash changed to: " + cityName);
+        if (cityName) {
+          loadCityData(cityName);
+        };
+      }
+      window.onhashchange = locationHashChanged;
+
       function show() {
          $("#dialog").toggleClass('intro-overlay');
       }
