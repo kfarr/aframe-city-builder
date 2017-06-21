@@ -127,20 +127,18 @@
         <a-entity id="camera" camera look-controls wasd-controls="fly: true"></a-entity>
       </a-entity>
 
-      <a-entity id="DEVmenuWrapper" position="0 0.2 -0.4" rotation="85 0 0"></a-entity>
-
       <!-- Left Hand -->
       <a-entity id="leftController" action-controls="menuID: menuActions" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
         <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Actions" value="actions">
-            <option value="undo" src="assets/environment/icon_undo.png" selected>Undo</option>
-            <option value="teleport" src="assets/environment/icon_teleport.png">Teleport</option>
+            <option value="teleport" src="assets/environment/icon_teleport.png" selected>Teleport</option>
+            <option value="erase" src="assets/environment/icon_erase.png">Erase</option>
             <option value="saveAs" src="assets/environment/icon_saveAs.png">Save As</option>
-            <option value="save" src="assets/environment/icon_save.png">Save</option>
+            <option value="save" src="assets/environment/icon_save.png">Save (Overwrite)</option>
             <option value="new" src="assets/environment/icon_new.png">New</option>
             <option value="exit" src="assets/environment/icon_exit.png">Exit VR</option>
-            <option value="erase" src="assets/environment/icon_erase.png">Erase</option>
+            <option value="undo" src="assets/environment/icon_undo.png">Undo</option>
           </optgroup>
 
         </a-entity>
