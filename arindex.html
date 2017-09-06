@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>aframe.city</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://rawgit.com/google-ar/three.ar.js/master/dist/three.ar.js"></script>
+    <script src="https://rawgit.com/chenzlabs/aframe-ar/master/dist/aframe-ar.js"></script>
+
+    <script src="lib/dist/aframe-city-builder.js"></script>
+
+  </head>
+  <body>
+    <a-scene id="my-scene" ar>
+
+      <!-- City -->
+      <a-entity id="city" position="0 -1 0"></a-entity>
+
+      <!-- Table and Grid -->
+      <a-entity id="tableGrid" position="0.25 -0.5 0.25" gridhelper="size:10; divisions:20">
+      </a-entity>
+
+        <a-entity
+          id="title"
+          position="3.5 1 -0.5"
+          geometry="primitive: plane; width: 4; height: 1.4"
+          material="color: black; opacity: 0.6"
+          text__appname="color: yellow; align: center; font: exo2bold; wrap-count: 12; z-offset: 0.01; baseline: bottom;
+                value: aframe.city"
+          text__cityname="color: white; align: center; font: exo2semibold; wrap-count: 24; z-offset: 0.01; baseline: top;
+                value: #NewCity"
+        ></a-entity>
+
+      </a-entity>
+
+    </a-scene>
+
+    <script type="text/javascript">
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBcPajwJo7PyqEjQ70GuvQyIXGOE8xW7Cs",
+        authDomain: "test-b0c62.firebaseapp.com",
+        databaseURL: "https://test-b0c62.firebaseio.com",
+        storageBucket: "test-b0c62.appspot.com",
+        messagingSenderId: "832504680709"
+      };
+      firebase.initializeApp(config);
+
+      // Get a reference to the database service
+      var database = firebase.database();
+
+      function loadCityData(cityNameCamel) {
+        console.log("trying to load city:" + cityNameCamel);
+
+        // Erase exiting city (if any)
+        var cityEl = document.getElementById("city");
+        while (cityEl.firstChild) {
+          cityEl.removeChild(cityEl.firstChild);
+        }
+
+        firebase.database().ref('cities/' + cityNameCamel).once('value').then(function(snapshot) {
+          var cityJSON = snapshot.val().cityJSON;
+          console.log(cityJSON);
+          toDOM(cityJSON);
+          document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityNameCamel)
+          document.title = "aframe.city#" + cityNameCamel;
+
+        });
+      }
+
+      // on load - load the city -- TODO - this should be on a city loader component on the scene entity instead
+      setTimeout(function(){
+        // IS THERE A HASH?
+        var cityName = location.hash.substring(1);
+        console.log("hash check: " + cityName);
+        if (cityName) {
+          loadCityData(cityName);
+        };
+      }, 1500);
+
+      function appendObject(id, file, scale, position, rotation, scale) {
+        console.log(position);
+        $('<a-entity />', {
+          id: id,
+          class: 'city object children',
+          position: position,  // doesn't seem to do anything
+          scale: scale,
+          rotation: rotation,
+          file: file,
+          "obj-model": "obj: url(assets/obj/" + file + ".obj); mtl: url(assets/obj/" + file + ".mtl)",
+          // src: '#' + file + '-obj',
+          // mtl: '#' + file + '-mtl',
+          appendTo : $('#city')
+        });
+       document.getElementById(id).setAttribute("position", position); // workaround - this does set position
+      }
+
+      function toDOM(jsonInput) {
+        // this assumes it is being run first -- it will start placing objects with id 0 and set objectcount to the number of loaded objects
+        for(var i = 0; i < jsonInput.length; i++) {
+            var obj = jsonInput[i];
+            console.log("Adding entity #" + obj.id);
+            appendObject(obj.id, obj.file, obj.scale, obj.position, obj.rotation, obj.scale)
+        }
+        objectCount = i;
+        console.log("objectCount:" + objectCount);
+      }
+
+      function loadFileButton() {
+        $.getJSON($("#fileInput")[0].value, function(json) {
+            toDOM(json);
+        });
+      }
+
+      function loadButton() {
+        console.log("load button clicked");
+
+        function isJsonString(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }
+
+        jsonInput = $("#jsonInput")[0].value;
+        console.log(jsonInput);
+
+        if (isJsonString(jsonInput)) {
+          toDOM(JSON.parse(jsonInput));
+        } else {
+          console.log("oops not valid json");
+        }
+      }
+
+      function locationHashChanged() {
+        // check if valid hash
+        // if yes, then clear old city // load new city with that hash
+        var cityName = location.hash.substring(1);
+        console.log("hash changed to: " + cityName);
+        if (cityName) {
+          loadCityData(cityName);
+        };
+      }
+      window.onhashchange = locationHashChanged;
+
+    </script>
+
+  </body>
+</html>
