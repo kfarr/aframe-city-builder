@@ -128,7 +128,7 @@
       </a-entity>
 
       <!-- Left Hand -->
-      <a-entity id="leftController" action-controls="menuID: menuActions" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" >
+      <a-entity id="leftController" action-controls="menuID: menuActions" wasd-controls oculus-touch-controls="hand: left" vive-controls="hand: left" windows-motion-controls="hand: left; model: false">
         <a-entity id="menuActions" select-bar="controllerID: leftController" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
 
           <optgroup label="Actions" value="actions">
@@ -145,7 +145,7 @@
       </a-entity>
 
       <!-- Right Hand -->
-      <a-entity builder-controls="menuId: menuObjects" id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right">
+      <a-entity builder-controls="menuId: menuObjects" id="rightController" oculus-touch-controls="hand: right" vive-controls="hand: right" windows-motion-controls="hand: right; model: false">
         <a-entity id="rightItem" file="kfarr_bases_valencia" objectGroup="kfarr_bases" objectId="0" obj-model="obj: url(assets/obj/kfarr_bases_valencia.obj); mtl: url(assets/obj/kfarr_bases_valencia.mtl)" rotation="-56.8 0 0" scale="0.004 0.004 0.004" position="0 -0.08 -0.09"></a-entity>
         <a-entity id="rightArm" mixins="arm"></a-entity>
         <a-entity select-bar id="menuObjects" scale="0.7 0.7 0.7" position="0 0.05 0.08" rotation="-85 0 0">
