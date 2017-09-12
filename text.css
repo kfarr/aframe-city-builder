@@ -1,0 +1,120 @@
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Fjalla One', sans-serif;
+  background: linear-gradient(to bottom, #405166 0%, #656f6f 100%);
+}
+
+.container {
+  /*transform: translate(-50%, -50%);*/
+  top: 3%;
+  left: 50%;
+  display: block;
+  position: absolute;
+  min-width: 300px;
+}
+
+.button {
+  float: left;
+  position: relative;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  color: #e55643;
+  text-transform: uppercase;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+}
+.button span {
+  transform: skew(-10deg);
+  display: block;
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px;
+}
+
+h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 32px;
+  margin: 0;
+  line-height: 37px;
+  letter-spacing: 2px;
+}
+
+#touch-zone {
+  z-index: 1;
+  position: absolute;
+  top: 80vh;
+  left: 0vw;
+  width: 100vw;
+  height: 20vh;
+  /*font-size: 150%;
+  box-sizing: border-box;
+  padding: 0.75rem;*/
+  color: #FFF;
+  background: rgba(0, 0, 0, 0);
+  /*font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;*/
+}
+
+.container-orient {
+  /*transform: translate(-50%, -50%);*/
+  top: 70%;
+  left: 50%;
+  display: block;
+  position: absolute;
+  min-width: 300px;
+}
+.orient {
+  transform: translateX(-50%);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin: 0;
+  line-height: 25px;
+  letter-spacing: 2px;
+  /*transform: translateX(-50%) rotate(-10deg);*/
+  display: block;
+  float: left;
+  /*left: 50%;*/
+  position: relative;
+}
+.orient span {
+  transform: skew(-10deg);
+  /*display: block;*/
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+  min-width: 10px;
+  min-height: 10px;
+  position: relative;
+}
+
+.title {
+  transform: translateX(-50%) rotate(-10deg);
+  display: block;
+  float: left;
+  /*left: 50%;*/
+  position: relative;
+}
+.title span {
+  transform: skew(-10deg);
+  /*display: block;*/
+  float: left;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+  min-width: 10px;
+  min-height: 10px;
+  position: relative;
+}
+
+.title:nth-child(1) {
+  color: #e55643;
+}
+.title:nth-child(2) {
+  color: #2b9f5e;
+}
+.title:nth-child(3) {
+  color: #f1c83c;
+}

@@ -5,9 +5,16 @@
 
     <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="text.css" />
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
 
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
@@ -17,15 +24,52 @@
     <script src="lib/dist/aframe-city-builder.js"></script>
 
     <script src="http://192.168.1.15:1337/vorlon.js"></script>
+    <script src="https://rawgit.com/kfarr/aframe-select-bar-component/master/dist/aframe-select-bar-component.min.js"></script>
 
   </head>
   <body>
     <a-scene id="my-scene" ar>
 
+       <a-camera>
+
+          <a-entity select-bar="controls: false" id="menuActions" scale="0.7 0.7 0.7" position="0 -0.2 -0.4" rotation="0 0 0">
+            <optgroup label="CITIES" value="actions">
+              <option value="NewYington" src="assets/environment/icon_teleport.png" selected>New Yington</option>
+              <option value="NewYork" src="assets/environment/icon_erase.png">New York</option>
+              <option value="SanFrancisco" src="assets/environment/icon_saveAs.png">San Francisco</option>
+              <option value="Indianapolis" src="assets/environment/icon_save.png">Indianapolis</option>
+              <option value="LosAngeles" src="assets/environment/icon_new.png">Los Angeles</option>
+              <option value="Detroit" src="assets/environment/icon_exit.png">Detroit</option>
+              <option value="Orlando" src="assets/environment/icon_undo.png">Orlando</option>
+            </optgroup>
+          </a-entity>
+
+       </a-camera>
+
       <!-- Use AR raycaster, and set raycaster to ignore all A-Frame objects like logos. -->
       <a-entity ar-raycaster raycaster="objects:none"></a-entity>
       <!-- Declare a ring to use as the raycaster intersection mark. -->
-      <a-ring id="mark" rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02"></a-ring>
+      <a-ring id="mark" rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02">
+        <a-ring color="yellow" radius-inner="0.03" radius-outer="0.04">
+        <a-animation
+            attribute="scale"
+            from="1 1 1"
+            to="2 2 2"
+            direction="alternate"
+            dur="1000"
+            repeat="indefinite"></a-animation>
+        </a-ring>
+        <a-ring color="yellow" radius-inner="0.05" radius-outer="0.06">
+        <a-animation
+            attribute="scale"
+            from="1 1 1"
+            to="3 3 3"
+            direction="alternate"
+            dur="1000"
+            repeat="indefinite"></a-animation>
+        </a-ring>
+
+      </a-ring>
 
       <!-- City -->
       <a-entity id="city-holder" position="100000 0 0">
@@ -39,23 +83,49 @@
         </a-entity>
       </a-entity>
 
-
-        <a-entity
-          id="title"
-          position="3.5 1 -0.5"
-          geometry="primitive: plane; width: 4; height: 1.4"
-          material="color: black; opacity: 0.6"
-          text__appname="color: yellow; align: center; font: exo2bold; wrap-count: 12; z-offset: 0.01; baseline: bottom;
-                value: aframe.city"
-          text__cityname="color: white; align: center; font: exo2semibold; wrap-count: 24; z-offset: 0.01; baseline: top;
-                value: #NewCity"
-        ></a-entity>
-
-      </a-entity>
-
     </a-scene>
+    <div>
+    <section class="container">
+      <h1>
+        <span class="title">aframe.city</span><br/>
+        <!-- <span class="title">Orient Scene - Tap to Place</span><br/> -->
+        <span class="title" id="ui-cityname"></span>
+      </h1>
+
+      <div class="button">hide</div>
+    </section>
+    <section class="container-orient">
+      <span class="orient">Aim Cursor And</span><br/>
+      <span class="orient">Tap to Center Scene</span>
+    </section>
+
+    </div>
+    <div id="touch-zone"></div>
+
 
     <script type="text/javascript">
+
+    var myElement = document.getElementById('touch-zone');
+
+    // create a simple instance
+    // by default, it only adds horizontal recognizers
+    var mc = new Hammer(myElement);
+
+    // listen to events...
+
+    mc.on("panleft panright tap press", function(ev) {
+        // myElement.textContent = ev.type +" gesture detected.";
+        console.log(ev.type +" gesture detected.");
+        if (ev.type == "panleft") {
+          // get element for control bar, make it go left
+          document.getElementById("menuActions").components['select-bar'].onOptionNext();
+        }
+        if (ev.type == "panright") {
+          // get element for control bar, make it go right
+          document.getElementById("menuActions").components['select-bar'].onOptionPrevious();
+        }
+    });
+
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyBcPajwJo7PyqEjQ70GuvQyIXGOE8xW7Cs",
@@ -65,6 +135,7 @@
         messagingSenderId: "832504680709"
       };
       firebase.initializeApp(config);
+
 
       // Get a reference to the database service
       var database = firebase.database();
@@ -82,8 +153,10 @@
           var cityJSON = snapshot.val().cityJSON;
           console.log(cityJSON);
           toDOM(cityJSON);
-          document.getElementById("title").setAttribute("text__cityname", "value", "#" + cityNameCamel)
           document.title = "aframe.city#" + cityNameCamel;
+          document.getElementById("ui-cityname").textContent = "#" + cityNameCamel;
+
+          $("#ui-cityname").lettering();
 
         });
       }
@@ -96,7 +169,7 @@
         if (cityName) {
           loadCityData(cityName);
         };
-      }, 1500);
+      }, 1000);
 
       function appendObject(id, file, scale, position, rotation, scale) {
         console.log(position);
@@ -191,6 +264,41 @@
         // Turn the mark red.  FIXME: lerp position
         mark.setAttribute('color', 'red');
       });
+
+
+      $(document).ready(function() {
+        $(".title").lettering();
+        $(".button").lettering();
+      });
+
+
+      $(document).ready(function() {
+        animation();
+      }, 1500);
+
+      $('.button').click(function() {
+        animation_out();
+      });
+
+
+      function animation() {
+        var title1 = new TimelineMax();
+        title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
+        title1.staggerFromTo(".title span", 0.5,
+        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
+        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+        title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
+      }
+
+      function animation_out() {
+        var title1 = new TimelineMax();
+        title1.to(".button", 0, {visibility: 'hidden', opacity: 0})
+        title1.staggerFromTo(".title span", 0.5,
+        {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0},
+        {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80}, 0.005);
+        title1.to(".button", 0.2, {visibility: 'visible' ,opacity: 1})
+      }
+
     </script>
 
   </body>
